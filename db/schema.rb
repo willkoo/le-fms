@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_23_080114) do
+
+ActiveRecord::Schema[7.0].define(version: 2022_11_23_080138) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +26,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_080114) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["profile_id"], name: "index_company_profiles_on_profile_id"
+  end
+
+  create_table "company_records", force: :cascade do |t|
+    t.bigint "company_profile_id", null: false
+    t.string "paid_up_capital", null: false
+    t.string "last_fy_revenue", null: false
+    t.string "legal_disputes", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_profile_id"], name: "index_company_records_on_company_profile_id"
   end
 
   create_table "franchises", force: :cascade do |t|
@@ -69,6 +81,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_23_080114) do
   end
 
   add_foreign_key "company_profiles", "profiles"
+  add_foreign_key "company_records", "company_profiles"
   add_foreign_key "franchises", "users"
   add_foreign_key "licences", "company_profiles"
   add_foreign_key "licences", "franchises"
