@@ -15,11 +15,12 @@ class ProfilesController < ApplicationController
   def create
   end
 
-
   def edit
   end
 
   def update
+    @profile.update(profile_params)
+    redirect_to profile_path(@profile)
   end
 
   def destroy
@@ -27,10 +28,11 @@ class ProfilesController < ApplicationController
 
   private
 
-  def find_profiles
-    @profile = Profile.find(params[:id])
+  def profile_params
+    params.require(:profile).permit(:first_name, :last_name, :contact_number, :description, :country)
   end
 
-  def profile_params
+  def find_profiles
+    @profile = Profile.find(params[:id])
   end
 end
