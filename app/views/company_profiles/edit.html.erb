@@ -1,2 +1,10 @@
-<h1>CompanyProfiles#edit</h1>
-<p>Find me in app/views/company_profiles/edit.html.erb</p>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <div class="bg-white rounded p-3 shadow">
+        <h1>Edit Selected Company</h1>
+          <%= render 'form', company_profile: @company_profile %>
+      </div>
+    </div>
+  </div>
+</div>
