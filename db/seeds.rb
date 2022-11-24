@@ -12,29 +12,14 @@ User.destroy_all
 
 puts "Creating franchises"
 
-1.times do
-  franchise = Franchise.create(
-    name: Faker::Restaurant.name
-  )
-end
+  Franchise.create(name: Faker::Restaurant.name)
 
 puts "Creating users"
 
+User.create(email: "admin@gmail.com", password: "password", admin: true)
 
-User.create(
-  email: "admin@gmail.com",
-  password: "password",
-  admin: true
-)
+User.create(email: "user1@gmail.com", password: "password")
 
-User.create(
-  email: "user1@gmail.com",
-  password: "password"
-)
-
-User.create(
-  email: "user2@gmail.com",
-  password: "password"
-)
+User.create(email: "user2@gmail.com", password: "password")
 
 puts "Finish Seeding!"
