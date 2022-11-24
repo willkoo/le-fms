@@ -33,6 +33,6 @@ class CompanyCommentsController < ApplicationController
   end
 
   def company_comment_params
-    params.require(:company_comment).permit(:comment, :company_profile_id)
+    params.require(:company_comment).permit(:content, :company_profile_id)
   end
 end
