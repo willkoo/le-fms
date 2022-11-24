@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_060334) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_073617) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,10 +28,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_060334) do
     t.string "uen", null: false
     t.text "address", null: false
     t.bigint "profile_id", null: false
-    t.string "website"
-    t.boolean "verified", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
+    t.string "url"
     t.index ["profile_id"], name: "index_company_profiles_on_profile_id"
   end
 
