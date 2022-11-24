@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "cleaning database"
+Franchise.destroy_all
+User.destroy_all
+
+puts "Creating franchises"
+
+1.times do
+  franchise = Franchise.create(
+    name: Faker::Restaurant.name
+  )
+end
+
+puts "Creating users"
+
+1.times do
+  user = User.create(
+    email: "abc@gmail.com",
+    password: "password"
+  )
+  puts "User with id: #{user.id} has been created!"
+end
+
+puts "Finish Seeding!"
