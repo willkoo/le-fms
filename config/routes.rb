@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :profiles
   resources :franchises
+  resources :company_profiles
 end
