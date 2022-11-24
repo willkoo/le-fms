@@ -1,0 +1,13 @@
+<h1>CompanyRecords#index</h1>
+<br>
+<% if @company_records.any? %>
+  <% @company_records.each do |company_record| %>
+    <u>Company:</u> <%= company_record.company_profile.name %>,<br>
+    <u>Paid Up Capital:</u> <%= company_record.paid_up_capital %>,<br>
+    <u>Last FY Revenue:</u> <%= company_record.last_fy_revenue %>,<br>
+    <u>Legal Disputes:</u> <%= company_record.legal_disputes %>,<br>
+  <% end %>
+<% else %>
+  <p>No company records yet.</p>
+<% end %>
+<br>
