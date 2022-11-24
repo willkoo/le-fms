@@ -10,14 +10,6 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
             <% if user_signed_in? %> 
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -29,9 +21,6 @@
           </li>
           <% else %>
              <%= image_tag "https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-1024.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
-            </div>
           </li>
           <% end %>
         <%# else %>
