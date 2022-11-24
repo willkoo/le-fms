@@ -5,7 +5,10 @@
     <%= profile.id %>.
     <%= profile.first_name %>
     <%= profile.last_name %>,
-    <%= profile.contact_number %>
+    <%= profile.contact_number %>,
+    <%= profile.description %>,
+    <%= profile.country %>
+    <%= link_to "View", profile_path(profile) %>
   <% end %>
 <% else %>
   <p>No profiles yet.</p>
