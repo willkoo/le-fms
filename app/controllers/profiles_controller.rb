@@ -13,6 +13,14 @@ class ProfilesController < ApplicationController
   end
 
   def create
+    profile = Profile.new(profile_params)
+    profile.user = current_user
+
+    if profile.save
+      redirect_to profile_path(profile)
+    else
+      render "profiles/new", status: :unprocessable_entity
+    end
   end
 
   def edit
