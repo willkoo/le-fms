@@ -1,32 +1,34 @@
 class ProfilesController < ApplicationController
-  before_action :find_profiles, only: [:index, :show, :new, :create, :edit, :update]
-    def index
-    end
+  before_action :find_profiles, only: [:show, :edit, :update]
+  def index
+    @profiles = Profile.all
+  end
 
-    def show
-    end
+  def show
+  end
 
-    def new
-    end
+  def new
+  end
 
-    def create
-    end
+  def create
+  end
 
-    def edit
-    end
 
-    def update
-    end
+  def edit
+  end
 
-    def destroy
-    end
+  def update
+  end
 
-    private
+  def destroy
+  end
 
-    def find_profiles
-        @profile = Profile.find(params[:id])
-    end
+  private
 
-    def profile_params
-    end
+  def find_profiles
+    @profile = Profile.find(params[:id])
+  end
+
+  def profile_params
+  end
 end

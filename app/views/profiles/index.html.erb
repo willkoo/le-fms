@@ -1,0 +1,8 @@
+<h1>profiles#index</h1>
+<br>
+<% @profiles.each do |profile| %>
+  <%= profile.id %>.
+  <%= profile.first_name %>
+  <%= profile.last_name %>,
+  <%= profile.contact_number %>
+<% end %>
