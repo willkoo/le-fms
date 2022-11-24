@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_085725) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_095125) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,9 +67,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_085725) do
     t.bigint "company_profile_id", null: false
     t.bigint "franchise_id", null: false
     t.text "proposed_location"
-    t.boolean "verified"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "licence_status", default: "pending", null: false
     t.index ["company_profile_id"], name: "index_licences_on_company_profile_id"
     t.index ["franchise_id"], name: "index_licences_on_franchise_id"
   end
