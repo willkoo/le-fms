@@ -12,7 +12,7 @@ User.destroy_all
 
 puts "Creating franchises"
 
-  Franchise.create(name: Faker::Restaurant.name)
+Franchise.create(name: Faker::Restaurant.name)
 
 puts "Creating users"
 
