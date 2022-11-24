@@ -1,5 +1,9 @@
 <h1>profiles#show</h1>
 
-<%= @profile.first_name %>
-<%= @profile.last_name %>,
-<%= @profile.contact_number %>
+Name: <%= @profile.first_name %>
+<%= @profile.last_name %><br>
+Contact Number: <%= @profile.contact_number %><br>
+Description: <%= @profile.description %><br>
+Based in: <%= @profile.country %>
+<br>
+<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-red" %>
