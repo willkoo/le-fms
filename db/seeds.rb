@@ -22,7 +22,7 @@ User.create(email: "user1@gmail.com", password: "password")
 
 User.create(email: "user2@gmail.com", password: "password")
 
-put "Creating (user) profiles..."
+puts "Creating (user) profiles..."
 
 Profile.create(user_id: "2", first_name: "User1", last_name: "Tester1", contact_number: "91234567", description: "This is a tester account 1 with a company assigned", country: "Singapore")
 
