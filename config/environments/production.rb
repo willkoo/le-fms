@@ -78,6 +78,9 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Force a redirection from http:// to https:// URLs automaticially for the user.
+  config.force_ssl = true
+
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
