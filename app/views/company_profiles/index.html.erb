@@ -1,14 +1,11 @@
 <h1>CompanyProfiles#index</h1>
 <br>
+<%= link_to "Create", new_company_profile_path(@company_profiles) %><br>
 <% if @company_profiles.any? %>
   <% @company_profiles.each do |company_profile| %>
     <%= company_profile.id %>.
-    <%= company_profile.name %>,<br>
-    <%= company_profile.address %>,<br>
-    <%= company_profile.profile.first_name %>,<br>
-    <%= company_profile.url %>,<br>
-    <%= company_profile.status %><br>
-    <%= link_to "View", company_profile_path(company_profile) %>
+    Company Name: <%= company_profile.name %>,
+    <%= link_to "View", company_profile_path(company_profile) %><br>
   <% end %>
 <% else %>
   <p>No company profiles yet.</p>
