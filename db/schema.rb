@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_095125) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_24_100730) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -63,6 +63,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_095125) do
     t.index ["user_id"], name: "index_franchises_on_user_id"
   end
 
+  create_table "licence_comments", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "licence_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["licence_id"], name: "index_licence_comments_on_licence_id"
+  end
+
   create_table "licences", force: :cascade do |t|
     t.bigint "company_profile_id", null: false
     t.bigint "franchise_id", null: false
@@ -105,6 +113,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_095125) do
   add_foreign_key "company_profiles", "profiles"
   add_foreign_key "company_records", "company_profiles"
   add_foreign_key "franchises", "users"
+  add_foreign_key "licence_comments", "licences"
   add_foreign_key "licences", "company_profiles"
   add_foreign_key "licences", "franchises"
   add_foreign_key "profiles", "users"
