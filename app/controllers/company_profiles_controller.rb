@@ -6,6 +6,7 @@ class CompanyProfilesController < ApplicationController
   end
 
   def new
+    @company_profile = CompanyProfile.new
   end
 
   def create
