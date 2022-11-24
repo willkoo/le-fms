@@ -3,14 +3,7 @@
     <div class="col-12 col-md-12">
       <div class="bg-white rounded p-3 shadow">
         <h1>Edit Selected Profile</h1>
-            <%= simple_form_for(@profile) do |f| %>
-            <%= f.input :first_name %>
-            <%= f.input :last_name %>
-            <%= f.input :contact_number %>
-            <%= f.input :description %>
-            <%= f.input :country %>
-            <%= f.submit class: "btn btn-red" %>
-            <% end %>
+          <%= render "profiles/form", profile: @profile %>
       </div>
     </div>
   </div>

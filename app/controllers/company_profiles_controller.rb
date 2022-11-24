@@ -19,6 +19,8 @@ class CompanyProfilesController < ApplicationController
   end
 
   def update
+    @company_profile.update(company_profile_params)
+    redirect_to company_profile_path(@company_profile)
   end
 
   private
