@@ -6,6 +6,7 @@ class CompanyProfilesController < ApplicationController
   end
 
   def show
+    @company_records = CompanyRecord.find_by(company_profile_id: params[:id])
   end
 
   def new
