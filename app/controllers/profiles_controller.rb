@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :find_profiles, only: [:show, :edit, :update]
+
   def index
     @profiles = Profile.all
   end
