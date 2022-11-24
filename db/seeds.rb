@@ -20,12 +20,21 @@ end
 
 puts "Creating users"
 
-1.times do
-  user = User.create(
-    email: "abc@gmail.com",
-    password: "password"
-  )
-  puts "User with id: #{user.id} has been created!"
-end
+
+User.create(
+  email: "admin@gmail.com",
+  password: "password",
+  admin: true
+)
+
+User.create(
+  email: "user1@gmail.com",
+  password: "password"
+)
+
+User.create(
+  email: "user2@gmail.com",
+  password: "password"
+)
 
 puts "Finish Seeding!"
