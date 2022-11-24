@@ -5,4 +5,15 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  get 'profiles', to: 'profiles#index'
+  get 'profiles/:id', to: 'profiles#show'
+
+  get 'profiles/new', to: 'profiles#new'
+  post 'profiles/:id', to: 'profiles#create'
+
+  get 'profiles/:id/edit', to: 'profiles#edit'
+  patch 'profiles/:id', to: 'profiles#update'
+
+  delete 'profiles', to: 'profiles#destroy'
+
 end
