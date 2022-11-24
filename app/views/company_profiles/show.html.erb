@@ -1,2 +1,10 @@
 <h1>CompanyProfiles#show</h1>
-<p>Find me in app/views/company_profiles/show.html.erb</p>
+<br>
+Name: <%= @company_profile.name %><br>
+UEN: <%= @company_profile.uen %><br>
+Address: <%= @company_profile.address %><br>
+Owned by: <%= @company_profile.profile.first_name %><br>
+URL: <%= @company_profile.url %><br>
+Status: <%= @company_profile.status %><br>
+<br>
+<%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-red" %>
