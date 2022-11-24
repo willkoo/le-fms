@@ -1,2 +1,15 @@
-<h1>Franchises#edit</h1>
-<p>Find me in app/views/franchises/edit.html.erb</p>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-12 col-md-12">
+      <div class="bg-white rounded p-3 shadow">
+        <h1>Edit Selected Franchise</h1>
+            <%= simple_form_for(@franchise) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :description %>
+            <%= f.input :url %>
+            <%= f.submit class: "btn btn-red" %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
