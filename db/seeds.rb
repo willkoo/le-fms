@@ -36,12 +36,4 @@ CompanyProfile.create(name: "2sky", uen: "200122325B", address: "2sky towers", p
 
 CompanyProfile.create(name: "2net", uen: "200122325B", address: "2net towers", profile_id: "2", url: "www.2net.com", status: "pending")
 
-puts "Creating company records"
-
-CompanyRecord.create(company_profile_id: "1", paid_up_capital: "$150000", last_fy_revenue: "3200558", legal_disputes: "no")
-
-CompanyRecord.create(company_profile_id: "2", paid_up_capital: "$200000", last_fy_revenue: "5120210", legal_disputes: "no")
-
-CompanyRecord.create(company_profile_id: "2", paid_up_capital: "$120000", last_fy_revenue: "2420229", legal_disputes: "no")
-
 puts "Finish Seeding!"
