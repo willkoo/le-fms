@@ -6,6 +6,20 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :profiles
-  resources :franchises
-  resources :company_profiles
+
+  resources :company_profiles do
+    resources :company_comments, only: [:index, :show, :new, :create]
+  end
+
+  resources :licences do
+    resources :licence_comments, only: [:index, :show, :new, :create]
+  end
+
+  resources :franchises do
+    resources :quizzes, only: [:index, :show, :new, :create]
+  end
+
+  resources :quiz_attempts, only: [:new, :create, :index, :show]
+  resources :quiz_questions, only: [:new, :create, :index, :show]
+  resources :quiz_answers, only: [:new, :create, :index, :show]
 end
