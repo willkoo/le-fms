@@ -10,6 +10,7 @@ puts "cleaning database"
 CompanyProfile.destroy_all
 Profile.destroy_all
 Franchise.destroy_all
+Profile.destroy_all
 User.destroy_all
 Franchise.destroy_all
 Profile.destroy_all

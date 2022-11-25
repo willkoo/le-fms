@@ -1,4 +1,4 @@
-<%= simple_form_for(check) do |f| %>
+<%= simple_form_for [@CompanyProfile] do |f| %>
   <%= f.input :name %>
   <%= f.input :uen %>
   <%= f.input :address %>
@@ -6,5 +6,8 @@
   <%= f.input :paid_up_capital %>
   <%= f.input :last_fy_revenue %>
   <%= f.input :legal_disputes %>
+  <%= f.input :arca, as: :file %>
+  <%= f.input :financial_statement, as: :file %>
+  <%= f.input :relevant_licences, as: :file %>
   <%= f.submit %>
 <% end %>
