@@ -7,6 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "cleaning database"
+CompanyProfile.destroy_all
+Profile.destroy_all
+Franchise.destroy_all
 User.destroy_all
 Franchise.destroy_all
 Profile.destroy_all
@@ -18,13 +21,13 @@ QuizQuestion.destroy_all
 QuizAnswer.destroy_all
 QuizAttempt.destroy_all
 
-
 puts "Creating users..."
 User.create(email: "admin@gmail.com", password: "password", admin: true)
 User.create(email: "user1@gmail.com", password: "password")
 User.create(email: "user2@gmail.com", password: "password")
 
 puts "Creating franchises..."
+
 Franchise.create(name: "Starbucks", user_id: "1", description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
 
 puts "Creating (user) profiles..."
