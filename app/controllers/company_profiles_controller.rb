@@ -18,7 +18,7 @@ class CompanyProfilesController < ApplicationController
     company_profile.status = "pending"
 
     if company_profile.save
-      redirect_to company_profiles_path(profile_id: current_user.profiles.first)
+      redirect_to company_profiles_path(current_user.profiles.first)
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class CompanyProfilesController < ApplicationController
   private
 
   def company_profile_params
-    params.require(:company_profile).permit(:name, :uen, :address, :profile, :url, :status,:paid_up_capital, :last_fy_revenue, :legal_disputes)
+    params.require(:company_profile).permit(:name, :uen, :address, :url, :paid_up_capital, :last_fy_revenue, :legal_disputes)
   end
 
   def find_company_profiles
