@@ -7,8 +7,16 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 puts "cleaning database"
-Franchise.destroy_all
 User.destroy_all
+Franchise.destroy_all
+Profile.destroy_all
+Company_Profile.destroy_all
+Licence.destroy_all
+Partner.destroy_all
+Quiz.destroy_all
+QuizQuestion.destroy_all
+QuizAnswer.destroy_all
+QuizAttempt.destroy_all
 
 puts "Creating franchises..."
 

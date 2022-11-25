@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_162753) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_11_25_071143) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162753) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.string "url"
     t.index ["user_id"], name: "index_franchises_on_user_id"
   end
 
@@ -77,6 +74,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162753) do
     t.index ["franchise_id"], name: "index_licences_on_franchise_id"
   end
 
+  create_table "partners", force: :cascade do |t|
+    t.string "operational_status"
+    t.bigint "licence_id", null: false
+    t.bigint "franchise_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["franchise_id"], name: "index_partners_on_franchise_id"
+    t.index ["licence_id"], name: "index_partners_on_licence_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "first_name"
@@ -87,6 +94,45 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162753) do
     t.string "description"
     t.text "country"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "quiz_answers", force: :cascade do |t|
+    t.string "answer"
+    t.bigint "quiz_question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "quiz_attempt_id"
+    t.index ["quiz_attempt_id"], name: "index_quiz_answers_on_quiz_attempt_id"
+    t.index ["quiz_question_id"], name: "index_quiz_answers_on_quiz_question_id"
+  end
+
+  create_table "quiz_attempts", force: :cascade do |t|
+    t.integer "quiz_score", null: false
+    t.string "quiz_status", null: false
+    t.bigint "partner_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["partner_id"], name: "index_quiz_attempts_on_partner_id"
+  end
+
+  create_table "quiz_questions", force: :cascade do |t|
+    t.string "question"
+    t.string "correct_option"
+    t.string "wrong_option_one"
+    t.string "wrong_option_two"
+    t.string "wrong_option_three"
+    t.bigint "quiz_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["quiz_id"], name: "index_quiz_questions_on_quiz_id"
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string "quiz_name"
+    t.bigint "franchise_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["franchise_id"], name: "index_quizzes_on_franchise_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -110,5 +156,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_162753) do
   add_foreign_key "licence_comments", "licences"
   add_foreign_key "licences", "company_profiles"
   add_foreign_key "licences", "franchises"
+  add_foreign_key "partners", "franchises"
+  add_foreign_key "partners", "licences"
   add_foreign_key "profiles", "users"
+  add_foreign_key "quiz_answers", "quiz_attempts"
+  add_foreign_key "quiz_answers", "quiz_questions"
+  add_foreign_key "quiz_attempts", "partners"
+  add_foreign_key "quiz_questions", "quizzes"
+  add_foreign_key "quizzes", "franchises"
 end
