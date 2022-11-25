@@ -6,7 +6,6 @@ class CompanyProfilesController < ApplicationController
   end
 
   def show
-    @company_records = CompanyRecord.find_by(company_profile_id: params[:id])
   end
 
   def new
@@ -14,6 +13,15 @@ class CompanyProfilesController < ApplicationController
   end
 
   def create
+    company_profile = CompanyProfile.new(company_profile_params)
+    company_profile.profile = current_user.profiles.first
+    company_profile.status = "pending"
+
+    if company_profile.save
+      redirect_to company_profiles_path(profile_id: current_user.profiles.first)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -27,7 +35,7 @@ class CompanyProfilesController < ApplicationController
   private
 
   def company_profile_params
-    params.require(:company_profile).permit(:name, :uen, :address, :profile, :url, :verified)
+    params.require(:company_profile).permit(:name, :uen, :address, :profile, :url, :status,:paid_up_capital, :last_fy_revenue, :legal_disputes)
   end
 
   def find_company_profiles
