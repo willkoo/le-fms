@@ -8,6 +8,7 @@
 
 puts "cleaning database"
 Franchise.destroy_all
+Profile.destroy_all
 User.destroy_all
 
 puts "Creating franchises..."
