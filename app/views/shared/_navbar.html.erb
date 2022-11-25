@@ -1,9 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
     <div class="navbar-brand">
+      <% if user_signed_in? %>
         <button class="btn btn-link rounded-circle me-3" type="button">
         <i class="fa-solid fa-bars class="openbtn" onclick="openNav()""></i>
         </button>
+      <% end %>
     </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,12 +27,21 @@
              <%= image_tag "https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-1024.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           </li>
           <% end %>
-        <%# else %>
-          <!--li class="nav-item"-->
-            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-          <!--/li-->
-        <%# end %>
       </ul>
     </div>
   </div>
+</div>
+
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" style="width: 100%; text-align: center;" onclick="closeNav()">×</a>
+
+  <% if user_signed_in? %>
+    <%= link_to "Profile", profile_path(current_user) %>
+  <% end %>
+  <%= link_to "Franchises", franchises_path %>
+  <%= link_to "Company Profiles", company_profiles_path %>
+</div>
+
+<div id="main">
+  <%= test %>
 </div>
