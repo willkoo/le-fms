@@ -1,16 +1,28 @@
 <h1>profiles#index</h1>
+<%= link_to "Create", new_profile_path %>
 <br>
-<% if @profiles.any? %>
-  <% @profiles.each do |profile| %>
-    <%= profile.id %>.
-    <%= profile.first_name %>
-    <%= profile.last_name %>,
-    <%= profile.contact_number %>,
-    <%= profile.description %>,
-    <%= profile.country %>
-    <%= link_to "View", profile_path(profile) %>
+<table>
+  <tr>
+    <th>Application details</th>
+    <th>Verified Companies</th>
+    <th>Operation</th>
+    <th>Action</th>
+  </tr>
+  <% if @profiles.any? %>
+    <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.id %>.</td>
+      <td><%= profile.first_name %></td>
+      <td><%= profile.last_name %>,</td>
+      <td><%= profile.contact_number %>,</td>
+      <td><%= profile.description %>,</td>
+      <td><%= profile.country %></td>
+      <td><%= link_to "View", profile_path(profile) %></td>
+      <br>
+    </tr>
+    <% end %>
+  <% else %>
+    <p>No profiles yet.</p>
   <% end %>
-<% else %>
-  <p>No profiles yet.</p>
-<% end %>
-<br>
+  <br>
+</table>
