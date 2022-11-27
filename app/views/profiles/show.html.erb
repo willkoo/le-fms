@@ -1,24 +1,30 @@
 <h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
 
 <%= link_to "Back", :back %><br>
+<h4>Profile</h4>
+<ul>
+  <li>Profile Pic: <"Require Willie's input"></li>
+  <li>Description: <%= @profile.description %></li>
+  <li>Based in: <%= @profile.country %></li>
+  <li>Contact Number: <%= @profile.contact_number %></li>
+</ul>
 
-Contact Number: <%= @profile.contact_number %><br>
-Description: <%= @profile.description %><br>
-Based in: <%= @profile.country %><br>
 <% if @profile.company_profile.any? %>
-  <% verified_count = 0 %>
-  <% @profile.company_profile.each do |company| %>
-    <% if company.status == "verified" %>
-        <% verified_count += 1 %>
+    <% verified_count = 0 %>
+    <% @profile.company_profile.each do |company| %>
+      <% if company.status == "verified" %>
+          <% verified_count += 1 %>
+      <% end %>
     <% end %>
   <% end %>
-  Verified Companies: <%= verified_count %> /
-<%= @profile.company_profile.count %><br>
+
+<h4>Companies <%= verified_count %> /
+  <%= @profile.company_profile.count %></h4>
   <ol>
-  <% @profile.company_profile.each do |company| %>
-    <li><%= link_to "#{company.name}", company_profile_path(company) %>, <%= company.status %></li>
-  <% end %>
-  </ol>
-<% end %>
+    <% @profile.company_profile.each do |company| %>
+      <li><%= link_to "#{company.name}", company_profile_path(company) %>, <%= company.status %></li>
+    <% end %>
+    </ol>
+
 <br>
 <%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary" %>

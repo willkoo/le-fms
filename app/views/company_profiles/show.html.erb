@@ -1,15 +1,29 @@
 <h1><%= @company_profile.name %></h1><br>
 
 <%= link_to "Back", :back %><br>
-
-UEN: <%= @company_profile.uen %><br>
-Address: <%= @company_profile.address %><br>
-Owned by: <%= link_to "#{@company_profile.profile.first_name}", profile_path(@company_profile.profile) %><br>
-URL: <%= @company_profile.url %><br>
-Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
-Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
-Legal Disputes: <%= @company_profile.legal_disputes%><br>
-Status: <%= @company_profile.status %>
+<h4>Company Details</h4>
+<ul>
+  <li>Status: <%= @company_profile.status %></li>
+  <li>UEN: <%= @company_profile.uen %></li>
+  <li>Address: <%= @company_profile.address %></li>
+  <li>Owned by: <%= link_to "#{@company_profile.profile.first_name}", profile_path(@company_profile.profile) %></li>
+  <li>URL: <%= @company_profile.url %></li>
+</ul>
+<h4>Finances</h4>
+<ul>
+  <li>Paid Up Capital: <%= @company_profile.paid_up_capital %></li>
+  <li>Last FY Revenue: <%= @company_profile.last_fy_revenue %></li>
+</ul>
+<h4>Documents</h4>
+<ul>
+  <li>Acra <"Willie's input required"></li>
+  <li>Financial Statement <"Willie's input required"></li>
+  <li>Relevant Licences <"Willie's input required"></li>
+</ul>
+<h4>Legal</h4>
+<ul>
+  <li>Legal Disputes: <%= @company_profile.legal_disputes%></li>
+</ul>
 
 <% if @company_profile.status == "pending" %>
   <%= link_to "Verify", edit_company_profile_path(@company_profile)%>
