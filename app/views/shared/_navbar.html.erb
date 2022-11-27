@@ -17,8 +17,8 @@
             <% if user_signed_in? %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
+              <%= link_to "My Franchises", franchises_path(current_user), class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
 
             </div>
@@ -36,10 +36,10 @@
   <a href="javascript:void(0)" class="closebtn" style="width: 100%; text-align: center;" onclick="closeNav()">×</a>
 
   <% if user_signed_in? %>
-    <%= link_to "Profile", profile_path(current_user) %>
+    <%= link_to "All Applicants", profiles_path %>
   <% end %>
-  <%= link_to "Franchises", franchises_path %>
-  <%= link_to "Company Profiles", company_profiles_path %>
+  <%= link_to "Review Companies", company_profiles_path %>
+  <%= link_to "Licencing", licences_path %>
 </div>
 
 <div id="main">

@@ -7,8 +7,6 @@ gem "devise"
 
 gem "simple_form", github: "heartcombo/simple_form"
 
-gem "autoprefixer-rails"
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
 
