@@ -1,13 +1,23 @@
-<h1>CompanyProfiles#index</h1>
+<h1>Review Company</h1>
 <br>
 <%= link_to "Create", new_company_profile_path(@company_profiles) %><br>
-<% if @company_profiles.any? %>
-  <% @company_profiles.each do |company_profile| %>
-    <%= company_profile.id %>.
-    Company Name: <%= company_profile.name %>,
-    <%= link_to "View", company_profile_path(company_profile) %><br>
-  <% end %>
-<% else %>
-  <p>No company profiles yet.</p>
-<% end %>
-<br>
+<table>
+  <tr>
+    <th>Company Details</th>
+    <th>Applicant</th>
+    <th>Status</th>
+    <th>Comments</th>
+  </tr>
+  <% if @company_profiles.any? %>
+    <% @company_profiles.each do |company_profile| %>
+      <tr>
+        <td><%= company_profile.id %>.</td>
+        <td><p>Company Name: <%= company_profile.name %>,</p></td>
+        <td><%= link_to "View", company_profile_path(company_profile) %></td>
+      </tr>
+      <% end %>
+    <% else %>
+      <p>No company profiles yet.</p>
+    <% end %>
+  <br>
+</table>
