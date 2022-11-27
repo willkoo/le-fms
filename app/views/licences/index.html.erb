@@ -8,6 +8,7 @@
     <th>Proposal</th>
     <th>Location</th>
     <th>Status</th>
+    <th>Action</th>
     <th>Comments</th>
   </tr>
   <% if @licences.any? %>
@@ -19,6 +20,13 @@
         <td><%=  %></td>
         <td><%= licence.proposed_location %></td>
         <td><%= licence.licence_status %></td>
+        <td>
+        <% if licence.licence_status == "pending" %>
+          <%= link_to "Decide", edit_licence_path(licence) %>
+        <% elsif licence.licence_status == "approve" %>
+          <%= link_to "Delete", "#" %>
+        <% end %>
+        </td>
         <td><%=  %></td>
       </tr>
       <% end %>

@@ -30,12 +30,16 @@ class LicencesController < ApplicationController
   end
 
   def update
+    @licence.update(licence_params)
+    partner = Partner.new(licence_id: @licence.id, franchise_id: @licence.franchise_id, operational_status: "training")
+    partner.save
+    redirect_to licences_path()
   end
 
   private
 
   def licence_params
-    params.require(:licence).permit(:company_profile_id, :franchise_id, :proposed_location, :licence_status)
+    params.require(:licence).permit(:licence_status)
   end
 
   def find_licences

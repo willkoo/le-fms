@@ -9,7 +9,9 @@ URL: <%= @company_profile.url %><br>
 Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
 Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
 Legal Disputes: <%= @company_profile.legal_disputes%><br>
-Status: <%= @company_profile.status %><br>
-<br>
-<%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-primary" %>
+Status: <%= @company_profile.status %>,
+
+<% if @company_profile.status == "pending" %>
+  <%= link_to "Verify", edit_company_profile_path(@company_profile)%>
+<% end %>
 <br>

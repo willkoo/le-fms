@@ -11,7 +11,7 @@
   </tr>
   <% if @partners.any? %>
     <% @partners.each do |partner| %>
-      <% if partner.licence.licence_status == "approved" %>
+      <% if partner.licence.licence_status == "approve" %>
         <tr>
           <td><%= partner.id %>.</td>
           <td><%= link_to "#{partner.licence.company_profile.name}", company_profile_path(partner.licence.company_profile) %></td>

@@ -35,7 +35,7 @@ class CompanyProfilesController < ApplicationController
   private
 
   def company_profile_params
-    params.require(:company_profile).permit(:name, :uen, :address, :url, :paid_up_capital, :last_fy_revenue, :legal_disputes)
+    params.require(:company_profile).permit(:name, :uen, :address, :url, :paid_up_capital, :last_fy_revenue, :legal_disputes, :status)
   end
 
   def find_company_profiles
