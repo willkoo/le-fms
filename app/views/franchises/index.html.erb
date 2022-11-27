@@ -1,5 +1,6 @@
-<h1>Franchises#index</h1>
+<h1>My Franchises</h1>
 <br>
+<%= link_to "Create", new_franchise_path(@franchise) %><br>
 <% if @franchises.any? %>
   <% @franchises.each do |franchise| %>
     <%= franchise.id %>.
@@ -12,5 +13,3 @@
   <p>No franchises yet.</p>
 <% end %>
 <br>
-
-<%= link_to "Create", new_franchise_path(@franchise) %>

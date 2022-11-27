@@ -18,9 +18,10 @@ class LicencesController < ApplicationController
     licence = Licence.new(licence_params)
     licence.company_profile = company_profile
     licence.franchise = franchise
+    licence.licence_status = "pending"
 
     if licence.save
-      redirect_to licence_path(company_profile_id: company_profile, franchise_id: franchise)
+      redirect_to licences_path
     else
       render :new, status: :unprocessable_entity
     end
