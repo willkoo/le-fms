@@ -1,14 +1,15 @@
-<h1>CompanyProfiles#show</h1>
-<br>
-Name: <%= @company_profile.name %><br>
+<h1><%= @company_profile.name %></h1><br>
+
+<%= link_to "Back", :back %><br>
+
 UEN: <%= @company_profile.uen %><br>
 Address: <%= @company_profile.address %><br>
-Owned by: <%= @company_profile.profile.first_name %><br>
+Owned by: <%= link_to "#{@company_profile.profile.first_name}", profile_path(@company_profile.profile) %><br>
 URL: <%= @company_profile.url %><br>
 Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
 Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
 Legal Disputes: <%= @company_profile.legal_disputes%><br>
 Status: <%= @company_profile.status %><br>
 <br>
-<%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-red" %>
+<%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-primary" %>
 <br>

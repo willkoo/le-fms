@@ -1,23 +1,22 @@
-<h1>profiles#index</h1>
+<h1>All Applicants</h1>
 <%= link_to "Create", new_profile_path %>
 <br>
 <table>
   <tr>
-    <th>Application details</th>
+    <th>S/N</th>
+    <th>Applicant</th>
     <th>Verified Companies</th>
-    <th>Operation</th>
+    <th>Partner Status</th>
     <th>Action</th>
   </tr>
   <% if @profiles.any? %>
     <% @profiles.each do |profile| %>
     <tr>
-      <td><%= profile.id %>.</td>
-      <td><%= profile.first_name %></td>
-      <td><%= profile.last_name %>,</td>
-      <td><%= profile.contact_number %>,</td>
-      <td><%= profile.description %>,</td>
-      <td><%= profile.country %></td>
-      <td><%= link_to "View", profile_path(profile) %></td>
+      <% if profile.id != 1 %>
+        <td><%= profile.id - 1 %>.</td>
+        <td><%= link_to "#{profile.first_name}", profile_path(profile) %></td>
+        <td>0/<%= profile.company_profile.count %></td>
+      <% end %>
       <br>
     </tr>
     <% end %>

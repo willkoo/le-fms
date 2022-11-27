@@ -32,12 +32,13 @@ puts "Creating franchises..."
 Franchise.create(name: "Starbucks", user_id: "1", description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
 
 puts "Creating (user) profiles..."
-Profile.create(user_id: "2", first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "This is a tester account 1 with a company assigned", country: "Singapore")
-Profile.create(user_id: "3", first_name: "Willie", last_name: "Khoo", contact_number: "98892834", description: "This is another tester account 2 with 2 companies assigned", country: "Singapore")
+Profile.create(user_id: "1", first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "This is owner's account with one assigned franchise.", country: "Singapore")
+Profile.create(user_id: "2", first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "This is an applicant account with one assigned company.", country: "Singapore")
+Profile.create(user_id: "3", first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "This is the 2nd applicant account with 2 assigned companies.", country: "Singapore")
 
 puts "Creating companies..."
-CompanyProfile.create(name: "1north", uen: "200112345A", address: "1north towers", profile_id: "2", url: "www.1north.com", status: "accepted", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
-CompanyProfile.create(name: "2sky", uen: "200122325B", address: "2sky towers", profile_id: "2", url: "www.2ky.com", status: "rejected", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
+CompanyProfile.create(name: "1north", uen: "200112345A", address: "1north towers", profile_id: "2", url: "www.1north.com", status: "verified", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
+CompanyProfile.create(name: "2sky", uen: "200122325B", address: "2sky towers", profile_id: "2", url: "www.2ky.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
 CompanyProfile.create(name: "2net", uen: "200122325B", address: "2net towers", profile_id: "3", url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
 
 puts "Creating licenses..."
