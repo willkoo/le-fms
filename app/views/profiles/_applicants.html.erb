@@ -1,0 +1,15 @@
+<% if @profile.company_profile.any? %>
+  <% verified_count = 0 %>
+  <% @profile.company_profile.each do |company| %>
+    <% if company.status == "verified" %>
+        <% verified_count += 1 %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h4>Companies <%= verified_count %> / <%= @profile.company_profile.count %></h4>
+  <ol>
+    <% @profile.company_profile.each do |company| %>
+      <li><%= link_to "#{company.name}", company_profile_path(company) %>, <%= company.status %></li>
+    <% end %>
+  </ol>
