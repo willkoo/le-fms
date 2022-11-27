@@ -3,17 +3,20 @@
 <%= link_to "Create", new_company_profile_path(@company_profiles) %><br>
 <table>
   <tr>
-    <th>Company Details</th>
-    <th>Applicant</th>
-    <th>Status</th>
+    <th>S/N</th>
+    <th>Company</th>
+    <th>Found by</th>
+    <th>Verified?</th>
     <th>Comments</th>
   </tr>
   <% if @company_profiles.any? %>
     <% @company_profiles.each do |company_profile| %>
       <tr>
         <td><%= company_profile.id %>.</td>
-        <td><p>Company Name: <%= company_profile.name %>,</p></td>
-        <td><%= link_to "View", company_profile_path(company_profile) %></td>
+        <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile) %></td>
+        <td><%= link_to "#{company_profile.profile.first_name}", profile_path(company_profile) %></td>
+        <td><%= company_profile.status %></td>
+        <td><%=  %></td>
       </tr>
       <% end %>
     <% else %>

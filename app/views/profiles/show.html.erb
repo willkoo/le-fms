@@ -9,7 +9,7 @@ Based in: <%= @profile.country %><br>
   Verified Companies: 0/<%= @profile.company_profile.count %><br>
   <ol>
   <% @profile.company_profile.each do |company| %>
-    <li><%= link_to "#{company.name}", company_profile_path(company) %></li>
+    <li><%= link_to "#{company.name}", company_profile_path(company) %>, <%= company.status %></li>
   <% end %>
   </ol>
 <% end %>

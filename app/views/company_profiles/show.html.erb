@@ -4,7 +4,7 @@
 
 UEN: <%= @company_profile.uen %><br>
 Address: <%= @company_profile.address %><br>
-Owned by: <%= @company_profile.profile.first_name %><br>
+Owned by: <%= link_to "#{@company_profile.profile.first_name}", profile_path(@company_profile.profile) %><br>
 URL: <%= @company_profile.url %><br>
 Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
 Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
