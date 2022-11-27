@@ -1,9 +1,17 @@
-<h1>profiles#show</h1>
+<h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
 
-Name: <%= @profile.first_name %>
-<%= @profile.last_name %><br>
+<%= link_to "Back", :back %><br>
+
 Contact Number: <%= @profile.contact_number %><br>
 Description: <%= @profile.description %><br>
-Based in: <%= @profile.country %>
+Based in: <%= @profile.country %><br>
+<% if @profile.company_profile.any? %>
+  Verified Companies: 0/<%= @profile.company_profile.count %><br>
+  <ol>
+  <% @profile.company_profile.each do |company| %>
+    <li><%= link_to "#{company.name}", company_profile_path(company) %></li>
+  <% end %>
+  </ol>
+<% end %>
 <br>
-<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-red" %>
+<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary" %>
