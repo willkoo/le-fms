@@ -15,7 +15,15 @@
       <% if profile.id != 1 %>
         <td><%= profile.id - 1 %>.</td>
         <td><%= link_to "#{profile.first_name}", profile_path(profile) %></td>
-        <td>0/<%= profile.company_profile.count %></td>
+        <td>
+        <% verified_count = 0 %>
+        <% profile.company_profile.each do |company| %>
+          <% if company.status == "verified" %>
+              <% verified_count += 1 %>
+          <% end %>
+        <% end %>
+        <%= verified_count %> / <%= profile.company_profile.count %>
+        </td>
       <% end %>
       <br>
     </tr>

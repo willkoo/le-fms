@@ -6,7 +6,14 @@ Contact Number: <%= @profile.contact_number %><br>
 Description: <%= @profile.description %><br>
 Based in: <%= @profile.country %><br>
 <% if @profile.company_profile.any? %>
-  Verified Companies: 0/<%= @profile.company_profile.count %><br>
+  <% verified_count = 0 %>
+  <% @profile.company_profile.each do |company| %>
+    <% if company.status == "verified" %>
+        <% verified_count += 1 %>
+    <% end %>
+  <% end %>
+  Verified Companies: <%= verified_count %> /
+<%= @profile.company_profile.count %><br>
   <ol>
   <% @profile.company_profile.each do |company| %>
     <li><%= link_to "#{company.name}", company_profile_path(company) %>, <%= company.status %></li>
