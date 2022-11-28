@@ -1,14 +1,13 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-lg-1 col-xxl-1"><div><i class="fa-solid fa-circle-left"></i></div></div>
-            <div class="col-md-4 col-lg-4 col-xxl-5">
-                <h2 style="text-align: left;width: 295px;margin-left: 2px;margin-right: 0px;margin-top: 19px;margin-bottom: 15px;">Ruby Holdings Ltd</h2>
+            <div class="col-md-4 col-lg-1 col-xxl-4">
+                <h2 style="text-align: left;width: 295px;margin-left: 2px;margin-right: 0px;margin-top: 19px;margin-bottom: 15px;"><%= @company_profile.name %></h2>
             </div>
             <div class="col-xxl-1"></div>
-            <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;">Approved</button></div>
-            <div class="col"><button class="btn btn-primary" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;">Comment</button></div>
-            <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;">Reject</button></div>
+            <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
+            <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
+            <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Reject</button></div>
         </div>
     </div>
     <div class="container" style="height: 1006px;">
@@ -23,20 +22,20 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h1 style="text-align: center;font-weight: bold;font-size: 35px;">RUBIIFY</h1>
+                                <h1 style="text-align: center;font-weight: bold;font-size: 35px;"><%= @company_profile.name %></h1>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h1 style="text-align: center;font-size: 25px;">Verification Status: Pending</h1>
+                                <h1 style="text-align: center;font-size: 25px;">Verification Status: <%= @company_profile.status %></h1>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Founder:</p>
+                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Owner:</p>
                             </div>
                             <div class="col">
-                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">Willie Koo</p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @company_profile.name %></p>
                             </div>
                         </div>
                         <div class="row">
@@ -45,7 +44,7 @@
                             </div>
                             <div class="col">
                                 <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">www.williekoo.com</p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @company_profile.profile.first_name %>m</p>
                             </div>
                         </div>
                         <div class="row">
@@ -54,16 +53,7 @@
                             </div>
                             <div class="col">
                                 <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">12345678abc</p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Based in:</p>
-                            </div>
-                            <div class="col">
-                                <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">Singapore</p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @company_profile.uen %></p>
                             </div>
                         </div>
                         <div class="row">
@@ -72,7 +62,7 @@
                             </div>
                             <div class="col">
                                 <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">35 somestreet road&nbsp;</p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @company_profile.address %>&nbsp;</p>
                             </div>
                         </div>
                     </div>
@@ -85,7 +75,7 @@
                         <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
                             <div class="card-body" style="padding-top: 35px;padding-bottom: 35px;">
                                 <h4 class="card-title" style="text-align: center;font-weight: bold;">Paid Up Capital</h4>
-                                <p class="card-text" style="text-align: center;">$1000000</p>
+                                <p class="card-text" style="text-align: center;">$<%= @company_profile.paid_up_capital %></p>
                             </div>
                         </div>
                     </div>
@@ -93,7 +83,7 @@
                         <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
                             <div class="card-body" style="height: 130px;padding-top: 35px;padding-bottom: 35px;">
                                 <h4 class="card-title" style="text-align: center;font-weight: bold;">2021 WY Revenue</h4>
-                                <p class="card-text" style="text-align: center;">$2000000</p>
+                                <p class="card-text" style="text-align: center;">$<%= @company_profile.last_fy_revenue %></p>
                             </div>
                         </div>
                     </div>
@@ -126,21 +116,21 @@
                                         <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Acra registration:&nbsp;</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold">Download</button></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xxl-6">
                                         <h4 style="font-size: 20px;text-align: left;margin-top: 23px;">Document 2:&nbsp;</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold">Download</button></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xxl-6">
                                         <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Document 3:</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold">Download</button></div>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +141,7 @@
                     <div class="col" style="margin-top: 0px;">
                         <div class="card" style="box-shadow: 0px 0px 3px;border-radius: 20px;height: 181.992px;">
                             <div class="card-body" style="margin-top: 0px;">
-                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                                <p class="card-text"><%= @company_profile.legal_disputes%></p>
                             </div>
                         </div>
                     </div>
@@ -159,15 +149,6 @@
             </div>
         </div>
     </div>
-    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/js/bs-init.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-    <script src="/assets/js/Bootstrap-DataTables.js"></script>
-    <script src="/assets/js/Return-to-Top-Arrow.js"></script>
-    <script src="/assets/js/Table-With-Search.js"></script>
-    <script src="/assets/js/theme.js"></script>
-    <script id="bs-live-reload" data-sseport="49828" data-lastchange="1669613739834" src="/js/livereload.js"></script>
 </body>
 
 <div class="container">
@@ -195,48 +176,7 @@
 
 <i class="fa-regular fa-download"></i>
 
-<h1><%= @company_profile.name %></h1><br>
-<%= link_to "Back", :back %><br>
 
-<h4>Company Details</h4>
-  <ul>
-    <li>Status: <%= @company_profile.status %>
-    <% if @company_profile.status == "pending" %>
-      <%= link_to "Verify", edit_company_profile_path(@company_profile)%>
-    <% end %></li>
-    <li>UEN: <%= @company_profile.uen %></li>
-    <li>Address: <%= @company_profile.address %></li>
-    <li>Owned by: <%= link_to "#{@company_profile.profile.first_name}", profile_path(@company_profile.profile) %></li>
-    <li>URL: <%= @company_profile.url %></li>
-  </ul>
-
-<h4>Finances</h4>
-  <ul>
-    <li>Paid Up Capital: <%= @company_profile.paid_up_capital %></li>
-    <li>Last FY Revenue: <%= @company_profile.last_fy_revenue %></li>
-  </ul>
-
-<h4>Documents</h4>
-  <ul>
-    <li>Acra <"Willie's input required"></li>
-    <li>Financial Statement <"Willie's input required"></li>
-    <li>Relevant Licences <"Willie's input required"></li>
-  </ul>
-
-<h4>Legal</h4>
-  <ul>
-    <li>Legal Disputes: <%= @company_profile.legal_disputes%></li>
-  </ul>
-
-<h4>Licences Acquired in Le-FMS</h4>
-  <ul>
-    <% if @company_profile.licences.any? %>
-      <% @company_profile.licences.each do |licence| %>
-        <% if licence.franchise.partners.any? %>
-          <li><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %>, currently in <%= link_to "#{licence.franchise.partners.first.operational_status}", partners_path %></li>
-        <% else %>
-          <li><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %>, yet to be approved.</li>
-        <% end %>
-      <% end %>
-    <% end %>
-  </ul>
+<div class="col-md-4 col-lg-1 col-xxl-4">
+    <h2 style="text-align: left;width: 295px;margin-left: 2px;margin-right: 0px;margin-top: 19px;margin-bottom: 15px;">Ruby Holdings Ltd</h2>
+</div>
