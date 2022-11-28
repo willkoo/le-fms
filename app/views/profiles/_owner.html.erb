@@ -1,0 +1,15 @@
+<h4>My Franchises</h4>
+<ul>
+  <% @profile.user.franchises.each do |franchise| %>
+    <li><%= link_to "#{franchise.name}", franchise_path(franchise) %></li>
+  <% end %>
+</ul>
+
+<h4>My Partners</h4>
+<ul>
+  <% @profile.user.franchises.each do |franchise| %>
+    <% franchise.partners.each do |partner| %>
+      <li><%= link_to "#{partner.licence.company_profile.name}", company_profile_path(partner) %></li>
+    <% end %>
+  <% end %>
+</ul>

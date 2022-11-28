@@ -1,0 +1,4 @@
+<%= simple_form_for [@licence] do |f| %>
+  <%= f.input :licence_status, :collection => %w[approve reject pending] %>
+  <%= f.submit %>
+<% end %>

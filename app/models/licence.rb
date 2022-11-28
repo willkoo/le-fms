@@ -5,5 +5,5 @@ class Licence < ApplicationRecord
   has_many :partners
 
   validates :company_profile_id, :franchise_id, :proposed_location, :licence_status, presence: true
-  validates :status, inclusion: { in: %w[accept reject pending] }
+  validates :licence_status, inclusion: { in: %w[approve reject pending] }
 end

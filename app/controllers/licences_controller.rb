@@ -18,9 +18,10 @@ class LicencesController < ApplicationController
     licence = Licence.new(licence_params)
     licence.company_profile = company_profile
     licence.franchise = franchise
+    licence.licence_status = "pending"
 
     if licence.save
-      redirect_to licence_path(company_profile_id: company_profile, franchise_id: franchise)
+      redirect_to licences_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,12 +31,16 @@ class LicencesController < ApplicationController
   end
 
   def update
+    @licence.update(licence_params)
+    partner = Partner.new(licence_id: @licence.id, franchise_id: @licence.franchise_id, operational_status: "training")
+    partner.save
+    redirect_to licences_path()
   end
 
   private
 
   def licence_params
-    params.require(:licence).permit(:company_profile_id, :franchise_id, :proposed_location, :licence_status)
+    params.require(:licence).permit(:company_profile_id, :franchise_id, :licence_status)
   end
 
   def find_licences
