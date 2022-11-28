@@ -3,5 +3,7 @@
   <%= f.input :franchise, :collection => Franchise.all.each { |franchise| franchise.id} %>
   <%= f.input :proposed_location %>
   <%= f.input :proposal, as: :file %>
+  <%= f.input :photo, as: :file %>
+
   <%= f.submit %>
 <% end %>
