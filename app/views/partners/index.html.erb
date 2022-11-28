@@ -1,0 +1,27 @@
+<h1>Manage Partners</h1>
+<br>
+<table class="table table-hover shadow p-3 mb-5 bg-white rounded">
+  <tr>
+    <th>S/N</th>
+    <th>Company</th>
+    <th>Franchise</th>
+    <th>Video</th>
+    <th>Quiz Attempt</th>
+    <th>Ops Status</th>
+  </tr>
+  <% if @partners.any? %>
+    <% @partners.each do |partner| %>
+      <% if partner.licence.licence_status == "approve" %>
+        <tr>
+          <td><%= partner.id %>.</td>
+          <td><%= link_to "#{partner.licence.company_profile.name}", company_profile_path(partner.licence.company_profile) %></td>
+          <td><%= link_to "#{partner.franchise.name}", franchise_path(partner.franchise) %></td>
+          <td><%=  link_to "Video", "#"%></td>
+          <td><%= link_to "Quiz", "#" %></td>
+          <td><%= partner.operational_status %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% end %>
+  <br>
+</table>
