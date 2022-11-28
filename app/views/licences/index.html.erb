@@ -1,39 +1,7 @@
-<h1>Manage Licences</h1><br>
-<%= link_to "Create Licence Test", new_licence_path %>
-<table>
-  <tr>
-    <th>S/N</th>
-    <th>Request From</th>
-    <th>Franchise</th>
-    <th>Location</th>
-    <th>Proposal</th>
-    <th>Docu-Sign</th>
-    <th>Status</th>
-    <th>Action</th>
-    <th>Comments</th>
-  </tr>
-  <% if @licences.any? %>
-    <% @licences.each do |licence| %>
-      <tr>
-        <td><%= licence.id %>.</td>
-        <td><%= link_to "#{licence.company_profile.name}", company_profile_path(licence.company_profile) %></td>
-        <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %></td>
-        <td><%= licence.proposed_location %></td>
-        <td><%= link_to "doc", "#" %></td>
-        <td><%= link_to "contract", "#" %></td>
-        <td><%= licence.licence_status %></td>
-        <td>
-        <% if licence.licence_status == "pending" %>
-          <%= link_to "Decide", edit_licence_path(licence) %>
-        <% elsif licence.licence_status == "approve" %>
-          <%= link_to "Delete", "#" %>
-        <% end %>
-        </td>
-        <td><%=  %></td>
-      </tr>
-      <% end %>
-    <% else %>
-      <p>No licences yet.</p>
-    <% end %>
-  <br>
-</table>
+<% if current_user.id == 1 %>
+  <h1>Manage Licences</h1><br>
+  <%= render "owner_index", licences: @licences %>
+<% else %>
+  <h1>My Licences</h1>
+  <%= render "applicant_index", licences: @licences %>
+<% end %>
