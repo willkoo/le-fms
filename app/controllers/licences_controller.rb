@@ -13,8 +13,8 @@ class LicencesController < ApplicationController
   end
 
   def create
-    company_profile = CompanyProfile.find(params[:company_profile_id])
-    franchise = Franchise.find(params[:franchise_id])
+    company_profile = CompanyProfile.find(params[:licence][:company_profile])
+    franchise = Franchise.find(params[:licence][:franchise])
     licence = Licence.new(licence_params)
     licence.company_profile = company_profile
     licence.franchise = franchise
@@ -34,13 +34,13 @@ class LicencesController < ApplicationController
     @licence.update(licence_params)
     partner = Partner.new(licence_id: @licence.id, franchise_id: @licence.franchise_id, operational_status: "training")
     partner.save
-    redirect_to licences_path()
+    redirect_to licences_path
   end
 
   private
 
   def licence_params
-    params.require(:licence).permit(:company_profile_id, :franchise_id, :licence_status)
+    params.require(:licence).permit(:company_profile_id, :franchise_id, :licence_status, :proposed_location)
   end
 
   def find_licences
