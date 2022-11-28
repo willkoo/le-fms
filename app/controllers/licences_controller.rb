@@ -32,9 +32,7 @@ class LicencesController < ApplicationController
 
   def update
     @licence.update(licence_params)
-    partner = Partner.new(licence_id: @licence.id, franchise_id: @licence.franchise_id, operational_status: "training")
-    partner.save
-    redirect_to licences_path
+    redirect_to licences_path()
   end
 
   private

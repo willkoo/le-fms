@@ -19,7 +19,9 @@
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
-              <%= link_to "My Franchises", franchises_path(current_user), class: "dropdown-item" %>
+              <% if current_user.id == 1 %>
+                <%= link_to "My Franchises", franchises_path(current_user), class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
 
             </div>
@@ -36,14 +38,20 @@
 <div id="mySidebar" class="sidebar">
   <a href="javascript:void(0)" class="closebtn" style="width: 100%; text-align: right;" onclick="closeNav()">×</a>
 
-  <% if user_signed_in? %>
-    <%# why write line 39? %>
+  <% if user_signed_in? && current_user.id == 1 %>
     <%= link_to "Overview", "#" %>
     <%= link_to "All Applicants", profiles_path %>
+    <%= link_to "Review Companies", company_profiles_path %>
+    <%= link_to "Licencing", licences_path %>
+    <%= link_to "Training & Quiz", "#" %>
+  <% else %>
+    <%= link_to "Overview", "#" %>
+    <%= link_to "My Companies", company_profiles_path %>
+    <%= link_to "My Licences", licences_path %>
+    <%= link_to "Audits", "#" %>
+    <%= link_to "Operating Outlets", "#" %>
   <% end %>
-  <%= link_to "Review Companies", company_profiles_path %>
-  <%= link_to "Licencing", licences_path %>
-  <%= link_to "Partners", partners_path %>
+
 </div>
 
 <div id="main">

@@ -45,20 +45,20 @@ puts "Creating licenses..."
 Licence.create(company_profile_id: "1", franchise_id: "1", proposed_location: "20 Collyer Quay", licence_status: "pending")
 Licence.create(company_profile_id: "2", franchise_id: "1", proposed_location: "123 Clayton Street", licence_status: "pending")
 
-puts "Creating quizzes..."
-Quiz.create(quiz_name: "First_quiz", franchise_id: "1")
+# puts "Creating quizzes..."
+# Quiz.create(quiz_name: "First_quiz", franchise_id: "1")
 
-puts "Creating quiz 3 questions for first quiz..."
-QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?", correct_option: "With blood, sweat, tears and love. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
-QuizQuestion.create(quiz_id: "1", question: "How to make good tea?", correct_option: "With tender loving care. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
-QuizQuestion.create(quiz_id: "1", question: "How to make good sandwich?", correct_option: "Yum Yum. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
+# puts "Creating quiz 3 questions for first quiz..."
+# QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?", correct_option: "With blood, sweat, tears and love. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
+# QuizQuestion.create(quiz_id: "1", question: "How to make good tea?", correct_option: "With tender loving care. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
+# QuizQuestion.create(quiz_id: "1", question: "How to make good sandwich?", correct_option: "Yum Yum. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
 
-puts "Creating quiz attempts"
-QuizAttempt.create(quiz_score: 0, quiz_status: "pending", partner_id: "1")
+# puts "Creating quiz attempts"
+# QuizAttempt.create(quiz_score: 0, quiz_status: "pending", partner_id: "1")
 
-puts "Creating quiz answers"
-QuizAnswer.create(quiz_question_id: "1", quiz_attempt_id: "1", answer: "blah blah blah")
-QuizAnswer.create(quiz_question_id: "2", quiz_attempt_id: "1", answer: "wrong lahhhhhh")
-QuizAnswer.create(quiz_question_id: "3", quiz_attempt_id: "1", answer: "Yum Yum. :)")
+# puts "Creating quiz answers"
+# QuizAnswer.create(quiz_question_id: "1", quiz_attempt_id: "1", answer: "blah blah blah")
+# QuizAnswer.create(quiz_question_id: "2", quiz_attempt_id: "1", answer: "wrong lahhhhhh")
+# QuizAnswer.create(quiz_question_id: "3", quiz_attempt_id: "1", answer: "Yum Yum. :)")
 
 puts "Finish Seeding!"

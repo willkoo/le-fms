@@ -1,0 +1,30 @@
+<%= link_to "Create Licence Test", new_licence_path %>
+<table>
+  <tr>
+    <th>S/N</th>
+    <th>My Company</th>
+    <th>Franchise Applied</th>
+    <th>Updated At</th>
+    <th>More Details</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  <% if @licences.any? %>
+    <% @licences.each do |licence| %>
+      <tr>
+        <% if licence.company_profile.profile.user == current_user %>
+          <td><%= licence.id %>.</td>
+          <td><%= link_to "#{licence.company_profile.name}", company_profile_path(licence.company_profile) %></td>
+          <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %></td>
+          <td><%= licence.updated_at %></td>
+          <td><%= link_to "view", licence_path(licence) %></td>
+          <td><%= licence.licence_status %></td>
+          <td><%=  %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    <% else %>
+      <p>No licences applied yet.</p>
+    <% end %>
+  <br>
+</table>

@@ -1,26 +1,7 @@
-<h1>Review Company</h1><br>
-<%= link_to "Create new Company", new_company_profile_path%>
-<br>
-<table>
-  <tr>
-    <th>S/N</th>
-    <th>Company</th>
-    <th>Found by</th>
-    <th>Verified?</th>
-    <th>Comments</th>
-  </tr>
-  <% if @company_profiles.any? %>
-    <% @company_profiles.each do |company_profile| %>
-      <tr>
-        <td><%= company_profile.id %>.</td>
-        <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile) %></td>
-        <td><%= link_to "#{company_profile.profile.first_name}", profile_path(company_profile) %></td>
-        <td><%= company_profile.status %></td>
-        <td><%=  %></td>
-      </tr>
-      <% end %>
-    <% else %>
-      <p>No company profiles yet.</p>
-    <% end %>
-  <br>
-</table>
+<% if current_user.id == 1 %>
+  <h1>Review Companies</h1><br>
+  <%= render "owner_index", company_profiles: @company_profiles %>
+<% else %>
+  <h1>My Companies</h1>
+  <%= render "applicant_index", company_profiles: @company_profiles %>
+<% end %>
