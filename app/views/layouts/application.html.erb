@@ -11,8 +11,6 @@
   </head>
 
   <body>
-    <%= render "shared/navbar", test: yield %>
-
     <script>
       function openNav() {
         document.getElementById("mySidebar").style.width = "250px";
@@ -24,6 +22,8 @@
         document.getElementById("main").style.marginLeft= "0";
       }
     </script>
+    <%= render "shared/navbar", test: yield %>
+
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
   </body>
