@@ -1,7 +1,8 @@
 <h1>Manage Applicants</h1><br>
 <%= link_to "Create new Applicant", new_profile_path %>
 <br>
-<table>
+
+<table class="table table-hover">
   <tr>
     <th>S/N</th>
     <th>Applicant</th>
@@ -9,6 +10,7 @@
     <th>Partner Status</th>
     <th>Action</th>
   </tr>
+
   <% if @profiles.any? %>
     <% @profiles.each do |profile| %>
     <tr>
@@ -24,12 +26,16 @@
         <% end %>
         <%= verified_count %> / <%= profile.company_profile.count %>
         </td>
+        <td>Pending</td>
+        <td><%= link_to "Edit", edit_profile_path(profile) %></td>
       <% end %>
       <br>
     </tr>
     <% end %>
+
   <% else %>
     <p>No profiles yet.</p>
   <% end %>
+
   <br>
 </table>
