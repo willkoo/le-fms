@@ -30,16 +30,3 @@
   <ul>
     <li>Legal Disputes: <%= @company_profile.legal_disputes%></li>
   </ul>
-
-<h4>Licences Acquired in Le-FMS</h4>
-  <ul>
-    <% if @company_profile.licences.any? %>
-      <% @company_profile.licences.each do |licence| %>
-        <% if licence.franchise.partners.any? %>
-          <li><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %>, currently in <%= link_to "#{licence.franchise.partners.first.operational_status}", partners_path %></li>
-        <% else %>
-          <li><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %>, yet to be approved.</li>
-        <% end %>
-      <% end %>
-    <% end %>
-  </ul>
