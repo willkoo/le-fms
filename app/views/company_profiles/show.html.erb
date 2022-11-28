@@ -1,4 +1,3 @@
-<body>
     <div class="container">
         <div class="row justify-content-between">
             <div class="col-md-4 col-lg-1 col-xxl-4">
@@ -153,26 +152,3 @@
             </div>
         </div>
     </div>
-</body>
-
-<div class="container">
-
-    <br>
-    Name: <%= @company_profile.name %><br>
-    UEN: <%= @company_profile.uen %><br>
-    Address: <%= @company_profile.address %><br>
-    Owned by: <%= @company_profile.profile.first_name %><br>
-    URL: <%= @company_profile.url %><br>
-    Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
-    Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
-    Legal Disputes: <%= @company_profile.legal_disputes%><br>
-    Status: <%= @company_profile.status %><br>
-    <br>
-    <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-red" %>
-    <br>
-
-     <p>CompanyProfiles#show<p>
-</div>
-
-
-<%= link_to 'Edit', edit_company_profile_path(@company_profile) %>
