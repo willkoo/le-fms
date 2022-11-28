@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :licences do
+    get "quiz/:quiz_id", to: 'quizzes#do_something', as: :licence_quiz
     resources :licence_comments, only: [:index, :show, :new, :create]
   end
 
