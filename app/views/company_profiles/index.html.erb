@@ -4,7 +4,7 @@
 <% if @company_profiles.any? %>
   <% @company_profiles.each do |company_profile| %>
     <%= company_profile.id %>.
-    Company Name: <%= company_profile.name %>,
+    Company Name: <%= company_profile.name %>
     <%= link_to "View", company_profile_path(company_profile) %><br>
   <% end %>
 <% else %>

@@ -1,14 +1,196 @@
-<h1>CompanyProfiles#show</h1>
-<br>
-Name: <%= @company_profile.name %><br>
-UEN: <%= @company_profile.uen %><br>
-Address: <%= @company_profile.address %><br>
-Owned by: <%= @company_profile.profile.first_name %><br>
-URL: <%= @company_profile.url %><br>
-Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
-Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
-Legal Disputes: <%= @company_profile.legal_disputes%><br>
-Status: <%= @company_profile.status %><br>
-<br>
-<%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-red" %>
-<br>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-lg-1 col-xxl-1"><div><i class="fa-solid fa-circle-left"></i></div></div>
+            <div class="col-md-4 col-lg-4 col-xxl-5">
+                <h2 style="text-align: left;width: 295px;margin-left: 2px;margin-right: 0px;margin-top: 19px;margin-bottom: 15px;">Ruby Holdings Ltd</h2>
+            </div>
+            <div class="col-xxl-1"></div>
+            <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;">Approved</button></div>
+            <div class="col"><button class="btn btn-primary" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;">Comment</button></div>
+            <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;">Reject</button></div>
+        </div>
+    </div>
+    <div class="container" style="height: 1006px;">
+        <div class="row" style="height: 1040px;">
+            <div class="col-md-6 col-xxl-6 d-flex d-xxl-flex" style="height: 1008px;margin-top: 18px;">
+                <div class="card" style="height: 932.992px;width: 624px;border-radius: 20px;box-shadow: 0px 0px 3px;">
+                    <div class="card-body" style="height: 657.984px;">
+                        <div class="row">
+                            <div class="col d-xxl-flex justify-content-xxl-center" style="height: 190px;padding-top: 3px;padding-bottom: 0px;"></div>
+                            <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;"></div>
+                            <div class="col"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h1 style="text-align: center;font-weight: bold;font-size: 35px;">RUBIIFY</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h1 style="text-align: center;font-size: 25px;">Verification Status: Pending</h1>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Founder:</p>
+                            </div>
+                            <div class="col">
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">Willie Koo</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Website:</p>
+                            </div>
+                            <div class="col">
+                                <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">www.williekoo.com</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">UEN Number:</p>
+                            </div>
+                            <div class="col">
+                                <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">12345678abc</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Based in:</p>
+                            </div>
+                            <div class="col">
+                                <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">Singapore</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Address:</p>
+                            </div>
+                            <div class="col">
+                                <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
+                                <p style="font-size: 20px;text-align: center;margin-top: 15px;">35 somestreet road&nbsp;</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-xxl-6" style="padding-top: 15px;padding-bottom: 22px;height: 1027px;">
+                <h1 style="font-size: 30px;">Finances</h1>
+                <div class="row" style="height: 144.7969px;margin-top: 30px;">
+                    <div class="col">
+                        <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
+                            <div class="card-body" style="padding-top: 35px;padding-bottom: 35px;">
+                                <h4 class="card-title" style="text-align: center;font-weight: bold;">Paid Up Capital</h4>
+                                <p class="card-text" style="text-align: center;">$1000000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
+                            <div class="card-body" style="height: 130px;padding-top: 35px;padding-bottom: 35px;">
+                                <h4 class="card-title" style="text-align: center;font-weight: bold;">2021 WY Revenue</h4>
+                                <p class="card-text" style="text-align: center;">$2000000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col" style="margin-top: 20px;height: 140px;">
+                        <div class="card" style="height: 130px;box-shadow: 0px 0px 3px;border-radius: 20px;">
+                            <div class="card-body" style="border-radius: 0px;padding-top: 35px;padding-bottom: 35px;">
+                                <h4 class="card-title" style="text-align: center;font-weight: bold;">Finances</h4>
+                                <p class="card-text" style="font-size: 16px;text-align: center;">$1000000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-top: 20px;">
+                        <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
+                            <div class="card-body" style="height: 130px;padding-top: 35px;padding-bottom: 35px;">
+                                <h4 class="card-title" style="text-align: center;font-weight: bold;">Finances</h4>
+                                <p class="card-text" style="text-align: center;">$1000000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 style="font-size: 30px;margin-top: 35px;margin-bottom: 15px;">Documents</h1>
+                <div class="row">
+                    <div class="col">
+                        <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-xxl-6">
+                                        <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Acra registration:&nbsp;</h4>
+                                    </div>
+                                    <div class="col-xxl-2"></div>
+                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-6">
+                                        <h4 style="font-size: 20px;text-align: left;margin-top: 23px;">Document 2:&nbsp;</h4>
+                                    </div>
+                                    <div class="col-xxl-2"></div>
+                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xxl-6">
+                                        <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Document 3:</h4>
+                                    </div>
+                                    <div class="col-xxl-2"></div>
+                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h1 style="font-size: 30px;margin-top: 30px;margin-bottom: 13px;">Legal</h1>
+                <div class="row" style="margin-top: 30px;">
+                    <div class="col" style="margin-top: 0px;">
+                        <div class="card" style="box-shadow: 0px 0px 3px;border-radius: 20px;height: 181.992px;">
+                            <div class="card-body" style="margin-top: 0px;">
+                                <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/js/bs-init.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/js/Bootstrap-DataTables.js"></script>
+    <script src="/assets/js/Return-to-Top-Arrow.js"></script>
+    <script src="/assets/js/Table-With-Search.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script id="bs-live-reload" data-sseport="49828" data-lastchange="1669613739834" src="/js/livereload.js"></script>
+</body>
+
+<div class="container">
+
+    <br>
+    Name: <%= @company_profile.name %><br>
+    UEN: <%= @company_profile.uen %><br>
+    Address: <%= @company_profile.address %><br>
+    Owned by: <%= @company_profile.profile.first_name %><br>
+    URL: <%= @company_profile.url %><br>
+    Paid Up Capital: <%= @company_profile.paid_up_capital %><br>
+    Last FY Revenue: <%= @company_profile.last_fy_revenue %><br>
+    Legal Disputes: <%= @company_profile.legal_disputes%><br>
+    Status: <%= @company_profile.status %><br>
+    <br>
+    <%= link_to 'Edit', edit_company_profile_path(@company_profile), class: "btn btn-red" %>
+    <br>
+
+     <p>CompanyProfiles#show<p>
+</div>    
+
+
+<%= link_to 'Edit', edit_company_profile_path(@company_profile) %>
+
+
+<i class="fa-regular fa-download"></i>

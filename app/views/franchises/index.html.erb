@@ -4,7 +4,7 @@
   <% @franchises.each do |franchise| %>
     <%= franchise.id %>.
     <%= franchise.name %>,<br>
-    Founder: <%= franchise.user.profiles.first.first_name %><br>
+    Founder: <%= franchise.user.id.profiles.first.first_name %><br>
     Description: <%= franchise.description %>,<br>
     <%= franchise.url %><br>
     <%= link_to "View details", franchise_path(franchise) %><br><br>
