@@ -6,12 +6,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :profiles
+  resources :partners
 
   resources :company_profiles do
     resources :company_comments, only: [:index, :show, :new, :create]
   end
 
   resources :licences do
+    get "quiz/:quiz_id", to: 'quizzes#do_something', as: :licence_quiz
     resources :licence_comments, only: [:index, :show, :new, :create]
   end
 

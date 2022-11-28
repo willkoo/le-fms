@@ -6,5 +6,5 @@ class CompanyProfile < ApplicationRecord
   has_one_attached :pdf3
 
   validates :name, :uen, :address, :status, :url, :paid_up_capital, :last_fy_revenue, :legal_disputes, presence: true
-  validates :status, inclusion: { in: %w[pending accepted rejected] }
+  validates :status, inclusion: { in: %w[pending verified] }
 end

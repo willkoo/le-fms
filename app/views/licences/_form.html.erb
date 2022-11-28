@@ -1,0 +1,7 @@
+<%= simple_form_for licence do |f| %>
+  <%= f.input :company_profile, :collection => CompanyProfile.all.each { |company| company.id} %>
+  <%= f.input :franchise, :collection => Franchise.all.each { |franchise| franchise.id} %>
+  <%= f.input :proposed_location %>
+  <%= f.input :proposal, as: :file %>
+  <%= f.submit %>
+<% end %>

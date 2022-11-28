@@ -1,0 +1,26 @@
+<%= link_to "Create", new_company_profile_path %>
+<table>
+    <tr>
+      <th>S/N</th>
+      <th>Company</th>
+      <th>Last Edited</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+    <% if @company_profiles.any? %>
+      <% @company_profiles.each do |company_profile| %>
+        <tr>
+          <% if company_profile.profile.user == current_user %>
+            <td><%= company_profile.id %>.</td>
+            <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile) %></td>
+            <td><%= company_profile.updated_at %></td>
+            <td><%= company_profile.status %></td>
+            <td><%=  %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      <% else %>
+        <p>No company profiles uploaded yet.</p>
+      <% end %>
+    <br>
+  </table>

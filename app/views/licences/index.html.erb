@@ -1,0 +1,7 @@
+<% if current_user.id == 1 %>
+  <h1>Manage Licences</h1><br>
+  <%= render "owner_index", licences: @licences %>
+<% else %>
+  <h1>My Licences</h1>
+  <%= render "applicant_index", licences: @licences %>
+<% end %>

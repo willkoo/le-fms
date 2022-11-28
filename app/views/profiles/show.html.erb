@@ -56,12 +56,21 @@
     </div>
 </div>
 
+<h1><%= @profile.first_name %> <%= @profile.last_name %></h1>
+<%= link_to "Back", :back %><br>
 
-<p>profiles#show</p>
-Name: <%= @profile.first_name %>
-<%= @profile.last_name %><br>
-Contact Number: <%= @profile.contact_number %><br>
-Description: <%= @profile.description %><br>
-Based in: <%= @profile.country %>
-<br>
-<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-red" %>
+<h4>Profile</h4><br>
+<ul>
+  <li>Profile Pic: <"Require Willie's input"></li>
+  <li>Description: <%= @profile.description %></li>
+  <li>Based in: <%= @profile.country %></li>
+  <li>Contact Number: <%= @profile.contact_number %></li>
+</ul>
+
+<% if @profile.user.id == 1 %>
+  <%= render "owner", profile: @profile %><br>
+<% else %>
+  <%= render "applicants", profile: @profile %><br>
+<% end %>
+
+<%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary" %>
