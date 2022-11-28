@@ -8,19 +8,15 @@
 
 puts "cleaning database"
 CompanyProfile.destroy_all
-Profile.destroy_all
 Franchise.destroy_all
 Profile.destroy_all
 User.destroy_all
-Franchise.destroy_all
-Profile.destroy_all
-CompanyProfile.destroy_all
 Licence.destroy_all
-Partner.destroy_all
 Quiz.destroy_all
 QuizQuestion.destroy_all
 QuizAnswer.destroy_all
 QuizAttempt.destroy_all
+QuizOption.destroy_all
 
 puts "Creating users..."
 User.create(email: "admin@gmail.com", password: "password", admin: true)
@@ -30,6 +26,7 @@ User.create(email: "user2@gmail.com", password: "password")
 puts "Creating franchises..."
 
 Franchise.create(name: "Starbucks", user_id: "1", description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
+Franchise.create(name: "KFC", user_id: "2", description: "Finger Lickin Good.")
 
 puts "Creating (user) profiles..."
 Profile.create(user_id: "1", first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "This is owner's account with one assigned franchise.", country: "Singapore")
@@ -45,20 +42,29 @@ puts "Creating licenses..."
 Licence.create(company_profile_id: "1", franchise_id: "1", proposed_location: "20 Collyer Quay", licence_status: "pending")
 Licence.create(company_profile_id: "2", franchise_id: "1", proposed_location: "123 Clayton Street", licence_status: "pending")
 
-# puts "Creating quizzes..."
-# Quiz.create(quiz_name: "First_quiz", franchise_id: "1")
+puts "Creating quizzes..."
+Quiz.create(quiz_name: "First_quiz", franchise_id: "1", video_url: "www.google.com", video_completed: false)
+Quiz.create(quiz_name: "Second_quiz", franchise_id: "2", video_url: "www.amazon.com", video_completed: false)
 
-# puts "Creating quiz 3 questions for first quiz..."
-# QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?", correct_option: "With blood, sweat, tears and love. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
-# QuizQuestion.create(quiz_id: "1", question: "How to make good tea?", correct_option: "With tender loving care. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
-# QuizQuestion.create(quiz_id: "1", question: "How to make good sandwich?", correct_option: "Yum Yum. :)", wrong_option_one: "blah blah blah", wrong_option_two: "wrong lahhhhhh", wrong_option_three: "aiyoooooooo")
+puts "Creating quiz 3 questions for first quiz..."
+QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?")
+QuizQuestion.create(quiz_id: "1", question: "How to make good tea?")
+QuizQuestion.create(quiz_id: "1", question: "How to make good sandwich?")
 
-# puts "Creating quiz attempts"
-# QuizAttempt.create(quiz_score: 0, quiz_status: "pending", partner_id: "1")
+puts "Creating quiz options"
+QuizOption.create(content: "first_option", quiz_question_id: 1, correct_answer: false)
+QuizOption.create(content: "second_option", quiz_question_id: 1, correct_answer: true)
+QuizOption.create(content: "third_option", quiz_question_id: 1, correct_answer: false)
+QuizOption.create(content: "abc", quiz_question_id: 2, correct_answer: false)
+QuizOption.create(content: "xyz", quiz_question_id: 2, correct_answer: true)
 
-# puts "Creating quiz answers"
-# QuizAnswer.create(quiz_question_id: "1", quiz_attempt_id: "1", answer: "blah blah blah")
-# QuizAnswer.create(quiz_question_id: "2", quiz_attempt_id: "1", answer: "wrong lahhhhhh")
-# QuizAnswer.create(quiz_question_id: "3", quiz_attempt_id: "1", answer: "Yum Yum. :)")
+puts "Creating quiz attempts"
+QuizAttempt.create(licence_id: 1, quiz_id: 1, passed: false)
+QuizAttempt.create(licence_id: 1, quiz_id: 2, passed: false)
+
+puts "Creating quiz answers"
+QuizAnswer.create(quiz_question_id: "1", quiz_attempt_id: "1", quiz_option_id: 1)
+QuizAnswer.create(quiz_question_id: "2", quiz_attempt_id: "1", quiz_option_id: 2)
+QuizAnswer.create(quiz_question_id: "3", quiz_attempt_id: "1", quiz_option_id: 3)
 
 puts "Finish Seeding!"
