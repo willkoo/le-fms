@@ -7,6 +7,7 @@
     <%= franchise.name %>,<br>
     Founder: <%= franchise.user.profiles.first.first_name %><br>
     Description: <%= franchise.description %>,<br>
+    <%= link_to "Quizzes", quizzes_path(franchise.quizzes) %>
     <%= link_to "View details", franchise_path(franchise) %><br><br>
   <% end %>
 <% else %>

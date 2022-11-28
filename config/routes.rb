@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get 'quizzes/index'
-  get 'quizzes/show'
-  get 'quizzes/create'
-  get 'quizzes/new'
+  # get 'quizzes/index'
+  # get 'quizzes/show'
+  # get 'quizzes/create'
+  # get 'quizzes/new'
   devise_for :users
   root to: "profiles#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -22,8 +22,10 @@ Rails.application.routes.draw do
   end
 
   resources :franchises do
-    resources :quizzes, only: [:index, :show, :new, :create]
+    resources :quizzes, only: %i[index new create]
   end
+
+  resources :quizzes, only: %i[index show]
 
   resources :quiz_questions, only: [:new, :create, :index, :show]
   resources :quiz_answers, only: [:new, :create, :index, :show]
