@@ -43,20 +43,24 @@ Licence.create(company_profile_id: "1", franchise_id: "1", proposed_location: "2
 Licence.create(company_profile_id: "2", franchise_id: "1", proposed_location: "123 Clayton Street", licence_status: "pending")
 
 puts "Creating quizzes..."
-Quiz.create(quiz_name: "First_quiz", franchise_id: "1", video_url: "www.google.com", video_completed: false)
-Quiz.create(quiz_name: "Second_quiz", franchise_id: "2", video_url: "www.amazon.com", video_completed: false)
+Quiz.create(quiz_name: "quiz_starbucks", franchise_id: "1", video_url: "www.starbucks.com", video_completed: false)
+Quiz.create(quiz_name: "quiz_kfc", franchise_id: "2", video_url: "www.kfc.com", video_completed: false)
 
 puts "Creating quiz 3 questions for first quiz..."
 QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?")
 QuizQuestion.create(quiz_id: "1", question: "How to make good tea?")
-QuizQuestion.create(quiz_id: "1", question: "How to make good sandwich?")
+QuizQuestion.create(quiz_id: "1", question: "How to make roast coffee beans?")
+QuizQuestion.create(quiz_id: "2", question: "How to fry chicken?")
+QuizQuestion.create(quiz_id: "2", question: "Fry chicken for how long?")
+QuizQuestion.create(quiz_id: "2", question: "How to make popcorn chicken?")
 
 puts "Creating quiz options"
 QuizOption.create(content: "first_option", quiz_question_id: 1, correct_answer: false)
 QuizOption.create(content: "second_option", quiz_question_id: 1, correct_answer: true)
 QuizOption.create(content: "third_option", quiz_question_id: 1, correct_answer: false)
-QuizOption.create(content: "abc", quiz_question_id: 2, correct_answer: false)
-QuizOption.create(content: "xyz", quiz_question_id: 2, correct_answer: true)
+QuizOption.create(content: "first_option", quiz_question_id: 2, correct_answer: false)
+QuizOption.create(content: "second_option", quiz_question_id: 2, correct_answer: true)
+QuizOption.create(content: "third_option", quiz_question_id: 2, correct_answer: false)
 
 puts "Creating quiz attempts"
 QuizAttempt.create(licence_id: 1, quiz_id: 1, passed: false)

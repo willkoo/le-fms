@@ -1,10 +1,10 @@
-<h1>Manage All Quizzes</h1><br>
+<h1>Manage Partner Training</h1><br>
 <ul>
   <% @quizzes.each do |quiz| %>
     <li><%= quiz.id %></li>
     <li><%= link_to "#{quiz.quiz_name}", quiz_path(quiz) %></li>
     <li><%= quiz.franchise.name %></li>
-    <li><%= quiz.video_url %></li>
-    <li><%= quiz.video_completed %></li><br>
+    <li>Video Link: <%= quiz.video_url %></li>
+    <li>Video Watched? <%= quiz.video_completed %></li><br>
   <% end %>
 </ul>
