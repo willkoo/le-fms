@@ -28,8 +28,13 @@ class CompanyProfilesController < ApplicationController
   end
 
   def update
-    @company_profile.update(company_profile_params)
-    redirect_to company_profile_path(@company_profile)
+    company_profile = CompanyProfile.find(params[:id])
+    # company_profile.update(company_profile_params)
+    # raise
+    if company_profile.update!(company_profile_params)
+      # raise
+      redirect_to company_profile_path(company_profile)
+    end
   end
 
   private

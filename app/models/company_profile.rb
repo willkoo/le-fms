@@ -10,7 +10,7 @@ class CompanyProfile < ApplicationRecord
   has_one_attached :relevant_licences
 
   validates :name, :uen, :address, :status, :url, :paid_up_capital, :last_fy_revenue, :legal_disputes, presence: true
-  validates :status, inclusion: { in: %w[pending verified] }
+  validates :status, inclusion: { in: %w[pending Verified Rejected] }
 
   def approved_licences
     licences.where(licence_status: 'approve')
