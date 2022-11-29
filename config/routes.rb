@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  # get 'quizzes/index'
-  # get 'quizzes/show'
-  # get 'quizzes/create'
-  # get 'quizzes/new'
   devise_for :users
   root to: "profiles#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

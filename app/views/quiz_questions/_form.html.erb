@@ -1,0 +1,6 @@
+<%= simple_form_for [@quiz, @question] do |f| %>
+  <%= f.input :question %>
+  <%= f.hidden_field :quiz_id, :value => @quiz %>
+
+  <%= f.submit %>
+<% end %>
