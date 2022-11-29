@@ -39,12 +39,12 @@ CompanyProfile.create(name: "2sky", uen: "200122325B", address: "2sky towers", p
 CompanyProfile.create(name: "2net", uen: "200122325B", address: "2net towers", profile_id: "3", url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
 
 puts "Creating licenses..."
-Licence.create(company_profile_id: "1", franchise_id: "1", proposed_location: "20 Collyer Quay", licence_status: "pending")
-Licence.create(company_profile_id: "2", franchise_id: "1", proposed_location: "123 Clayton Street", licence_status: "pending")
+Licence.create(company_profile_id: "1", franchise_id: 1, proposed_location: "20 Collyer Quay", licence_status: "pending")
+Licence.create(company_profile_id: "2", franchise_id: 1, proposed_location: "123 Clayton Street", licence_status: "pending")
 
 puts "Creating quizzes..."
-Quiz.create(quiz_name: "quiz_starbucks", franchise_id: "1", video_url: "www.starbucks.com", video_completed: false)
-Quiz.create(quiz_name: "quiz_kfc", franchise_id: "2", video_url: "www.kfc.com", video_completed: false)
+Quiz.create(quiz_name: "quiz_starbucks", franchise_id: 1, video_url: "www.starbucks.com", video_completed: false)
+Quiz.create(quiz_name: "quiz_kfc", franchise_id: 2, video_url: "www.kfc.com", video_completed: false)
 
 puts "Creating quiz 3 questions for first quiz..."
 QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?")

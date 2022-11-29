@@ -22,12 +22,13 @@ Rails.application.routes.draw do
   end
 
   resources :franchises do
-    resources :quizzes, only: %i[index new create]
+    resources :quizzes, only: %i[index show]
   end
 
-  resources :quizzes, only: %i[index show]
+  resources :quizzes, only: %i[index new create] do
+    resources :quiz_questions, only: [:new, :create, :index]
+  end
 
-  resources :quiz_questions, only: [:new, :create, :index, :show]
   resources :quiz_answers, only: [:new, :create, :index, :show]
   resources :quiz_options, only: [:new, :create, :index, :show]
 end

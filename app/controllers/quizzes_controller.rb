@@ -12,13 +12,11 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    franchise = Franchise.find(params[:quiz][:franchise])
-    quiz = Quiz.new(quiz_params)
-    quiz.franchise = franchise
-    quiz.video_completed = false
+    @quiz = Quiz.new(quiz_params)
+    @quiz.video_completed = false
 
-    if quiz.save
-      redirect_to_quizzes_index_path
+    if @quiz.save
+      redirect_to quizzes_path
     else
       render :new, status: :unprocessable_entity
     end

@@ -1,7 +1,7 @@
 <h1><%= @quiz.quiz_name %></h1><br>
-<%= link_to "back", :back %>
+<%= link_to "Back", :back %><br>
 <ul>
   <li>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path %></li>
-  <li>Watch video: <%= @quiz.video_url %></li>
-  <li>Video watched? <%= @quiz.video_completed %></li>
+  <li>Video Link: <%= @quiz.video_url %></li>
+  <%= link_to "Quiz Questions", quiz_quiz_questions_path(@quiz) %>
 </ul>
