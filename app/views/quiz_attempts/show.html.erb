@@ -1,2 +1,11 @@
 <h1>QuizAttempts#show</h1>
-<p>Find me in app/views/quiz_attempts/show.html.erb</p>
+
+<% @attempt.quiz.quiz_questions.each do |question| %>
+  <div>
+    <%= simple_form_for([@attempt, QuizAnswer.new]) do |f| %>
+      <%= f.input :quiz_question, label: question.question, input_html: { value: question.id, disabled: true, hidden: true } %>
+      <%= f.input :quiz_option, collection: question.quiz_options, as: :radio_buttons, label_method: :content %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+<% end %>
