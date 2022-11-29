@@ -25,7 +25,10 @@ Rails.application.routes.draw do
     resources :quiz_questions, only: [:new, :create, :index]
   end
 
-  resources :quiz_attempts, only: [:index, :show, :new, :create]
-  resources :quiz_answers, only: [:new, :create, :index, :show]
+  resources :quiz_attempts, only: [:index, :show, :new, :create] do
+    resources :quiz_answers, only: %i[new create]
+  end
+
+  resources :quiz_answers, only: [:index, :show]
   resources :quiz_options, only: [:new, :create, :index, :show]
 end
