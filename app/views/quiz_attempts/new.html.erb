@@ -1,1 +1,7 @@
 <h1>Create new Attempt</h1>
+<hr>
+<%= simple_form_for [@quiz_attempt] do |f| %>
+  <%= f.hidden_field :quiz_id, :value => @quiz.id %>
+  <%= f.hidden_field :passed, :value => false %>
+  <%= f.submit %>
+<% end %>

@@ -1,2 +1,10 @@
 <h1>QuizAnswers#new</h1>
-<p>Find me in app/views/quiz_answers/new.html.erb</p>
+<hr>
+<%= simple_form_for [@quiz_answer] do |f| %>
+  <%= f.input :quiz_name %>
+  <%= f.input :franchise_id, :collection => Franchise.all.each { |franchise| franchise.id} %>
+  <%= f.input :video_url %>
+  <%= f.hidden_field :video_completed, :value => false %>
+
+  <%= f.submit %>
+<% end %>

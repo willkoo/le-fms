@@ -10,11 +10,12 @@ Rails.application.routes.draw do
   resources :trainings, only: %i[index show]
 
   resources :company_profiles do
-    resources :company_comments, only: [:index, :show, :new, :create]
+    resources :company_comments, only: %i[index show new create]
   end
 
   resources :licences do
-    resources :licence_comments, only: [:index, :show, :new, :create]
+    resources :licence_comments, only: %i[index show new create]
+    resources :quiz_attempts, only: %i[new create]
   end
 
   resources :franchises do
@@ -22,13 +23,13 @@ Rails.application.routes.draw do
   end
 
   resources :quizzes, only: %i[index new create] do
-    resources :quiz_questions, only: [:new, :create, :index]
+    resources :quiz_questions, only: %i[new create index]
   end
 
-  resources :quiz_attempts, only: [:index, :show, :new, :create] do
+  resources :quiz_attempts, only: %i[index show] do
     resources :quiz_answers, only: %i[new create]
   end
 
-  resources :quiz_answers, only: [:index, :show]
-  resources :quiz_options, only: [:new, :create, :index, :show]
+  resources :quiz_answers, only: %i[index show]
+  resources :quiz_options, only: %i[new create index show]
 end

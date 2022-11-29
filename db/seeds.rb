@@ -106,12 +106,4 @@ QuizOption.create!(content: "325 degree Fahrenheit", quiz_question_id: 11, corre
 QuizOption.create!(content: "300 degree Fahrenheit", quiz_question_id: 11, correct_answer: false)
 QuizOption.create!(content: "350 degree Fahrenheit", quiz_question_id: 11, correct_answer: false)
 
-puts "Creating quiz attempts"
-QuizAttempt.create!(licence_id: 1, quiz: coffee_quiz, passed: false)
-
-puts "Creating quiz answers"
-QuizAnswer.create!(quiz_question_id: "1", quiz_attempt_id: "1", quiz_option_id: 1)
-QuizAnswer.create!(quiz_question_id: "2", quiz_attempt_id: "1", quiz_option_id: 2)
-QuizAnswer.create!(quiz_question_id: "3", quiz_attempt_id: "1", quiz_option_id: 3)
-
 puts "Finish Seeding!"

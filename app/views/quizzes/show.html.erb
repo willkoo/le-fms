@@ -3,7 +3,7 @@
 <ul>
   <li>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path %></li>
   <li>Video Link: <%= @quiz.video_url %></li>
-  <%= link_to "Attempt Quiz", quiz_attempt_path(@quiz) %>
+  <%= link_to "Attempt Quiz", new_licence_quiz_attempt_path(@quiz.id) %>
 </ul>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2uY8yMYfJ8c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

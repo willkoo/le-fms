@@ -1,24 +1,25 @@
 class QuizAttemptsController < ApplicationController
-  before_action :find_attempt, only: [:show]
+  before_action :find_attempt, only: %i[show]
 
   def index
-    @attempts = QuizAttempt.all
+    @quiz_attempts = QuizAttempt.all
   end
 
   def show
-    @answer = QuizAnswer.new
-    @answer.quiz_attempt = @attempt
+    @quiz_answer = QuizAnswer.new
+    @quiz_answer.quiz_attempt = @attempt
   end
 
   def new
-    @attempt = QuizAttempt.new
+    @quiz = Quiz.find(params[:id])
+    @quiz_attempt = QuizAttempt.new
   end
 
   def create
-    @attempt = QuizAttempt.new(attempt_params)
-    @attempt.passed = false
+    @quiz_attempt = QuizAttempt.new(attempt_params)
+    @quiz_attempt.passed = false
 
-    if @attempt.save
+    if @quiz_attempt.save
       redirect_to quiz_attempts_path
     else
       render :new, status: :unprocessable_entity
@@ -32,6 +33,6 @@ class QuizAttemptsController < ApplicationController
   end
 
   def find_attempt
-    @attempt = QuizAttempt.find(params[:id])
+    @quiz_attempt = QuizAttempt.find(params[:id])
   end
 end
