@@ -3,9 +3,8 @@
     <th>S/N</th>
     <th>Request From</th>
     <th>Franchise</th>
-    <th>See More</th>
+    <th>See Details</th>
     <th>Status</th>
-    <th>Comments</th>
   </tr>
   <% if @licences != [] %>
   <% count = 0 %>
@@ -17,12 +16,6 @@
         <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %></td>
         <td><%= link_to "view", licence_path(licence) %></td>
         <td><%= licence.licence_status %></td>
-        <td>
-        <% if licence.licence_status == "pending" %>
-          <%= link_to "Decide", edit_licence_path(licence) %>
-        <% elsif licence.licence_status == "approve" %>
-          <%= link_to "Delete", "#" %>
-        <% end %>
       <% end %>
   <% else %>
     <tr>
