@@ -39,38 +39,75 @@ company_2 = CompanyProfile.create!(name: "company_2", uen: "200122325B", address
 company_3 = CompanyProfile.create!(name: "company_3", uen: "200122325B", address: "2net towers", profile_id: "3", url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
 
 puts "Creating licenses..."
-Licence.create!(company_profile: company_1, franchise: starbucks, proposed_location: "20 Collyer Quay", licence_status: "pending")
+Licence.create!(company_profile: company_1, franchise: starbucks, proposed_location: "20 Collyer Quay", licence_status: "approved")
 Licence.create!(company_profile: company_1, franchise: kfc, proposed_location: "912 Baker Street", licence_status: "pending")
 Licence.create!(company_profile: company_2, franchise: starbucks, proposed_location: "123 Clayton Street", licence_status: "pending")
 Licence.create!(company_profile: company_2, franchise: kfc, proposed_location: "42 Margaret Drive", licence_status: "pending")
 
 puts "Creating quizzes..."
 coffee_quiz = Quiz.create!(quiz_name: "coffee_quiz", franchise: starbucks, video_url: "www.coffee.com", video_completed: false)
-tea_quiz = Quiz.create!(quiz_name: "tea_quiz", franchise: starbucks, video_url: "www.tea.com", video_completed: false)
-cake_quiz = Quiz.create!(quiz_name: "cake_quiz", franchise: starbucks, video_url: "www.cake.com", video_completed: false)
+coldbrew_quiz = Quiz.create!(quiz_name: "coldbrew_quiz", franchise: starbucks, video_url: "www.coldbrewcoffee.com", video_completed: false)
+
 chicken_quiz = Quiz.create!(quiz_name: "chicken_quiz", franchise: kfc, video_url: "www.chicken.com", video_completed: false)
-drumlet_quiz = Quiz.create!(quiz_name: "drumlet_quiz", franchise: kfc, video_url: "www.drumlet.com", video_completed: false)
-wings_quiz = Quiz.create!(quiz_name: "wings_quiz", franchise: kfc, video_url: "www.wings.com", video_completed: false)
 
-puts "Creating quiz 3 questions for first two quiz..."
-QuizQuestion.create!(quiz: coffee_quiz, question: "How to make good coffee?")
-QuizQuestion.create!(quiz: coffee_quiz, question: "How to make good tea?")
-QuizQuestion.create!(quiz: coffee_quiz, question: "How to make roast coffee beans?")
-QuizQuestion.create!(quiz: tea_quiz, question: "How to fry chicken?")
-QuizQuestion.create!(quiz: tea_quiz, question: "Fry chicken for how long?")
-QuizQuestion.create!(quiz: tea_quiz, question: "How to make popcorn chicken?")
+puts "Creating questions for coffee_quiz..."
+QuizQuestion.create!(quiz: coffee_quiz, question: "How many milliliters in one shot of espresso?")
+QuizQuestion.create!(quiz: coffee_quiz, question: "How many grams of coffee in one shot of espresso?")
+QuizQuestion.create!(quiz: coffee_quiz, question: "What is the serving size of a Grande?")
+QuizQuestion.create!(quiz: coffee_quiz, question: "What is the serving size of a hot Venti?")
 
-puts "Creating quiz options"
-QuizOption.create!(content: "first_option", quiz_question_id: 1, correct_answer: false)
-QuizOption.create!(content: "second_option", quiz_question_id: 1, correct_answer: true)
-QuizOption.create!(content: "third_option", quiz_question_id: 1, correct_answer: false)
-QuizOption.create!(content: "first_option", quiz_question_id: 2, correct_answer: false)
-QuizOption.create!(content: "second_option", quiz_question_id: 2, correct_answer: true)
-QuizOption.create!(content: "third_option", quiz_question_id: 2, correct_answer: false)
+puts "Creating quiz options for coffee_quiz"
+QuizOption.create!(content: "25ml - 30ml", quiz_question_id: 1, correct_answer: true)
+QuizOption.create!(content: "40ml - 45ml", quiz_question_id: 1, correct_answer: false)
+QuizOption.create!(content: "45ml - 50ml", quiz_question_id: 1, correct_answer: false)
+QuizOption.create!(content: "7g - 9g", quiz_question_id: 2, correct_answer: true)
+QuizOption.create!(content: "5g - 7g", quiz_question_id: 2, correct_answer: false)
+QuizOption.create!(content: "10g - 12g", quiz_question_id: 2, correct_answer: false)
+QuizOption.create!(content: "16 fl. oz.", quiz_question_id: 3, correct_answer: true)
+QuizOption.create!(content: "12 fl. oz.", quiz_question_id: 3, correct_answer: false)
+QuizOption.create!(content: "10 fl. oz.", quiz_question_id: 3, correct_answer: false)
+QuizOption.create!(content: "20 fl. oz.", quiz_question_id: 4, correct_answer: true)
+QuizOption.create!(content: "22 fl. oz.", quiz_question_id: 4, correct_answer: false)
+QuizOption.create!(content: "24 fl. oz.", quiz_question_id: 4, correct_answer: false)
+
+puts "Creating questions for coldbrew_quiz..."
+QuizQuestion.create!(quiz: coldbrew_quiz, question: "What is Cold Brew infused with?")
+QuizQuestion.create!(quiz: coldbrew_quiz, question: "How long should the Cold Brew be steeped for?")
+QuizQuestion.create!(quiz: coldbrew_quiz, question: "What is the serving size of a Grande?")
+QuizQuestion.create!(quiz: coldbrew_quiz, question: "What is the serving size of a cold Venti?")
+
+puts "Creating quiz options for coldbrew_quiz"
+QuizOption.create!(content: "nitrogen", quiz_question_id: 5, correct_answer: true)
+QuizOption.create!(content: "carbon dioxide", quiz_question_id: 5, correct_answer: false)
+QuizOption.create!(content: "oxygen", quiz_question_id: 5, correct_answer: false)
+QuizOption.create!(content: "20 hours", quiz_question_id: 6, correct_answer: true)
+QuizOption.create!(content: "15 hours", quiz_question_id: 6, correct_answer: false)
+QuizOption.create!(content: "25 hours", quiz_question_id: 6, correct_answer: false)
+QuizOption.create!(content: "16 fl. oz.", quiz_question_id: 7, correct_answer: true)
+QuizOption.create!(content: "12 fl. oz.", quiz_question_id: 7, correct_answer: false)
+QuizOption.create!(content: "10 fl. oz.", quiz_question_id: 7, correct_answer: false)
+QuizOption.create!(content: "24 fl. oz.", quiz_question_id: 8, correct_answer: true)
+QuizOption.create!(content: "22 fl. oz.", quiz_question_id: 8, correct_answer: false)
+QuizOption.create!(content: "20 fl. oz.", quiz_question_id: 8, correct_answer: false)
+
+puts "Creating questions for chicken_quiz..."
+QuizQuestion.create!(quiz: chicken_quiz, question: "What oil is used to fry chickens?")
+QuizQuestion.create!(quiz: chicken_quiz, question: "How long should each batch of chickens be fried for?")
+QuizQuestion.create!(quiz: chicken_quiz, question: "What is the ideal oil temperature for frying chickens?")
+
+puts "Creating quiz options for chicken_quiz"
+QuizOption.create!(content: "Vegetable Oil", quiz_question_id: 9, correct_answer: true)
+QuizOption.create!(content: "Chicken Oil", quiz_question_id: 9, correct_answer: false)
+QuizOption.create!(content: "Corn Oil", quiz_question_id: 9, correct_answer: false)
+QuizOption.create!(content: "12 mins", quiz_question_id: 10, correct_answer: true)
+QuizOption.create!(content: "10 mins", quiz_question_id: 10, correct_answer: false)
+QuizOption.create!(content: "15 mins", quiz_question_id: 10, correct_answer: false)
+QuizOption.create!(content: "325 degree Fahrenheit", quiz_question_id: 11, correct_answer: true)
+QuizOption.create!(content: "300 degree Fahrenheit", quiz_question_id: 11, correct_answer: false)
+QuizOption.create!(content: "350 degree Fahrenheit", quiz_question_id: 11, correct_answer: false)
 
 puts "Creating quiz attempts"
 QuizAttempt.create!(licence_id: 1, quiz: coffee_quiz, passed: false)
-QuizAttempt.create!(licence_id: 1, quiz: tea_quiz, passed: false)
 
 puts "Creating quiz answers"
 QuizAnswer.create!(quiz_question_id: "1", quiz_attempt_id: "1", quiz_option_id: 1)

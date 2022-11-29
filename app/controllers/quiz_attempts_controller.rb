@@ -6,7 +6,8 @@ class QuizAttemptsController < ApplicationController
   end
 
   def show
-
+    @answer = QuizAnswer.new
+    @answer.quiz_attempt = @attempt
   end
 
   def new
