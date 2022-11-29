@@ -6,14 +6,14 @@
       <th>Verified?</th>
       <th>Comments</th>
     </tr>
-    <% if current_user.company_profiles != [] %>
+    <% if @company_profiles.any? %>
       <% @company_profiles.each do |company_profile| %>
         <tr>
           <td><%= company_profile.id %>.</td>
           <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile) %></td>
           <td><%= link_to "#{company_profile.profile.first_name}", profile_path(company_profile) %></td>
           <td><%= company_profile.status %></td>
-          <td><%=  %></td>
+          <td><%= link_to "Comment", new_company_profile_company_comment_path(company_profile.id) %></td>
         </tr>
         <% end %>
       <% else %>

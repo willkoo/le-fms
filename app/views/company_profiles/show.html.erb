@@ -6,7 +6,8 @@
             <div class="col-md-4 col-lg-4 col-xxl-3"></div>
             <div class="col-xxl-1"></div>
             <% if @company_profile.status == "pending" && current_user.admin? %>
-              <%= link_to 'Change Status', edit_company_profile_path(@company_profile), {:style => "width: 150px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold; text-align: center; padding-top:10px;", :class => "btn btn-dark"}  %>
+              <%= render "company_profiles/approve", company_profile: @company_profile %>
+              <%= render "company_profiles/reject", company_profile: @company_profile %>
               <%# <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
               <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
               <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Reject</button></div> %>

@@ -9,13 +9,14 @@ class CompanyCommentsController < ApplicationController
   end
 
   def new
+    @company_profile = CompanyProfile.find(params[:company_profile_id])
     @company_comment = CompanyComment.new
   end
 
-  def edit
+  def create
   end
 
-  def create
+  def edit
   end
 
   def update
