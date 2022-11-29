@@ -1,4 +1,6 @@
-<%= link_to "Create", new_company_profile_path %>
+<% if current_user.company_profiles != [] %>
+  <%= link_to "Create", new_company_profile_path %>
+<% end %>
 <table class="table table-hover shadow p-3 mb-5 bg-white rounded">
     <tr>
       <th>S/N</th>
@@ -8,7 +10,10 @@
       <th>Actions</th>
     </tr>
     <% if @company_profiles.any? %>
-      <% count = 0 %>
+    <%# <% if #@company_profiles.any? %>
+    <% count = 0 %>
+    <% if current_user.company_profiles != [] %>
+     <% count = 0 %>
       <% @company_profiles.each do |company_profile| %>
         <tr>
           <% if company_profile.profile.user == current_user %>
@@ -22,7 +27,11 @@
         </tr>
         <% end %>
       <% else %>
-        <p>No company profiles uploaded yet.</p>
+        <tr>
+          <td colspan="5" style="text-align: center; font-size: 25px">
+          <p><strong>No company profiles uploaded yet, please <%= link_to "Create", new_company_profile_path %>.</strong></p>
+          </td>
+        </tr>
       <% end %>
     <br>
   </table>

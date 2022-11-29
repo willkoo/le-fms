@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :franchises
   has_many :profiles
+  has_many :company_profiles, through: :profiles
+  has_many :licences, through: :company_profiles
 end

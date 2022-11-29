@@ -1,4 +1,4 @@
-<% if current_user.id == 1 %>
+<% if current_user.admin? %>
   <h1>Review Companies</h1><br>
   <%= render "owner_index", company_profiles: @company_profiles %>
 <% else %>
