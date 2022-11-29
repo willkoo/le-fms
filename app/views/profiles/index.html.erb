@@ -1,5 +1,7 @@
 <h1>Manage Applicants</h1><br>
-<%= link_to "Create new Applicant", new_profile_path %>
+<% if current_user.profiles.any? %>
+  <%= link_to "Create new Applicant", new_profile_path %>
+<% end %>
 <br>
 
 <table class="table table-hover shadow p-3 mb-5 bg-white rounded">
@@ -12,7 +14,7 @@
   </tr>
 
   <% if current_user.admin? %>
-    <% if @profiles.any? %>
+    <% if current_user.profiles.any? %>
       <% @profiles.each do |profile| %>
       <tr>
         <% if profile.id != 1 %>
@@ -35,10 +37,14 @@
       <% end %>
 
     <% else %>
-      <p>No profiles yet.</p>
+      <tr>
+        <td colspan="5" style="text-align: center; font-size: 25px">
+        <p><strong>No profiles yet, please create a <%= link_to "profile", new_profile_path %>.</strong></p>
+        </td>
+      </tr>
     <% end %>
   <% else %>
-      <% if @profiles.any? %>
+      <% if current_user.profiles.any? %>
       <% current_user.profiles.each do |profile| %>
       <tr>
         <% if profile.id != 1 %>
@@ -61,7 +67,11 @@
       <% end %>
 
     <% else %>
-      <p>No profiles yet.</p>
+      <tr>
+        <td colspan="5" style="text-align: center; font-size: 25px">
+        <p><strong>No profiles yet, please create a <%= link_to "profile", new_profile_path %>.</strong></p>
+        </td>
+      </tr>
     <% end %>
   <% end %>
 

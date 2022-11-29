@@ -1,4 +1,4 @@
-<% if current_user.id == 1 %>
+<% if current_user.admin? %>
   <h1>Manage Licences</h1><br>
   <%= render "owner_index", licences: @licences %>
 <% else %>
