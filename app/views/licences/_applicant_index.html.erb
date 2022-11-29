@@ -1,4 +1,6 @@
-<%= link_to "Create Licence Test", new_licence_path %>
+<% if current_user.licences != [] %>
+  <%= link_to "Apply for a new licence", new_licence_path %>
+<% end %>
 <br>
 <table class="table table-hover shadow p-3 mb-5 bg-white rounded">
   <tr>
@@ -10,7 +12,7 @@
     <th>Status</th>
     <th>Action</th>
   </tr>
-  <% if @licences.any? %>
+  <% if current_user.licences != [] %>
     <% @licences.each do |licence| %>
       <tr>
         <% if licence.company_profile.profile.user == current_user %>
@@ -25,7 +27,11 @@
       </tr>
       <% end %>
     <% else %>
-      <p>No licences applied yet.</p>
+      <tr>
+        <td colspan="7" style="text-align: center; font-size: 25px">
+        <p><strong>No licences yet, please <%= link_to "Apply for a new licence", new_licence_path %></strong></p>
+        </td>
+      </tr>
     <% end %>
   <br>
 </table>

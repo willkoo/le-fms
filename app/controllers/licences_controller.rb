@@ -38,7 +38,7 @@ class LicencesController < ApplicationController
   private
 
   def licence_params
-    params.require(:licence).permit(:company_profile_id, :franchise_id, :licence_status, :proposed_location)
+    params.require(:licence).permit(:company_profile_id, :franchise_id, :licence_status, :proposed_location, :proposal)
   end
 
   def find_licences

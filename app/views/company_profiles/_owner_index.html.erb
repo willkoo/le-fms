@@ -6,7 +6,7 @@
       <th>Verified?</th>
       <th>Comments</th>
     </tr>
-    <% if @company_profiles.any? %>
+    <% if current_user.company_profiles != [] %>
       <% @company_profiles.each do |company_profile| %>
         <tr>
           <td><%= company_profile.id %>.</td>
@@ -17,7 +17,11 @@
         </tr>
         <% end %>
       <% else %>
-        <p>No company profiles yet.</p>
+        <tr>
+          <td colspan="5" style="text-align: center; font-size: 25px">
+          <p><strong>No company profiles yet.</strong></p>
+          </td>
+        </tr>
       <% end %>
     <br>
   </table>
