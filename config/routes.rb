@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :franchises do
-    resources :quizzes, only: %i[index show]
+    resources :quizzes, only: %i[show]
   end
 
   resources :quizzes, only: %i[index new create] do
