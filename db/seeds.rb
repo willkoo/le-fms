@@ -34,29 +34,39 @@ Profile.create(user_id: "2", first_name: "Collin", last_name: "Chua", contact_nu
 Profile.create(user_id: "3", first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "This is the 2nd applicant account with 2 assigned companies.", country: "Singapore")
 
 puts "Creating companies..."
-CompanyProfile.create(name: "1north", uen: "200112345A", address: "1north towers", profile_id: "2", url: "www.1north.com", status: "verified", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
-CompanyProfile.create(name: "2sky", uen: "200122325B", address: "2sky towers", profile_id: "2", url: "www.2ky.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
-CompanyProfile.create(name: "2net", uen: "200122325B", address: "2net towers", profile_id: "3", url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
+CompanyProfile.create(name: "company_1", uen: "200112345A", address: "1north towers", profile_id: "2", url: "www.1north.com", status: "verified", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
+CompanyProfile.create(name: "company_2", uen: "200122325B", address: "2sky towers", profile_id: "2", url: "www.2ky.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
+CompanyProfile.create(name: "company_3", uen: "200122325B", address: "2net towers", profile_id: "3", url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
 
 puts "Creating licenses..."
-Licence.create(company_profile_id: "1", franchise_id: "1", proposed_location: "20 Collyer Quay", licence_status: "pending")
-Licence.create(company_profile_id: "2", franchise_id: "1", proposed_location: "123 Clayton Street", licence_status: "pending")
+Licence.create(company_profile_id: "1", franchise_id: 1, proposed_location: "20 Collyer Quay", licence_status: "pending")
+Licence.create(company_profile_id: "1", franchise_id: 2, proposed_location: "912 Baker Street", licence_status: "pending")
+Licence.create(company_profile_id: "2", franchise_id: 1, proposed_location: "123 Clayton Street", licence_status: "pending")
+Licence.create(company_profile_id: "2", franchise_id: 2, proposed_location: "42 Margaret Drive", licence_status: "pending")
 
 puts "Creating quizzes..."
-Quiz.create(quiz_name: "First_quiz", franchise_id: "1", video_url: "www.google.com", video_completed: false)
-Quiz.create(quiz_name: "Second_quiz", franchise_id: "2", video_url: "www.amazon.com", video_completed: false)
+Quiz.create(quiz_name: "coffee_quiz", franchise_id: 1, video_url: "www.coffee.com", video_completed: false)
+Quiz.create(quiz_name: "tea_quiz", franchise_id: 1, video_url: "www.tea.com", video_completed: false)
+Quiz.create(quiz_name: "cake_quiz", franchise_id: 1, video_url: "www.cake.com", video_completed: false)
+Quiz.create(quiz_name: "chicken_quiz", franchise_id: 2, video_url: "www.chicken.com", video_completed: false)
+Quiz.create(quiz_name: "drumlet_quiz", franchise_id: 2, video_url: "www.drumlet.com", video_completed: false)
+Quiz.create(quiz_name: "wings_quiz", franchise_id: 2, video_url: "www.wings.com", video_completed: false)
 
 puts "Creating quiz 3 questions for first quiz..."
 QuizQuestion.create(quiz_id: "1", question: "How to make good coffee?")
 QuizQuestion.create(quiz_id: "1", question: "How to make good tea?")
-QuizQuestion.create(quiz_id: "1", question: "How to make good sandwich?")
+QuizQuestion.create(quiz_id: "1", question: "How to make roast coffee beans?")
+QuizQuestion.create(quiz_id: "2", question: "How to fry chicken?")
+QuizQuestion.create(quiz_id: "2", question: "Fry chicken for how long?")
+QuizQuestion.create(quiz_id: "2", question: "How to make popcorn chicken?")
 
 puts "Creating quiz options"
 QuizOption.create(content: "first_option", quiz_question_id: 1, correct_answer: false)
 QuizOption.create(content: "second_option", quiz_question_id: 1, correct_answer: true)
 QuizOption.create(content: "third_option", quiz_question_id: 1, correct_answer: false)
-QuizOption.create(content: "abc", quiz_question_id: 2, correct_answer: false)
-QuizOption.create(content: "xyz", quiz_question_id: 2, correct_answer: true)
+QuizOption.create(content: "first_option", quiz_question_id: 2, correct_answer: false)
+QuizOption.create(content: "second_option", quiz_question_id: 2, correct_answer: true)
+QuizOption.create(content: "third_option", quiz_question_id: 2, correct_answer: false)
 
 puts "Creating quiz attempts"
 QuizAttempt.create(licence_id: 1, quiz_id: 1, passed: false)

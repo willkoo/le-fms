@@ -1,0 +1,17 @@
+<h1>Partner Training Overview</h1>
+
+<% @licences.each do |licence| %>
+  <% if licence.licence_status == "approved" %>
+    <ol>
+      <h5><%= licence.company_profile.name %></h5>
+      <li><%= licence.franchise.name %></li>
+      <li>Qty of Quizzes: <%= licence.franchise.quizzes.count %></li>
+      <ul>
+        <% licence.franchise.quizzes.each do |quiz| %>
+          <li><%= link_to "#{quiz.quiz_name}", franchise_quiz_path(quiz.franchise, quiz.id) %></li>
+        <% end %>
+      </ul>
+      <br><br>
+    </ol>
+  <% end %>
+<% end %>

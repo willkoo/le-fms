@@ -6,6 +6,10 @@ class LicencesController < ApplicationController
   end
 
   def show
+    if @licence.licence_status == "approved"
+      @attempt = QuizAttempt.new(licence_id: @licence.id, quiz_id: @licence.franchise.quizzes.first)
+      @attempt.save
+    end
   end
 
   def new

@@ -1,7 +1,19 @@
 <h1><%= @franchise.name %></h1><br>
 
-<%= link_to "Back", :back %><br>
+<%= link_to "Back", franchises_path %><br>
 
 <p><%= @franchise.description %></p><br>
 
+<ul>
+<% count = 0 %>
+<% @franchise.quizzes.each do |quiz| %>
+  <% count += 1 %>
+  <%= count %>. <%= quiz.quiz_name %>
+  <li><%= quiz.franchise.name %></li>
+  <li><%= quiz.video_url %></li>
+  <li><%= quiz.updated_at %></li>
+  <%= link_to "View Quiz", franchise_quiz_path(quiz) %><br>
+  <br>
+<% end %>
+</ul>
 <%= link_to 'Edit', edit_franchise_path(@franchise), class: "btn btn-primary" %>
