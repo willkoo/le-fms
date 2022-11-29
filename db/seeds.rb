@@ -45,8 +45,8 @@ Licence.create!(company_profile: company_2, franchise: starbucks, proposed_locat
 Licence.create!(company_profile: company_2, franchise: kfc, proposed_location: "42 Margaret Drive", licence_status: "pending")
 
 puts "Creating quizzes..."
-coffee_quiz = Quiz.create!(quiz_name: "coffee_quiz", franchise: starbucks, video_url: "www.coffee.com", video_completed: false)
-coldbrew_quiz = Quiz.create!(quiz_name: "coldbrew_quiz", franchise: starbucks, video_url: "www.coldbrewcoffee.com", video_completed: false)
+coffee_quiz = Quiz.create!(quiz_name: "coffee_quiz", franchise: starbucks, video_url: "fdW6twhmiIA", video_completed: false)
+coldbrew_quiz = Quiz.create!(quiz_name: "coldbrew_quiz", franchise: starbucks, video_url: "An6LvWQuj_8", video_completed: false)
 
 chicken_quiz = Quiz.create!(quiz_name: "chicken_quiz", franchise: kfc, video_url: "www.chicken.com", video_completed: false)
 
