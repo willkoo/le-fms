@@ -10,7 +10,7 @@
     <th>Action</th>
     <th>Comments</th>
   </tr>
-  <% if @licences.any? %>
+  <% if current_user.licences != [] %>
     <% @licences.each do |licence| %>
       <tr>
         <td><%= licence.id %>.</td>
@@ -26,12 +26,13 @@
         <% elsif licence.licence_status == "approve" %>
           <%= link_to "Delete", "#" %>
         <% end %>
-        </td>
-        <td><%=  %></td>
-      </tr>
       <% end %>
-    <% else %>
-      <p>No licences yet.</p>
-    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="5" style="text-align: center; font-size: 25px">
+      <p><strong>No licences yet.</strong></p>
+      </td>
+    </tr>
+  <% end %>
   <br>
 </table>

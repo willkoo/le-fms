@@ -3,6 +3,7 @@ class CompanyProfile < ApplicationRecord
   belongs_to :profile
   has_many :licences
   has_many :approved_franchises, through: :profile
+  has_one :user, through: :profile
 
   has_one_attached :acra
   has_one_attached :financial_statement
