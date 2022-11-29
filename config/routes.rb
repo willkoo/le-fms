@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :profiles
   resources :approved_franchises
+  resources :trainings, only: %i[index show]
 
   resources :company_profiles do
     resources :company_comments, only: [:index, :show, :new, :create]
