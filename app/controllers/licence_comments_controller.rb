@@ -1,5 +1,5 @@
 class LicenceCommentsController < ApplicationController
-
+  before_action :find_licence_comment
   def index
   end
 
@@ -7,6 +7,7 @@ class LicenceCommentsController < ApplicationController
   end
 
   def new
+    @licence_comment = LicenceComment.new
   end
 
   def edit
@@ -23,11 +24,9 @@ class LicenceCommentsController < ApplicationController
 
 private
 
-  def find_company_comment
+  def find_licence_comment
   end
 
-  def company_comment_params
+  def licence_comment_params
   end
 end
-  
-

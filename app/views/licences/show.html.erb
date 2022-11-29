@@ -1,9 +1,13 @@
-<h1><%= @licence.company_profile.name %> applying for <%= @licence.franchise.name %></h1><br>
-<%= link_to "Back", :back %><br>
+<h1><u><%= @licence.company_profile.name %></u> applying for <u><%= @licence.franchise.name %></u></h1>
+<%= link_to "Back", licences_path %><br><br>
 
 <ul>
   <li>Proposed Location: <%= @licence.proposed_location %></li>
-  <li>Docu Sign Contract</li>
-  <li>Proposal</li>
+  <li><%= link_to "Docu-Sign", "#" %></li>
+  <li><%= link_to "Proposal", "#" %></li>
   <li>Status: <%= @licence.licence_status %></li>
 </ul>
+
+<% if @licence.licence_status == "pending" %>
+  <%= link_to "Decide", edit_licence_path %>
+<% end %>

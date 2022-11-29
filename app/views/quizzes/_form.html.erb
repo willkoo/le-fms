@@ -1,6 +1,8 @@
-<%= simple_form_for(@quiz) do |f| %>
+<%= simple_form_for [@quiz] do |f| %>
   <%= f.input :quiz_name %>
-  <%= f.input :franchise_id %>
+  <%= f.input :franchise_id, :collection => Franchise.all.each { |franchise| franchise.id} %>
   <%= f.input :video_url %>
+  <%= f.hidden_field :video_completed, :value => false %>
+
   <%= f.submit %>
 <% end %>

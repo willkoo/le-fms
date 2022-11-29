@@ -1,0 +1,6 @@
+<h1>Add new Question</h1>
+<hr>
+<%= simple_form_for [@quiz, @quiz_question] do |f| %>
+  <%= f.input :question %>
+  <%= f.submit %>
+<% end %>

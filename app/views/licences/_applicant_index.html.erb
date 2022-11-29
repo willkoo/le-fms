@@ -1,4 +1,6 @@
-<%= link_to "Apply for a new licence", new_licence_path %>
+<% if current_user.licences != [] %>
+  <%= link_to "Apply for a new licence", new_licence_path %>
+<% end %>
 <br>
 <table class="table table-hover shadow p-3 mb-5 bg-white rounded">
   <tr>
@@ -10,11 +12,13 @@
     <th>Status</th>
     <th>Action</th>
   </tr>
-  <% if @licences.any? %>
+  <% if current_user.licences != [] %>
+  <% count = 0 %>
     <% @licences.each do |licence| %>
       <tr>
         <% if licence.company_profile.profile.user == current_user %>
-          <td><%= licence.id %>.</td>
+          <% count += 1 %>
+          <td><%= count %>.</td>
           <td><%= link_to "#{licence.company_profile.name}", company_profile_path(licence.company_profile) %></td>
           <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %></td>
           <td><%= licence.updated_at %></td>
@@ -25,7 +29,11 @@
       </tr>
       <% end %>
     <% else %>
-      <p>No licences applied yet.</p>
+      <tr>
+        <td colspan="7" style="text-align: center; font-size: 25px">
+        <p><strong>No licences yet, please <%= link_to "Apply for a new licence", new_licence_path %></strong></p>
+        </td>
+      </tr>
     <% end %>
   <br>
 </table>
