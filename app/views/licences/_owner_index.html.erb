@@ -7,7 +7,7 @@
     <th>Status</th>
     <th>Comments</th>
   </tr>
-  <% if current_user.licences != [] %>
+  <% if @licences != [] %>
   <% count = 0 %>
     <% @licences.each do |licence| %>
       <tr>

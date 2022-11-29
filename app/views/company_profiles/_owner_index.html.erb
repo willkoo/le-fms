@@ -6,7 +6,7 @@
       <th>Verified?</th>
       <th>Comments</th>
     </tr>
-    <% if current_user.company_profiles != [] %>
+    <% if @company_profiles != [] %>
      <% count = 0 %>
       <% @company_profiles.each do |company_profile| %>
         <tr>
