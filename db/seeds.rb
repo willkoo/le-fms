@@ -40,8 +40,8 @@ company_3 = CompanyProfile.create!(name: "company_3", uen: "200122325B", address
 
 puts "Creating licenses..."
 Licence.create!(company_profile: company_1, franchise: starbucks, proposed_location: "20 Collyer Quay", licence_status: "pending")
-Licence.create!(company_profile: company_2, franchise: kfc, proposed_location: "912 Baker Street", licence_status: "pending")
-Licence.create!(company_profile: company_1, franchise: starbucks, proposed_location: "123 Clayton Street", licence_status: "pending")
+Licence.create!(company_profile: company_1, franchise: kfc, proposed_location: "912 Baker Street", licence_status: "pending")
+Licence.create!(company_profile: company_2, franchise: starbucks, proposed_location: "123 Clayton Street", licence_status: "pending")
 Licence.create!(company_profile: company_2, franchise: kfc, proposed_location: "42 Margaret Drive", licence_status: "pending")
 
 puts "Creating quizzes..."
