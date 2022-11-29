@@ -40,11 +40,13 @@
   <a href="javascript:void(0)" class="closebtn" style="width: 100%; text-align: right;" onclick="closeNav()">×</a>
 
   <% if user_signed_in? && current_user.id == 1 %>
+    <%= link_to "Overview", "#" %>
     <%= link_to "All Applicants", profiles_path %>
     <%= link_to "Review Companies", company_profiles_path %>
     <%= link_to "Licencing", licences_path %>
     <%= link_to "Partner", quizzes_path %>
   <% else %>
+    <%= link_to "Overview", "#" %>
     <%= link_to "My Companies", company_profiles_path %>
     <%= link_to "My Licences", licences_path %>
     <%= link_to "My Training", "#" %>
