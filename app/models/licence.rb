@@ -7,5 +7,5 @@ class Licence < ApplicationRecord
   has_one_attached :proposal
 
   validates :company_profile_id, :franchise_id, :proposed_location, :licence_status, presence: true
-  validates :licence_status, inclusion: { in: %w[approve reject pending] }
+  validates :licence_status, inclusion: { in: %w[approved reject pending] }
 end

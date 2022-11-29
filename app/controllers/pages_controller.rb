@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def training
+    @licences = Licence.all
   end
 end

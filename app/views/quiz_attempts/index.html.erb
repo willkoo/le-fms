@@ -1,2 +1,35 @@
-<h1>QuizAttempts#index</h1>
-<p>Find me in app/views/quiz_attempts/index.html.erb</p>
+<h1>QuizAttempts#index</h1><br>
+<%= link_to "Add Attempt", new_quiz_attempt_path %>
+<ul>
+  <% @attempts.each do |attempt| %>
+    <% if attempt.quiz_id == 1 %>
+      <h4>Quiz Name: <%= attempt.quiz.quiz_name %></h4>
+      <li>Company: <%= attempt.licence.company_profile.name %></li>
+      <li>Franchise: <%= attempt.licence.franchise.name %></li>
+      <li>Status:
+      <% if attempt.passed == true %>
+        Passed!
+      <% else %>
+        Pending
+      <% end %>
+      </li><br>
+    <% end %>
+  <% end %>
+</ul>
+
+<ul>
+  <% @attempts.each do |attempt| %>
+    <% if attempt.quiz_id == 2 %>
+      <h4>Quiz Name: <%= attempt.quiz.quiz_name %></h4>
+      <li><%= attempt.licence.company_profile.name %></li>
+      <li><%= attempt.licence.franchise.name %></li>
+      <li>Status:
+      <% if attempt.passed == true %>
+        Passed!
+      <% else %>
+        Pending
+      <% end %>
+      </li><br>
+    <% end %>
+  <% end %>
+</ul>

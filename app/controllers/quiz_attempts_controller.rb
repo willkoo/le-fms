@@ -2,17 +2,25 @@ class QuizAttemptsController < ApplicationController
   before_action :find_attempt, only: [:show]
 
   def index
-    @licence = Licence.find(params[:licence_id])
-    @attempts = QuizAttempt.all.where(licence_id: @licence)
+    @attempts = QuizAttempt.all
   end
 
   def show
   end
 
   def new
+    @attempt = QuizAttempt.new
   end
 
   def create
+    @attempt = QuizAttempt.new(attempt_params)
+    @attempt.passed = false
+
+    if @attempt.save
+      redirect_to quiz_attempts_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private

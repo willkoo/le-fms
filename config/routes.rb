@@ -13,7 +13,6 @@ Rails.application.routes.draw do
   end
 
   resources :licences do
-    resources :quiz_attempts, only: [:index, :show, :new, :create]
     resources :licence_comments, only: [:index, :show, :new, :create]
   end
 
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
     resources :quiz_questions, only: [:new, :create, :index]
   end
 
+  resources :quiz_attempts, only: [:index, :show, :new, :create]
   resources :quiz_answers, only: [:new, :create, :index, :show]
   resources :quiz_options, only: [:new, :create, :index, :show]
 end
