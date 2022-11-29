@@ -54,7 +54,7 @@
           <%= verified_count %> / <%= profile.company_profile.count %>
           </td>
           <td>Pending</td>
-          <td><%= link_to "Edit", edit_profile_path(profile) %></td>
+          <td><%= link_to "Edit", edit_profile_path(profile), :class => "btn btn-primary" %></td>
         <% end %>
         <br>
       </tr>
