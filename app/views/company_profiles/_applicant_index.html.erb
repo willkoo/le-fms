@@ -9,12 +9,16 @@
       <th>Status</th>
       <th>Actions</th>
     </tr>
+    <% if @company_profiles.any? %>
     <%# <% if #@company_profiles.any? %>
+    <% count = 0 %>
     <% if current_user.company_profiles != [] %>
+     <% count = 0 %>
       <% @company_profiles.each do |company_profile| %>
         <tr>
           <% if company_profile.profile.user == current_user %>
-            <td><%= company_profile.id %>.</td>
+            <% count += 1 %>
+            <td><%= count %>.</td>
             <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile) %></td>
             <td><%= company_profile.updated_at %></td>
             <td><%= company_profile.status %></td>

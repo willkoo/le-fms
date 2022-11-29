@@ -1,0 +1,8 @@
+<h1>Questions for <%= @quiz.quiz_name %></h1><br>
+<%= link_to "Back", franchise_quiz_path(@quiz.franchise, @quiz.id) %><br><br>
+<%= link_to "Add a Question", new_quiz_quiz_question_path %>
+<ol>
+  <% @questions.each do |qns| %>
+    <li><%= qns.question %></li>
+  <% end %>
+</ol>

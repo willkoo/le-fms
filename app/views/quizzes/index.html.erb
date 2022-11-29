@@ -1,10 +1,28 @@
-<h1>Manage All Quizzes</h1><br>
+<h1>Manage Partner Training</h1><br>
+<%= link_to "Create a New Quiz", new_quiz_path(@quiz) %>
+<%# <%= display all quizzes that belongs to starbucks
+(franchise_id = 1 ) %>
 <ul>
+  <% count = 0 %>
   <% @quizzes.each do |quiz| %>
-    <li><%= quiz.id %></li>
-    <li><%= link_to "#{quiz.quiz_name}", quiz_path(quiz) %></li>
-    <li><%= quiz.franchise.name %></li>
-    <li><%= quiz.video_url %></li>
-    <li><%= quiz.video_completed %></li><br>
+    <% if quiz.franchise_id == 1 %>
+      <% count += 1%>
+      <%= count %>. <%= link_to "#{quiz.quiz_name}", franchise_quiz_path(quiz.franchise, quiz.id) %>
+      <li>Franchise: <%= quiz.franchise.name %></li>
+      <li>Video Link: <%= quiz.video_url %></li><br>
+    <% end %>
+  <% end %>
+</ul>
+<br>
+<%# <%= display all quizzes that belongs to kfc (franchise_id = 2 ) %>
+<ul>
+  <% count = 0 %>
+  <% @quizzes.each do |quiz| %>
+    <% if quiz.franchise_id == 2 %>
+      <% count += 1%>
+      <%= count %>. <%= link_to "#{quiz.quiz_name}", franchise_quiz_path(quiz.franchise, quiz.id) %>
+      <li>Franchise: <%= quiz.franchise.name %></li>
+      <li>Video Link: <%= quiz.video_url %></li><br>
+    <% end %>
   <% end %>
 </ul>
