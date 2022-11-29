@@ -1,5 +1,6 @@
 class QuizzesController < ApplicationController
   before_action :find_quizzes, only: [:show]
+
   def index
     @quizzes = Quiz.all
   end
