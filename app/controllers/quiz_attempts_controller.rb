@@ -82,7 +82,14 @@ class QuizAttemptsController < ApplicationController
       @quiz_attempt.save
       redirect_to licence_quiz_path(@licence, @quiz, :success => true)
     else
-      redirect_to licence_quiz_path(@licence, @quiz, :failed => true)
+      @quiz_attempt = QuizAttempt.find_by(
+        licence: @licence,
+        quiz: @quiz,
+        status: "pending"
+      )
+      @quiz_attempt.status = "fail"
+      @quiz_attempt.save
+      redirect_to licence_quiz_path(@licence, @quiz, failed: true)
     end
   end
 
