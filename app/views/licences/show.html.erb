@@ -214,7 +214,7 @@
 <ul>
   <li>Proposed Location: <%= @licence.proposed_location %></li>
   <li><%= link_to "Docu-Sign", "#" %></li>
-  <li><%= link_to "Proposal", "#" %></li>
+  <li><%= link_to "Proposal", "#{cl_image_path(@licence.proposal.key)}" %></li>
   <li>Status: <%= @licence.licence_status %></li>
 </ul>
 
