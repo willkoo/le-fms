@@ -109,7 +109,7 @@
                                             <div class="col">
                                                 <p style="text-align: center;margin-top: 6px;">Business Proposal :</p>
                                             </div>
-                                            <div class="col d-xxl-flex justify-content-xxl-center"><button class="btn btn-primary" type="button" style="height: 35px;">Download</button></div>
+                                            <div class="col d-xxl-flex justify-content-xxl-center"><%= link_to "Download", "#{cl_image_path(@licence.proposal.key)}", :target => "_blank", :class => "btn btn-primary", :style => "height: 35px;"%></div>
                                         </div>
                                         <div class="row" style="height: 45px;">
                                             <div class="col">
@@ -129,7 +129,7 @@
                         <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
                             <div class="card-body" style="padding-top: 35px;padding-bottom: 35px;">
                                 <h4 class="card-title" style="text-align: center;font-weight: bold;">Paid Up Capital</h4>
-                                <p class="card-text" style="text-align: center;">$1000000</p>
+                                <p class="card-text" style="text-align: center;">$<%= @licence.company_profile.paid_up_capital %></p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
                         <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
                             <div class="card-body" style="height: 130px;padding-top: 35px;padding-bottom: 35px;">
                                 <h4 class="card-title" style="text-align: center;font-weight: bold;">2021 WY Revenue</h4>
-                                <p class="card-text" style="text-align: center;">$2000000</p>
+                                <p class="card-text" style="text-align: center;">$<%= @licence.company_profile.last_fy_revenue %></p>
                             </div>
                         </div>
                     </div>
@@ -204,20 +204,3 @@
         </div>
     </div>
 </body>
-
-
-
-
-<h1><u><%= @licence.company_profile.name %></u> applying for <u><%= @licence.franchise.name %></u></h1>
-<%= link_to "Back", licences_path %><br><br>
-
-<ul>
-  <li>Proposed Location: <%= @licence.proposed_location %></li>
-  <li><%= link_to "Docu-Sign", "#" %></li>
-  <li><%= link_to "Proposal", "#" %></li>
-  <li>Status: <%= @licence.licence_status %></li>
-</ul>
-
-<% if @licence.licence_status == "pending" && current_user == User.where(id: 1) %>
-  <%= link_to "Decide", edit_licence_path %>
-<% end %>
