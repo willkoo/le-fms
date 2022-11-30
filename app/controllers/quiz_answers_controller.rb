@@ -10,7 +10,6 @@ class QuizAnswersController < ApplicationController
   end
 
   def new
-    @quiz_attempt = QuizAttempt.new(quiz: @quiz)
     @quiz_answer = QuizAnswer.new
   end
 
@@ -31,14 +30,14 @@ class QuizAnswersController < ApplicationController
     end
   end
 
+  def answer_all
+
+  end
+
   private
 
   def answer_params
     params.require(:quiz_answer).permit(:quiz_question_id, :quiz_attempt_id, :quiz_option_id)
-  end
-
-  def find_answers
-    @quiz = Quiz.find(params[:id])
   end
 
   # def find_attempt

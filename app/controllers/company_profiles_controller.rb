@@ -14,11 +14,11 @@ class CompanyProfilesController < ApplicationController
 
   def create
     company_profile = CompanyProfile.new(company_profile_params)
-    company_profile.profile = current_user.profiles.first
+    company_profile.profile = current_user.profile
     company_profile.status = "pending"
 
     if company_profile.save
-      redirect_to company_profiles_path(current_user.profiles.first)
+      redirect_to company_profiles_path(current_user.profile)
     else
       render :new, status: :unprocessable_entity
     end

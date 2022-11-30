@@ -7,5 +7,9 @@
 
 <span>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path %></span><br>
 <%# how to point to the specific partner (company)doing this quiz? %>
-<span>Attempt by: <%= @quiz.franchise.licences %></span><br>
-<%= link_to "Attempt Quiz", new_licence_quiz_attempt_path(@quiz.id) %>
+<% if current_user.admin? %>
+<% else %>
+  <span>Attempt by: <%= @licence.company_profile.name %></span><br>
+  <%= link_to "Attempt Quiz",
+  new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %>
+<% end %>
