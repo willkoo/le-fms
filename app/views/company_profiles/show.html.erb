@@ -8,8 +8,8 @@
             <% if @company_profile.status == "pending" && current_user.admin? %>
               <%= render "company_profiles/approve", company_profile: @company_profile %>
               <%= render "company_profiles/reject", company_profile: @company_profile %>
-              <%# <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
-              <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
+              <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
+              <%# <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
               <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Reject</button></div> %>
             <% end %>
         </div>
