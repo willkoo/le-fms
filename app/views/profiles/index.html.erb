@@ -1,9 +1,9 @@
-<h1>Manage Applicants</h1><br>
-<% if current_user.profile.present? %>
-  <%= link_to "Create new Applicant", new_profile_path %>
-<% end %>
-<br>
-
+<div class="d-flex justify-content-between">
+  <h1>Manage Applicants</h1><br>
+  <% if current_user.profiles.any? %>
+  <%= link_to "Create new Applicant", new_profile_path, class: "btn btn-primary", style: "border-radius: 10px;height: 40px;" %>
+  <% end %>
+</div>
 <table class="table table-hover shadow p-3 mb-5 bg-white rounded">
   <tr>
     <th>S/N</th>
@@ -30,7 +30,7 @@
           <%= verified_count %> / <%= profile.company_profile.count %>
           </td>
           <td>Pending</td>
-          <td><%= link_to "Edit", edit_profile_path(profile) %></td>
+          <td><%= link_to "Edit", edit_profile_path(profile), class: "btn btn-primary", style: "border-radius: 10px;height: 35px;"  %></td>
         <% end %>
       <% end %>
         <br>
