@@ -218,6 +218,6 @@
   <li>Status: <%= @licence.licence_status %></li>
 </ul>
 
-<% if @licence.licence_status == "pending" %>
+<% if @licence.licence_status == "pending" && current_user == User.where(id: 1) %>
   <%= link_to "Decide", edit_licence_path %>
 <% end %>

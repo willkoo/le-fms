@@ -6,6 +6,7 @@ class QuizzesController < ApplicationController
   end
 
   def show
+    @licence = Licence.find_by(id: params[:licence_id]) if params[:licence_id]
   end
 
   def new

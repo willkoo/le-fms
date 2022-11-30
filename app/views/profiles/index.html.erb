@@ -14,8 +14,8 @@
   </tr>
 
   <% if current_user.admin? %>
-    <% if current_user.profiles.any? %>
-      <% @profiles.each do |profile| %>
+    <% if current_user.profile.present? %>
+      <% if profile = current_user.profile %>
       <tr>
         <% if profile.id != 1 %>
           <td><%= profile.id - 1 %>.</td>
@@ -32,9 +32,9 @@
           <td>Pending</td>
           <td><%= link_to "Edit", edit_profile_path(profile), class: "btn btn-primary", style: "border-radius: 10px;height: 35px;"  %></td>
         <% end %>
+      <% end %>
         <br>
       </tr>
-      <% end %>
 
     <% else %>
       <tr>
@@ -44,8 +44,8 @@
       </tr>
     <% end %>
   <% else %>
-      <% if current_user.profiles.any? %>
-      <% current_user.profiles.each do |profile| %>
+      <% if current_user.profile.present? %>
+      <% profile = current_user.profile %>
       <tr>
         <% if profile.id != 1 %>
           <td><%= profile.id - 1 %>.</td>
@@ -63,14 +63,6 @@
           <td><%= link_to "Edit", edit_profile_path(profile) %></td>
         <% end %>
         <br>
-      </tr>
-      <% end %>
-
-    <% else %>
-      <tr>
-        <td colspan="5" style="text-align: center; font-size: 25px">
-        <p><strong>No profiles yet, please create a <%= link_to "profile", new_profile_path %>.</strong></p>
-        </td>
       </tr>
     <% end %>
   <% end %>
