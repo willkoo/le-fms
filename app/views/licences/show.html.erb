@@ -204,20 +204,3 @@
         </div>
     </div>
 </body>
-
-
-
-
-<h1><u><%= @licence.company_profile.name %></u> applying for <u><%= @licence.franchise.name %></u></h1>
-<%= link_to "Back", licences_path %><br><br>
-
-<ul>
-  <li>Proposed Location: <%= @licence.proposed_location %></li>
-  <li><%= link_to "Docu-Sign", "#" %></li>
-  <li><%= link_to "Proposal", "#{cl_image_path(@licence.proposal.key)}" %></li>
-  <li>Status: <%= @licence.licence_status %></li>
-</ul>
-
-<% if @licence.licence_status == "pending" && current_user == User.where(id: 1) %>
-  <%= link_to "Decide", edit_licence_path %>
-<% end %>
