@@ -14,7 +14,7 @@
   </tr>
   <% if current_user.licences != [] %>
   <% count = 0 %>
-    <% @licences.each do |licence| %>
+    <% current_user.licences.each do |licence| %>
       <tr>
         <% if licence.company_profile.profile.user == current_user %>
           <% count += 1 %>
