@@ -6,15 +6,20 @@
 <br><br>
 
 <span>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path %></span><br>
-<%# how to point to the specific partner (company)doing this quiz? %>
-<span>Attempt by: <%= @licence.company_profile.name %></span><br>
 
 <% if current_user.admin? %>
-  <span>Admin is not required to take test.</span>
+  <span>Admin is not required to take test.</span><br>
 <% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status == "pass" %>
-  <span>You've passed this quiz, no need to do again. Nice one!</span>
+  <span>Attempted by: <%= @licence.company_profile.name %></span><br>
+  <span>You've passed this quiz after <%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts.</span><br>
+<% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status != "pass" %>
+  <span>Attempted by: <%= @licence.company_profile.name %></span><br>
+  <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> failed attempts. Come on you can do it!</span><br>
+  <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %><br>
 <% else %>
-  <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %>
+  <span>To be attempted by: <%= @licence.company_profile.name %></span><br>
+  <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts. Start quiz by clicking the link below!</span><br>
+  <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %><br>
 <% end %>
 
 <body>
