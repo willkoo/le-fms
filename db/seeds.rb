@@ -52,12 +52,18 @@ company_3.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"),
 company_3.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_3.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
 
-
 puts "Creating licenses..."
-Licence.create!(company_profile: company_1, franchise: starbucks, proposed_location: "20 Collyer Quay", licence_status: "approved")
-Licence.create!(company_profile: company_1, franchise: kfc, proposed_location: "912 Baker Street", licence_status: "pending")
-Licence.create!(company_profile: company_2, franchise: starbucks, proposed_location: "123 Clayton Street", licence_status: "pending")
-Licence.create!(company_profile: company_2, franchise: kfc, proposed_location: "42 Margaret Drive", licence_status: "pending")
+licence1 = Licence.create!(company_profile: company_1, franchise: starbucks, proposed_location: "20 Collyer Quay", licence_status: "approved")
+licence1.proposal.attach(io: File.open("#{Rails.root}/app/assets/images/proposal.pdf"), filename: 'proposal.pdf')
+
+licence2 = Licence.create!(company_profile: company_1, franchise: kfc, proposed_location: "912 Baker Street", licence_status: "pending")
+licence2.proposal.attach(io: File.open("#{Rails.root}/app/assets/images/proposal.pdf"), filename: 'proposal.pdf')
+
+licence3 = Licence.create!(company_profile: company_2, franchise: starbucks, proposed_location: "123 Clayton Street", licence_status: "pending")
+licence3.proposal.attach(io: File.open("#{Rails.root}/app/assets/images/proposal.pdf"), filename: 'proposal.pdf')
+
+licence4 = Licence.create!(company_profile: company_2, franchise: kfc, proposed_location: "42 Margaret Drive", licence_status: "pending")
+licence4.proposal.attach(io: File.open("#{Rails.root}/app/assets/images/proposal.pdf"), filename: 'proposal.pdf')
 
 puts "Creating quizzes..."
 coffee_quiz = Quiz.create!(quiz_name: "coffee_quiz", franchise: starbucks, video_url: "fdW6twhmiIA", video_completed: false)
