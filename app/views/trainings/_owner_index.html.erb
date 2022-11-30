@@ -1,0 +1,34 @@
+<table class="table table-hover shadow p-3 mb-5 bg-white rounded">
+  <tr>
+    <th>S/N</th>
+    <th>Company</th>
+    <th>Franchise</th>
+    <th>Quizzes</th>
+    <th>Status</th>
+  </tr>
+  <% if @licences != [] %>
+    <% count = 0 %>
+    <% @licences.each do |licence| %>
+      <% if licence.licence_status == "approved" %>
+        <tr>
+          <% count += 1 %>
+          <td><%= count %></td>
+          <td><%= licence.company_profile.name %></td>
+          <td><%= licence.franchise.name %></td>
+          <td>
+            <% licence.franchise.quizzes.each do |quiz| %>
+              <%= link_to "#{quiz.quiz_name}", franchise_quiz_path(quiz.franchise, quiz.id) %>,
+            <% end %>
+          </td>
+          <td><%= licence.quiz_attempts.where(passed: true).count %>/<%= licence.franchise.quizzes.count %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="9" style="text-align: center; font-size: 25px">
+      <p><strong>No licences approved for training phase yet.</strong></p>
+      </td>
+    </tr>
+  <% end %>
+</table>
