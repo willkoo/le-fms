@@ -6,7 +6,6 @@
     <th>Quizzes</th>
     <th>Status</th>
   </tr>
-  <% if @licences.where(company_profile: current_user.profiles.first.company_profile) %>
     <% count = 0 %>
     <% @licences.each do |licence| %>
       <% if licence.licence_status == "approved" && licence.company_profile.profile.user == current_user%>
@@ -17,18 +16,11 @@
           <td><%= licence.franchise.name %></td>
           <td>
             <% licence.franchise.quizzes.each do |quiz| %>
-              <%= link_to "#{quiz.quiz_name}", franchise_quiz_path(quiz.franchise, quiz.id) %>,
+              <%= link_to "#{quiz.quiz_name}", licence_quiz_path(licence, quiz.id) %>,
             <% end %>
           </td>
-          <td><%= licence.quiz_attempts.where(passed: true).count %>/<%= licence.franchise.quizzes.count %></td>
+          <td><%= licence.quiz_attempts.where(status: "pass").count %>/<%= licence.franchise.quizzes.count %></td>
         </tr>
       <% end %>
     <% end %>
-  <% else %>
-    <tr>
-      <td colspan="9" style="text-align: center; font-size: 25px">
-      <p><strong>No licences approved for training yet.</strong></p>
-      </td>
-    </tr>
-  <% end %>
 </table>

@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
   <h1>Manage Applicants</h1><br>
-  <% if current_user.profiles.any? %>
+  <% unless current_user.profile.present? %>
   <%= link_to "Create new Applicant", new_profile_path, class: "btn btn-primary", style: "border-radius: 10px;height: 40px;" %>
   <% end %>
 </div>
@@ -14,27 +14,27 @@
   </tr>
 
   <% if current_user.admin? %>
-    <% if current_user.profiles.any? %>
-      <% @profiles.each do |profile| %>
+    <% if current_user.profile.present? %>
+      <% @profiles.each do |p| %>
       <tr>
-        <% if profile.id != 1 %>
-          <td><%= profile.id - 1 %>.</td>
-          <td><%= link_to "#{profile.first_name}", profile_path(profile) %></td>
+        <% if p.id != 1 %>
+          <td><%= p.id - 1 %>.</td>
+          <td><%= link_to "#{p.first_name}", profile_path(p) %></td>
           <td>
           <% verified_count = 0 %>
-          <% profile.company_profile.each do |company| %>
+          <% p.company_profile.each do |company| %>
             <% if company.status == "verified" %>
                 <% verified_count += 1 %>
             <% end %>
           <% end %>
-          <%= verified_count %> / <%= profile.company_profile.count %>
+          <%= verified_count %> / <%= p.company_profile.count %>
           </td>
           <td>Pending</td>
-          <td><%= link_to "Edit", edit_profile_path(profile), class: "btn btn-primary", style: "border-radius: 10px;height: 35px;"  %></td>
+          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-primary", style: "border-radius: 10px;height: 35px;"  %></td>
         <% end %>
+      <% end %>
         <br>
       </tr>
-      <% end %>
 
     <% else %>
       <tr>
@@ -44,8 +44,8 @@
       </tr>
     <% end %>
   <% else %>
-      <% if current_user.profiles.any? %>
-      <% current_user.profiles.each do |profile| %>
+      <% if current_user.profile.present? %>
+      <% profile = current_user.profile %>
       <tr>
         <% if profile.id != 1 %>
           <td><%= profile.id - 1 %>.</td>
@@ -63,14 +63,6 @@
           <td><%= link_to "Edit", edit_profile_path(profile) %></td>
         <% end %>
         <br>
-      </tr>
-      <% end %>
-
-    <% else %>
-      <tr>
-        <td colspan="5" style="text-align: center; font-size: 25px">
-        <p><strong>No profiles yet, please create a <%= link_to "profile", new_profile_path %>.</strong></p>
-        </td>
       </tr>
     <% end %>
   <% end %>

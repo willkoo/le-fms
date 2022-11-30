@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :franchises
-  has_many :profiles
-  has_many :company_profiles, through: :profiles
+  has_one :profile
+  has_many :company_profiles, through: :profile
   has_many :licences, through: :company_profiles
 end

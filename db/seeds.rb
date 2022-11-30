@@ -27,6 +27,7 @@ user3 = User.create!(email: "user2@gmail.com", password: "password")
 puts "Creating franchises..."
 
 puts "Creating (user) profiles..."
+
 prof1 = Profile.create!(user: user1, first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "This is owner's account with one assigned franchise.", country: "Singapore")
 prof2 = Profile.create!(user: user2, first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "This is an applicant account with one assigned company.", country: "Singapore")
 prof3 = Profile.create!(user: user3, first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "This is the 2nd applicant account with 2 assigned companies.", country: "Singapore")

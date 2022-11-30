@@ -13,9 +13,13 @@ Rails.application.routes.draw do
     resources :company_comments, only: %i[index show new create]
   end
 
+  post '/finish_quiz', to: 'quiz_attempts#complete', as: :finish_quiz
+
   resources :licences do
     resources :licence_comments, only: %i[index show new create]
-    resources :quiz_attempts, only: %i[new create]
+    resources :quizzes do
+      resources :quiz_attempts
+    end
   end
 
   resources :franchises do
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
 
   resources :quizzes, only: %i[index new create] do
     resources :quiz_questions, only: %i[new create index]
+    resources :quiz_attempts, only: %i[new create]
   end
 
   resources :quiz_attempts, only: %i[index show] do
