@@ -1,17 +1,22 @@
 <h1>Create new Attempt</h1>
 <hr>
 
- <%= simple_form_for :submission, url: finish_quiz_path do |f| %>
-    <%= f.hidden_field :licence_id, value: @licence.id %>
-    <%= f.hidden_field :quiz_id, value: @quiz.id %>
-    <% @quiz_attempt.quiz.quiz_questions.each do |question| %>
-    <div>
-        <%= f.input "quiz_question_#{question.id}".to_sym, label: question.question, input_html: { value: question.id, disabled: true, hidden: true } %>
-        <%= f.input "answers[#{question.id}]".to_sym, collection: question.quiz_options, as: :radio_buttons, label_method: :content %>
-    </div>
+<div>
+  <%= simple_form_for :submission, url: finish_quiz_path do |f| %>
+      <%= f.hidden_field :licence_id, value: @licence.id %>
+      <%= f.hidden_field :quiz_id, value: @quiz.id %>
+      <% @quiz_attempt.quiz.quiz_questions.each do |question| %>
+      <div>
+          <%= f.input "quiz_question_#{question.id}".to_sym, label: question.question, input_html: { value: question.id, disabled: true, hidden: true } %>
+          <%= f.input "answers[#{question.id}]".to_sym, collection: question.quiz_options, as: :radio_buttons, label_method: :content %>
+      </div>
+    <% end %>
+    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <%= f.submit %></button>
   <% end %>
-  <%= f.submit %>
-<% end %>
+</div>
+
+
 
 <%# submission => {
   licence_id: "...",

@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between">
   <h1>Manage Applicants</h1><br>
-  <% if current_user.profiles.any? %>
+  <% if current_user.profile.present? %>
   <%= link_to "Create new Applicant", new_profile_path, class: "btn btn-primary", style: "border-radius: 10px;height: 40px;" %>
   <% end %>
 </div>
