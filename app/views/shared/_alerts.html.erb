@@ -1,0 +1,9 @@
+<% if (params[:success]) %>
+  <div class="alert alert-success" role="alert">
+    Congratulations! You have successfully completed the quiz.
+  </div>
+<% elsif (params[:failed]) %>
+  <div class="alert alert-danger" role="alert">
+    Alamak. You failed.
+  </div>
+<% end %>

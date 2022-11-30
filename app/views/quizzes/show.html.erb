@@ -7,11 +7,14 @@
 
 <span>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path %></span><br>
 <%# how to point to the specific partner (company)doing this quiz? %>
+<span>Attempt by: <%= @licence.company_profile.name %></span><br>
+
 <% if current_user.admin? %>
+  <span>Admin is not required to take test.</span>
+<% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status == "pass" %>
+  <span>You've passed this quiz, no need to do again. Nice one!</span>
 <% else %>
-  <span>Attempt by: <%= @licence.company_profile.name %></span><br>
-  <%= link_to "Attempt Quiz",
-  new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %>
+  <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %>
 <% end %>
 
 <body>
