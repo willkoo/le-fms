@@ -44,7 +44,9 @@
 
 <div id="mySidebar" class="sidebar mt-5">
   <a href="javascript:void(0)" class="closebtn" style="width: 100%; text-align: right;" onclick="closeNav()">×</a>
-
+  <div class="text-center">
+    <%= image_tag "Logo_1.png", style: 'height:100px;width:100px;margin-bottom:20px;' %>
+  </div>
   <% if user_signed_in? && current_user.id == 1 %>
     <%= link_to "Overview", "#" %>
     <%= link_to "All Applicants", profiles_path %>
