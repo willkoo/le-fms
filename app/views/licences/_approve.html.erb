@@ -1,4 +1,4 @@
-<%= simple_form_for [@company_profile] do |f| %>
-  <%= f.input :status,:as => :hidden, :input_html => { :value => "verified" } %>
+<%= simple_form_for [licence] do |f| %>
+  <%= f.input :licence_status,:as => :hidden, :input_html => { :value => "approved" } %>
   <%= f.submit :approve %>
 <% end %>

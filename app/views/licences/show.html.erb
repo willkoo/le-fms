@@ -6,9 +6,13 @@
             </div>
             <div class="col-md-4 col-lg-4 col-xxl-3"></div>
             <div class="col-xxl-2"></div>
-            <div class="col"><button class="btn btn-primary" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;">Approved</button></div>
-            <div class="col"></div>
-            <div class="col"><button class="btn btn-primary" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;">Reject</button></div>
+            <% if @licence.licence_status == "pending" && current_user.admin? %>
+              <%= render "licences/approve", licence: @licence %>
+              <%= render "licences/reject", licence: @licence %>
+              <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
+              <%# <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
+              <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Reject</button></div> %>
+            <% end %>
         </div>
     </div>
     <div class="container" style="height: 1006px;">
@@ -28,7 +32,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <h1 style="text-align: center;font-size: 25px;">Verification Status: Pending</h1>
+                                <h1 style="text-align: center;font-size: 25px;">Verification Status: <%= @licence.licence_status %></h1>
                             </div>
                         </div>
                         <div class="row">
