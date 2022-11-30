@@ -26,9 +26,9 @@ User.create!(email: "user2@gmail.com", password: "password")
 puts "Creating franchises..."
 
 puts "Creating (user) profiles..."
-Profile.create!(user_id: "1", first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "This is owner's account with one assigned franchise.", country: "Singapore")
-Profile.create!(user_id: "2", first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "This is an applicant account with one assigned company.", country: "Singapore")
-Profile.create!(user_id: "3", first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "This is the 2nd applicant account with 2 assigned companies.", country: "Singapore")
+Profile.create!(user_id: "1", first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "OWNER's account with one assigned franchise.", country: "Singapore")
+Profile.create!(user_id: "2", first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "I am a serial entrepreneur and I'm amazed with how the application of technology can do wonderful things.", country: "Singapore")
+Profile.create!(user_id: "3", first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "I am a serial entrepreneur and I'm amazed with how the application of technology can do wonderful things.", country: "Singapore")
 
 starbucks = Franchise.create!(name: "Starbucks", user_id: "1", description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
 kfc = Franchise.create!(name: "KFC", user_id: "2", description: "Finger Lickin Good.")
