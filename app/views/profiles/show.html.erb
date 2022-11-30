@@ -1,53 +1,73 @@
-<div class="container py-4 py-xl-5" style="font-size: 18px;">
-        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3" style="border-style: none;border-color: transparent;">
-            <div class="col-xl-5 col-xxl-4" style="height: 514.242px;border-color: rgb(20,21,23);margin-top: 24px;padding-top: 2px;">
-                <div class="card" style="height: 485.047px;border-color: transparent;">
-                    <div class="card" style="box-shadow: 0px 0px 5px 2px;border-radius: 20;"><img class="card-img-top w-100 d-block fit-cover" style="height: 226px;" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" width="452" height="200">
-                        <div class="card-body p-4" style="height: 274.047px;">
-                            <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
-                            <p class="card-text" style="overflow: visible;"></p>
-                            <div class="d-flex">
-                                <div>
-                                    <p>Contact No.: <%= @profile.contact_number %></p>
-                                    <p>Description: <%= @profile.description %></p>
-                                    <p>Based in: <%= @profile.country %></p>
-                                </div>
-                            </div>
+<div class="container">
+    <div class="row">
+        <div class="col" style="padding-bottom: 24px;padding-top: 19px;">
+            <h1 style="padding-left: 16px;font-size: 30px;margin-bottom: 1px;">Overview</h1>
+        </div>
+        <div class="col"></div>
+        <div class="col" style="padding-top: 25px;padding-bottom: 12px;padding-left: 800px"><%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary", style: "border-radius: 10px;width: 100px" %></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
+                <div class="card-body" style="padding-left: 20px;">
+                    <div class="row">
+                        <div class="col d-lg-flex justify-content-lg-center" style="margin-bottom: 15px;"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="184" height="184" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-left: 10px;"></div>
+                    </div>
+                    <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
+                    <p>Contact no.: <%= @profile.contact_number %></p>
+                    <p>Description : <%= @profile.description %></p>
+                    <p>Based in : <%= @profile.country %></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h1 style="font-size: 25px;">Companies</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
+                        <div class="card-body" style="height: 130px;border-radius: 15px;box-shadow: 0px 0px;">
+                            <h4 class="card-title" style="text-align: center;font-size: 20px;">Total</h4>
+                            <p class="card-text" style="text-align: center;font-size: 30px;"><%= @profile.company_profile.count %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
+                        <div class="card-body" style="height: 130px;">
+                            <h4 class="card-title" style="text-align: center;font-size: 20px;">Pending</h4>
+                            <p class="card-text" style="text-align: center;font-size: 30px;"><%= @profile.company_profile.where(status: "pending").count %></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
+                        <div class="card-body" style="height: 130px;">
+                            <h4 class="card-title" style="text-align: center;font-size: 20px;">Verified</h4>
+                            <p class="card-text" style="text-align: center;font-size: 30px;"><%= @profile.company_profile.where(status: "verified").count %></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-6 col-xxl-7" style="margin-right: 0px;border-style: none;border-color: transparent;">
-                <div class="card" style="border-radius: 0;">
-                    <div class="card-body flex-wrap" style="height: 272.797px;box-shadow: 0px 0px 5px 2px;border-radius: 5px;">
-                        <h4 class="card-title">Companies (3)</h4>
-                        <div class="row flex-wrap">
-                            <div class="col"><img class="rounded-circle flex-shrink-0 align-items-center align-content-center me-3 fit-cover" width="50" height="50" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="width: 100px;height: 100px;margin-top: 16px;margin-left: 55px;">
-                                <p style="text-align: center;margin-top: 8px;margin-bottom: 5px;">Company 1</p>
-                                <p style="text-align: center;font-family: Anybody, serif;">Verified</p>
-                            </div>
-                            <div class="col"><img class="rounded-circle flex-shrink-0 align-items-center align-content-center me-3 fit-cover" width="50" height="50" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="width: 100px;height: 100px;margin: 0px;margin-top: 16px;margin-left: 55px;">
-                                <p style="text-align: center;margin-top: 8px;margin-bottom: 5px;">Company 2</p>
-                                <p style="text-align: center;font-family: Anybody, serif;">Pending</p>
-                            </div>
-                            <div class="col"><img class="rounded-circle flex-shrink-0 align-items-center align-content-center me-3 fit-cover" width="50" height="50" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="width: 100px;height: 100px;margin-top: 16px;margin-left: 55px;">
-                                <p style="text-align: center;margin-top: 8px;margin-bottom: 5px;">Company 3</p>
-                                <p style="text-align: center;font-family: Anybody, serif;">Pending</p>
-                            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col">
+                    <div class="card" style="border-radius: 10px;">
+                        <div class="card-body" style="height: 130px;border-radius: 10px;box-shadow: 0px 0px 2px;">
+                            <h4 class="card-title" style="text-align: center;font-size: 20px;">Licence obtained</h4>
+                            <p style="text-align: center;font-size: 30px;">2</p>
                         </div>
                     </div>
                 </div>
-                <div class="card-group" style="margin-top: 20px;border-radius: px;box-shadow: 0px 0px 5px 2px;height: 208.594px;border-style: none;">
-                    <div class="card justify-content-center align-items-center align-content-center">
-                        <div class="card-body align-items-center align-content-center">
-                            <h4 class="card-title" style="font-size: 18px;">Licenses Obtained (0)</h4>
-                            <p class="card-text"></p><img class="rounded-circle flex-shrink-0 align-content-center me-3 fit-cover" width="50" height="50" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="width: 100px;height: 100px;">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-body justify-content-center align-items-center align-content-center align-self-center">
-                            <h4 class="card-title" style="font-size: 18px;">In Operation (0)</h4>
-                            <p class="card-text"></p><img class="rounded-circle flex-shrink-0 justify-content-center align-items-center align-content-center me-3 fit-cover" width="50" height="50" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="width: 100px;height: 100px;">
+                <div class="col">
+                    <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
+                        <div class="card-body" style="height: 130px;">
+                            <h4 class="card-title" style="font-size: 20px;text-align: center;">Operating Outlets</h4>
+                            <p style="text-align: center;font-size: 30px;">2</p>
                         </div>
                     </div>
                 </div>
@@ -55,3 +75,11 @@
         </div>
     </div>
 </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
