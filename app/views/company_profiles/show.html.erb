@@ -127,14 +127,15 @@
                                         <h4 style="font-size: 20px;text-align: left;margin-top: 23px;">Financial Statement:&nbsp;</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold" href=<%= cl_image_path(@company_profile.financial_statement.key) %>>Download</a></div>
+                                    <div class="col-xxl-3">
+                                    <a class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold" href=<%= cl_image_path(@company_profile.financial_statement.key) %>>Download</a></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xxl-6">
                                         <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Relevant Licences:</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold" href=<%= cl_image_path(@company_profile.relevant_licences.key) %>>Download</a></div>
+                                    <div class="col-xxl-3"><a class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius:8px;font-weight: bold" href=<%= cl_image_path(@company_profile.relevant_licences.key) %>>Download</a></div>
                                 </div>
                             </div>
                         </div>
