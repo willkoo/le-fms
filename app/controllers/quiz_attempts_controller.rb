@@ -11,11 +11,11 @@ class QuizAttemptsController < ApplicationController
   end
 
   def new
-    video_completed = true
-    unless video_completed
-      redirect_to root_path
-      return
-    end
+    # video_completed = true
+    # unless video_completed
+    #   redirect_to root_path
+    #   return
+    # end
 
     @quiz = Quiz.find(params[:quiz_id])
     @licence = Licence.find(params[:licence_id])
@@ -23,19 +23,19 @@ class QuizAttemptsController < ApplicationController
     successful_attempt = QuizAttempt.find_by(
       licence: @licence,
       quiz: @quiz,
-      passed: true
+      status: "pass"
     )
 
     if (successful_attempt.present?)
-      redirect_to root_path
+      redirect_to trainings_path
     else
       @quiz_attempt = QuizAttempt.first_or_create(
         licence: @licence,
         quiz: @quiz,
-        # status: "failed"
+        status: "fail"
       )
 
-      @quiz_attempt.video_completed = true
+      # @quiz_attempt.video_completed = true
       @quiz_attempt.save
     end
   end
@@ -75,10 +75,10 @@ class QuizAttemptsController < ApplicationController
       @quiz_attempt = QuizAttempt.find_by(
         licence: @licence,
         quiz: @quiz,
-        passed: false
+        status: "fail"
         # status: "IN PROGRESS"
       )
-      @quiz_attempt.passed = true
+      @quiz_attempt.status = "pass"
       @quiz_attempt.save
 
       redirect_to root_path

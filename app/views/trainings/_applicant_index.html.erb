@@ -19,7 +19,7 @@
               <%= link_to "#{quiz.quiz_name}", licence_quiz_path(licence, quiz.id) %>,
             <% end %>
           </td>
-          <td><%= licence.quiz_attempts.where(passed: true).count %>/<%= licence.franchise.quizzes.count %></td>
+          <td><%= licence.quiz_attempts.where(status: "pass").count %>/<%= licence.franchise.quizzes.count %></td>
         </tr>
       <% end %>
     <% end %>
