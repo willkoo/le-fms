@@ -16,7 +16,7 @@
           <td><%= licence.franchise.name %></td>
           <td>
             <% licence.franchise.quizzes.each do |quiz| %>
-              <%= link_to "#{quiz.quiz_name}", licence_quiz_path(licence, quiz.id), {class: "btn btn-outline-dark", style: "border-radius: 0.25rem;"} %>
+              <%= link_to "#{quiz.quiz_name}", licence_quiz_path(licence, quiz.id), {class: "btn btn-dark btn-sm", style: "border-radius: 0.25rem;"} %>
             <% end %>
           </td>
           <div class= "circles">

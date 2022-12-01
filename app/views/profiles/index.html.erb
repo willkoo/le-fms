@@ -9,7 +9,8 @@
     <th>S/N</th>
     <th>Applicant</th>
     <th>Verified Companies</th>
-    <th>Partner Status</th>
+    <th>Licences Acquired</th>
+    <th>Operating Outlets</th>
     <th></th>
   </tr>
 
@@ -29,8 +30,9 @@
           <% end %>
           <%= verified_count %> / <%= p.company_profile.count %>
           </td>
-          <td>Pending</td>
-          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-primary", style: "border-radius: 10px;height: 35px;"  %></td>
+          <td>1</td>
+          <td>Training in Progress</td>
+          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-dark btn-sm", style: "border-radius: 0.25rem;" %></td>
         <% end %>
       <% end %>
         <br>
