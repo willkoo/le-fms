@@ -23,7 +23,7 @@
                         <% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status != "pass" %>
                           <span><strong>Attempted by:</strong> <%= @licence.company_profile.name %></span><br>
                           <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> failed attempts. Come on you can do it!</span><br>
-
+                          <br>
                           <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
                         <% else %>
                           <span><strong>To be attempted by:</strong> <%= @licence.company_profile.name %></span><br>
@@ -40,4 +40,4 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
