@@ -85,3 +85,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+source 'https://rails-assets.org' do
+end
