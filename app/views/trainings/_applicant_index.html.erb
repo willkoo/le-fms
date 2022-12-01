@@ -19,8 +19,16 @@
               <%= link_to "#{quiz.quiz_name}", licence_quiz_path(licence, quiz.id) %>,
             <% end %>
           </td>
-          <td><%= licence.quiz_attempts.where(status: "pass").count %>/<%= licence.franchise.quizzes.count %></td>
+          <div class= "circles">
+          <td><%= image_tag "orange.png", style: 'height:25px;width:25px;margin-bottom:10px;' %>
+          <%= image_tag "green.png", style: 'height:25px;width:25px;margin-bottom:10px;' %></td>
+          </div>
         </tr>
       <% end %>
     <% end %>
 </table>
+
+
+
+<%# <%= licence.quiz_attempts.where(status: "pass").count %>
+<%# <%= licence.franchise.quizzes.count %>
