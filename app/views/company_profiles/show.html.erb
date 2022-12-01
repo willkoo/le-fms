@@ -8,17 +8,14 @@
             <% if @company_profile.status == "pending" && current_user.admin? %>
               <%= render "company_profiles/approve", company_profile: @company_profile %>
               <%= render "company_profiles/reject", company_profile: @company_profile %>
-              <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
-              <%# <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
-              <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Reject</button></div> %>
             <% end %>
         </div>
     </div>
     <div class="container" style="height: 1006px;">
         <div class="row" style="height: 1040px;">
             <div class="col-md-6 col-xxl-6 d-flex d-xxl-flex" style="height: 1008px;margin-top: 18px;">
-                <div class="card" style="height: 932.992px;width: 624px;border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body" style="height: 657.984px;">
+                <div class="card" style="height: 932px;width: 624px;border-radius: 20px;box-shadow: 0px 0px 3px;">
+                    <div class="card-body" style="height: 657px;">
                         <div class="row">
                             <div class="col d-xxl-flex justify-content-xxl-center" style="height: 190px;padding-top: 3px;padding-bottom: 0px;"></div>
                             <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;"></div>
@@ -74,7 +71,7 @@
             </div>
             <div class="col-md-6 col-xxl-6" style="padding-top: 15px;padding-bottom: 22px;height: 1027px;">
                 <h1 style="font-size: 30px;">Finances</h1>
-                <div class="row" style="height: 144.7969px;margin-top: 30px;">
+                <div class="row" style="height: 144px;margin-top: 30px;">
                     <div class="col">
                         <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
                             <div class="card-body" style="padding-top: 35px;padding-bottom: 35px;">

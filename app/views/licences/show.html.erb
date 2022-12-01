@@ -6,20 +6,19 @@
             </div>
             <div class="col-md-4 col-lg-4 col-xxl-3"></div>
             <div class="col-xxl-2"></div>
-            <% if @licence.licence_status == "pending" && current_user.admin? %>
-              <%= render "licences/approve", licence: @licence %>
-              <%= render "licences/reject", licence: @licence %>
-              <div class="col"><button class="btn btn-success" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Approved</button></div>
-              <%# <div class="col"><button class="btn btn-dark" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;font-weight: bold">Comment</button></div>
-              <div class="col"><button class="btn btn-danger" type="button" style="width: 98px;margin-top: 20px;margin-left: 8px;border-radius: 8px;color: white;font-weight: bold">Reject</button></div> %>
+              <div class= "d-flex flex-row justify-content-end">
+                <% if @licence.licence_status == "pending" && current_user.admin? %>
+                <div class="p-2"><%= render "licences/approve", licence: @licence %></div>
+                <div class="p-2"><%= render "licences/reject", licence: @licence %></div>
+              </div>
             <% end %>
         </div>
     </div>
     <div class="container" style="height: 1006px;">
         <div class="row" style="height: 1040px;">
             <div class="col-md-6 col-xxl-6 d-flex d-xxl-flex" style="height: 1008px;margin-top: 18px;">
-                <div class="card" style="height: 932.992px;width: 624px;border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body" style="height: 657.984px;">
+                <div class="card" style="height: 932px;width: 624px;border-radius: 20px;box-shadow: 0px 0px 3px;">
+                    <div class="card-body" style="height: 657px;">
                         <div class="row">
                             <div class="col d-xxl-flex justify-content-xxl-center" style="height: 190px;padding-top: 3px;padding-bottom: 0px;"></div>
                             <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;"></div>
@@ -109,13 +108,13 @@
                                             <div class="col">
                                                 <p style="text-align: center;margin-top: 6px;">Business Proposal :</p>
                                             </div>
-                                            <div class="col d-xxl-flex justify-content-xxl-center"><%= link_to "Download", "#{cl_image_path(@licence.proposal.key)}", :target => "_blank", :class => "btn btn-primary", :style => "height: 35px;"%></div>
+                                            <div class="col d-xxl-flex justify-content-xxl-center"><%= link_to "Download", "#{cl_image_path(@licence.proposal.key)}", :target => "_blank", :class => "btn btn-dark", :style => "height: 35px;border-radius: 10px;"%></div>
                                         </div>
                                         <div class="row" style="height: 45px;">
                                             <div class="col">
                                                 <p style="text-align: center;margin-top: 8px;">Signed Contract :</p>
                                             </div>
-                                            <div class="col d-xxl-flex justify-content-xxl-center"><button class="btn btn-primary" type="button" style="height: 35px;">Download</button></div>
+                                            <div class="col d-xxl-flex justify-content-xxl-center"><button class="btn btn-dark" type="button" style="height: 35px;border-radius: 10px;">Download</button></div>
                                         </div>
                                     </div>
                                 </div>
@@ -124,7 +123,7 @@
                     </div>
                 </div>
                 <h1 style="font-size: 30px;margin-top: 15px;">Finances</h1>
-                <div class="row" style="height: 144.7969px;margin-top: 30px;">
+                <div class="row" style="height: 144px;margin-top: 30px;">
                     <div class="col">
                         <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
                             <div class="card-body" style="padding-top: 35px;padding-bottom: 35px;">
@@ -170,21 +169,21 @@
                                         <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Acra registration:&nbsp;</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 10px">Download</button></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xxl-6">
                                         <h4 style="font-size: 20px;text-align: left;margin-top: 23px;">Document 2:&nbsp;</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 10px">Download</button></div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xxl-6">
                                         <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Document 3:</h4>
                                     </div>
                                     <div class="col-xxl-2"></div>
-                                    <div class="col-xxl-3"><button class="btn btn-primary" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;">Download</button></div>
+                                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 10px">Download</button></div>
                                 </div>
                             </div>
                         </div>

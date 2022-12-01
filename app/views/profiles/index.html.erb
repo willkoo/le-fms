@@ -1,10 +1,10 @@
 <div class="d-flex justify-content-between">
   <h1>Manage Applicants</h1><br>
   <% unless current_user.profile.present? %>
-  <%= link_to "Create new Applicant", new_profile_path, class: "btn btn-primary", style: "border-radius: 10px;height: 40px;" %>
+  <%= link_to "Create new Applicant", new_profile_path, class: "btn btn-dark", style: "border-radius: 10px;height: 40px;" %>
   <% end %>
 </div>
-<table class="table table-hover shadow p-3 mb-5 bg-white rounded">
+<table class="table table-hover shadow p-3 mb-5 bg-white rounded" style="vertical-align: middle;">
   <tr>
     <th>S/N</th>
     <th>Applicant</th>
@@ -30,7 +30,7 @@
           <%= verified_count %> / <%= p.company_profile.count %>
           </td>
           <td>Pending</td>
-          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-primary", style: "border-radius: 10px;height: 35px;"  %></td>
+          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-dark", style: "border-radius: 10px;height: 35px;vertical-align: middle;"  %></td>
         <% end %>
       <% end %>
         <br>
