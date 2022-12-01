@@ -4,7 +4,7 @@
     <th>Company</th>
     <th>Franchise</th>
     <th>Quizzes</th>
-    <th>Status</th>
+    <th>Progress</th>
   </tr>
     <% count = 0 %>
     <% @licences.each do |licence| %>
@@ -20,8 +20,18 @@
             <% end %>
           </td>
           <div class= "circles">
-          <td><%= image_tag "orange.png", style: 'height:25px;width:25px;margin-bottom:10px;' %>
-          <%= image_tag "green.png", style: 'height:25px;width:25px;margin-bottom:10px;' %></td>
+          <td>
+            <% licence.franchise.quizzes.each do |q| %>
+              <% if q.quiz_attempts == []%>
+                <%= image_tag "orange.png", style: 'height:25px;width:25px;margin-bottom:10px;' %>
+              <% else %>
+                <% q.quiz_attempts.each do |check| %>
+                  <% if check.status == "pass" %>
+                    <%= image_tag "green.png", style: 'height:25px;width:25px;margin-bottom:10px;' %>
+                    <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
           </div>
         </tr>
       <% end %>
