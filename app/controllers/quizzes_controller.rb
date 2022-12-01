@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :find_quizzes, only: [:show]
+  before_action :find_quizzes, only: [:show, :update]
 
   def index
     @quizzes = Quiz.all
@@ -20,6 +20,15 @@ class QuizzesController < ApplicationController
 
     if @quiz.save
       redirect_to quizzes_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    @licence = Licence.find_by(id: params[:licence_id]) if params[:licence_id]
+    if @quiz.update(quiz_params)
+      redirect_to licence_quiz_path(@licence, @quiz)
     else
       render :new, status: :unprocessable_entity
     end
