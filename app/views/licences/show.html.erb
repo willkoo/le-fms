@@ -1,8 +1,64 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+</head>
+
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-lg-1 col-xxl-3">
                 <h2 style="text-align: left;width: 295px;margin-left: 2px;margin-right: 0px;margin-top: 19px;margin-bottom: 15px;">Ruby Holdings Ltd</h2>
+                  <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" onclick='openModal()'>
+                    Comments
+                  </button>
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Comments</h5>
+                          <button type="button" class="close" aria-label="Close"  onclick="closeModal()">
+                            <span aria-hidden="true">×</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          Thank you for submitting your proposal, we would require more information with regards to slide 16 - the forecast numbers for Q3 will need more justification. Thank you!
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" onclick="closeModal()">Close</button>
+                          <%# <button type="button" class="btn btn-primary">Save changes</button> %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                <div class="modal-backdrop fade show" id="backdrop"  style="display: none;"></div>
+                <script>
+                    function openModal() {
+                        document.getElementById("backdrop").style.display = "block"
+                        document.getElementById("exampleModal").style.display = "block"
+                        document.getElementById("exampleModal").classList.add("show")
+                    }
+                    function closeModal() {
+                        document.getElementById("backdrop").style.display = "none"
+                        document.getElementById("exampleModal").style.display = "none"
+                        document.getElementById("exampleModal").classList.remove("show")
+                    }
+                    // Get the modal
+                    var modal = document.getElementById('exampleModal');
+
+                    // When the user clicks anywhere outside of the modal, close it
+                    window.onclick = function(event) {
+                      if (event.target == modal) {
+                        closeModal()
+                      }
+                    }
+                </script>
             </div>
             <div class="col-md-4 col-lg-4 col-xxl-3"></div>
             <div class="col-xxl-2"></div>
