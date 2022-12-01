@@ -48,7 +48,7 @@
     <%= image_tag "Logo_1.png", style: 'height:100px;width:100px;margin-bottom:20px;' %>
   </div>
   <% if user_signed_in? && current_user.id == 1 %>
-    <%= link_to "Overview", "#" %>
+    <%# <%= link_to "Overview", "#" %>
     <%= link_to "All Applicants", profiles_path %>
     <%= link_to "Review Companies", company_profiles_path %>
     <%= link_to "Licencing", licences_path %>
