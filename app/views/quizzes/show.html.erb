@@ -24,7 +24,7 @@
                           <span><strong>Attempted by:</strong> <%= @licence.company_profile.name %></span><br>
                           <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> failed attempts. Come on you can do it!</span><br>
 
-                          <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %><br>
+                          <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
                         <% else %>
                           <span><strong>To be attempted by:</strong> <%= @licence.company_profile.name %></span><br>
                           <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts. Start quiz by clicking the link below!</span><br>
@@ -32,8 +32,8 @@
                             <br><%= render "quizzes/check",licence: @licence, quiz: @quiz %>
                             <br>
                           <% else %>
-                            <div class="alert alert-success" role="alert">Now that you have completed the training video, proceed to attempt the quiz!</div>
-                            <br><%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id) %><br>
+                            <div class="alert alert-success" id="success-alert" role="alert">Now that you have completed the training video, proceed to attempt the quiz!</div>
+                            <br><%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
                           <% end %>
                         <% end %>
                     </div>
