@@ -7,6 +7,7 @@ class QuizzesController < ApplicationController
 
   def show
     @licence = Licence.find_by(id: params[:licence_id]) if params[:licence_id]
+    @quiz_attempts = QuizAttempt.all.where(params[quiz_id: @quiz_id])
   end
 
   def new
