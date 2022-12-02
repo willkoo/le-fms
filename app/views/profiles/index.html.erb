@@ -20,7 +20,7 @@
       <tr>
         <% if p.id != 1 %>
           <td><%= p.id - 1 %>.</td>
-          <td><%= link_to "#{p.first_name}", profile_path(p),  {class: "btn btn-outline-dark", style: "border-radius: 0.25rem;"} %></td>
+          <td><%= link_to "#{p.first_name}", profile_path(p),  {class: "btn btn-outline-dark btn-sm", style: "border-radius: 0.25rem;"} %></td>
           <td>
           <% verified_count = 0 %>
           <% p.company_profile.each do |company| %>
@@ -31,7 +31,7 @@
           <%= verified_count %> / <%= p.company_profile.count %>
           </td>
           <td>Pending</td>
-          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-dark", style: "border-radius: 0.25rem;height: 35px;"  %></td>
+          <td><%= link_to "Edit", edit_profile_path(p), class: "btn btn-dark btn-sm", style: "border-radius: 0.25rem;height: 35px;"  %></td>
         <% end %>
       <% end %>
         <br>
