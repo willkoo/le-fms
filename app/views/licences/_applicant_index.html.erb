@@ -1,8 +1,8 @@
-<br>
-<% if current_user.licences != [] %>
-  <%= link_to "Apply for a new licence", new_licence_path, class: "btn btn-dark", style: "border-radius:0.25rem;" %>
-<% end %>
-<br>
+<div class="d-flex justify-content-end">
+  <% if current_user.licences != [] %>
+    <%= link_to "Apply for a new licence", new_licence_path, class: "btn btn-dark", style: "border-radius:0.25rem;" %>
+  <% end %>
+</div>
 <table class="table table-hover shadow p-3 mb-5 bg-white rounded">
   <tr>
     <th>S/N</th>
@@ -20,10 +20,10 @@
         <% if licence.company_profile.profile.user == current_user %>
           <% count += 1 %>
           <td><%= count %>.</td>
-          <td><%= link_to "#{licence.company_profile.name}", company_profile_path(licence.company_profile) %></td>
-          <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %></td>
+          <td><%= link_to "#{licence.company_profile.name}", company_profile_path(licence.company_profile),  {class: "btn btn-outline-dark", style: "border-radius: 0.25rem;"} %></td>
+          <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise),  {class: "btn btn-outline-dark", style: "border-radius: 0.25rem;"} %></td>
           <td><%= licence.updated_at %></td>
-          <td><%= link_to "view", licence_path(licence) %></td>
+          <td><%= link_to "view", licence_path(licence),  {class: "btn btn-dark", style: "border-radius: 0.25rem;"} %></td>
           <td><%= licence.licence_status %></td>
           <td><%=  %></td>
         <% end %>
