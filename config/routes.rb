@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: "profiles#index"
 
   post '/hello_sign', to: 'pages#hello_sign'
-  get '/test', to: 'pages#test'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -23,8 +22,6 @@ Rails.application.routes.draw do
     resources :quizzes do
       resources :quiz_attempts
     end
-    get '/sign_contract', to: 'licences#sign_contract'
-    get '/create_contract', to: 'licences#create_contract'
   end
 
   resources :franchises do
