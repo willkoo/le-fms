@@ -2,7 +2,11 @@ class ProfilesController < ApplicationController
   before_action :find_profiles, only: [:show, :edit, :update]
 
   def index
-    @profiles = Profile.all
+    if current_user.admin?
+      @profiles = Profile.all
+    else
+      redirect_to company_profiles_path
+    end
   end
 
   def show

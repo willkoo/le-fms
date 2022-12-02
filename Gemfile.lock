@@ -138,6 +138,10 @@ GEM
       faraday-multipart (>= 1.0.0)
       mime-types (>= 3.0.0)
       multi_json (>= 1.0.0)
+    hellosign-ruby-sdk (3.7.7)
+      faraday
+      mime-types
+      multi_json
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -307,6 +311,7 @@ DEPENDENCIES
   faker
   font-awesome-sass (~> 6.1)
   hellosign-api
+  hellosign-ruby-sdk
   jbuilder
   jquery-rails
   jsbundling-rails
