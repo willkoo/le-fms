@@ -3,8 +3,7 @@
     <th>S/N</th>
     <th>Company</th>
     <th>Franchise</th>
-    <th>Quizzes</th>
-    <th>Progress</th>
+    <th>Quiz Progress</th>
   </tr>
   <% if @licences != [] %>
     <% count = 0 %>
@@ -16,22 +15,16 @@
           <td><%= licence.company_profile.name %></td>
           <td><%= licence.franchise.name %></td>
           <td>
-            <% licence.franchise.quizzes.each do |quiz| %>
-            <% end %>
-          </td>
-          <td>
-            <% licence.franchise.quizzes.each do |q| %>
-              <% if q.quiz_attempts == []%>
-                <%= image_tag "orange.png", style: 'height:25px;width:25px;margin-bottom:10px;' %>
-              <% else %>
-                <% q.quiz_attempts.each do |check| %>
-                  <% if check.status == "pass" %>
-                    <%= image_tag "green.png", style: 'height:25px;width:25px;margin-bottom:10px;' %>
-                    <% end %>
-                <% end %>
+            <div class="indicator-wrapper">
+              <% licence.franchise.quizzes.each do |quiz| %>
+              <div class="quiz-indicator">
+                <%= link_to quiz.passed? ? image_tag("green.png") : image_tag("orange.png"), licence_quiz_path(licence, quiz.id), {class: "", style: "border-radius: 0.25rem;"} %>
+                <span><%= quiz.quiz_name %></span>
+              </div>
               <% end %>
-            <% end %>
+            </div>
           </td>
+          # the previous code is here
         </tr>
       <% end %>
     <% end %>
