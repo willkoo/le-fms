@@ -11,7 +11,6 @@
     <th>Updated At</th>
     <th>More Details</th>
     <th>Status</th>
-    <th>Action</th>
   </tr>
   <% if current_user.licences != [] %>
   <% count = 0 %>
@@ -21,11 +20,18 @@
           <% count += 1 %>
           <td><%= count %>.</td>
           <td><%= link_to "#{licence.company_profile.name}", company_profile_path(licence.company_profile) %></td>
-          <td><%= link_to "#{licence.franchise.name}", franchise_path(licence.franchise) %></td>
+          <td><%= licence.franchise.name %></td>
           <td><%= licence.updated_at %></td>
-          <td><%= link_to "view", licence_path(licence) %></td>
-          <td><%= licence.licence_status %></td>
-          <td><%=  %></td>
+          <td><%= link_to "view", licence_path(licence), class: "btn btn-dark btn-sm", style: "border-radius: 0.25rem;" %></td>
+          <td>
+            <% if licence.licence_status == "approved" %>
+              <span class="approved"><%= licence.licence_status %></span>
+            <% elsif licence.licence_status == "rejected" %>
+              <span class="rejected"><%= licence.licence_status %></span>
+            <% else %>
+              <span class="pending"><%= licence.licence_status %></span>
+            <% end %>
+          </td>
         <% end %>
       </tr>
       <% end %>

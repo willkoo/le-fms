@@ -12,8 +12,16 @@
           <% count += 1 %>
           <td><%= count %>.</td>
           <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile) %></td>
-          <td><%= link_to "#{company_profile.profile.first_name}", profile_path(company_profile) %></td>
-          <td><%= company_profile.status %></td>
+          <td><%= company_profile.profile.first_name %></td>
+          <td>
+          <% if company_profile.status == "verified" %>
+            <span class="verified"><%= company_profile.status %></span>
+          <% elsif company_profile.status == "rejected" %>
+            <span class="rejected"><%= company_profile.status %></span>
+          <% else %>
+            <span class="pending"><%= company_profile.status %></span>
+          <% end %>
+          </td>
         </tr>
         <% end %>
       <% else %>

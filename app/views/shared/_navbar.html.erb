@@ -1,10 +1,10 @@
-<div class="sticky-top border-bottom border-dark">
+<div class="sticky-top border-bottom border-light">
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
       <div class="navbar-brand">
         <% if user_signed_in? && current_user.profile.present? %>
           <button class="btn btn-link rounded-circle me-3" type="button">
-          <i class="fa-solid fa-bars class="openbtn" onclick="openNav()""></i>
+          <i class="fa-solid fa-bars hamburger class="openbtn" onclick="openNav()""></i>
           </button>
         <% end %>
       </div>
@@ -17,12 +17,11 @@
       <ul class="navbar-nav me-auto">
           <li class="nav-item" style="margin: auto;">
             <% if user_signed_in? && current_user.profile.present? %>
-              <p style="margin: auto;">Hello <%= current_user.profile.first_name %>&nbsp;</p>
+              <span style="margin: auto;">Hello, <%= current_user.profile.first_name %>&nbsp;</span>
             <% end %>
-
           </li>
             <% if user_signed_in? && current_user.profile.present? %>
-            <%= image_tag "profile1.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "profile1.png", class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
               <%# <% if current_user.id == 1 %>
@@ -54,7 +53,6 @@
     <%= link_to "Licencing", licences_path %>
     <%= link_to "Partner", trainings_path %>
   <% else %>
-    <%= link_to "Overview", "#" %>
     <%= link_to "My Companies", company_profiles_path %>
     <%= link_to "My Licences", licences_path %>
     <%= link_to "My Training", trainings_path %>
