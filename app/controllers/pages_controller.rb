@@ -3,9 +3,7 @@ class PagesController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def hello_sign
-    render json: {
-      success: true
-    }
+    render plain: "Hello API Event Received.", status: 200
   end
 
 end
