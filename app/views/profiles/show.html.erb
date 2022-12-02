@@ -12,9 +12,13 @@
         <div class="col-lg-5">
             <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
                 <div class="card-body" style="padding-left: 20px;">
-                    <div class="row">
-                        <div class="col d-lg-flex justify-content-lg-center" style="margin-bottom: 15px;"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="184" height="184" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-left: 10px;"></div>
-                    </div>
+                    <img 
+                        style="object-fit: cover;
+                            border-radius: 50%;
+                            width: 230px;
+                            height: 230px;
+                        class="avatar-large" alt="avatar-large" src="https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/35af6a41332353.57a1ce913e889.jpg">
+                    <br><br><br>
                     <h4 class="card-title"><%= @profile.first_name %> <%= @profile.last_name %></h4>
                     <p>Contact no.: <%= @profile.contact_number %></p>
                     <p>Description : <%= @profile.description %></p>
