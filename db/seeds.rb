@@ -37,12 +37,12 @@ kfc = Franchise.create!(name: "KFC", user: user2, description: "Finger Lickin Go
 
 puts "Creating companies..."
 
-company_1 = CompanyProfile.create!(name: "Company_1", uen: "200112345A", address: "1north towers", profile: prof2, url: "www.1north.com", status: "verified", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
+company_1 = CompanyProfile.create!(name: "One Dime Consulting", uen: "200112345A", address: "1north towers", profile: prof2, url: "www.1north.com", status: "verified", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
 company_1.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_1.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_1.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
 
-company_2 = CompanyProfile.create!(name: "Company_2", uen: "200122325B", address: "2sky towers", profile: prof2, url: "www.2ky.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
+company_2 = CompanyProfile.create!(name: "Double Up Holdings", uen: "200122325B", address: "2sky towers", profile: prof2, url: "www.2ky.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
 company_2.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_2.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_2.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
@@ -67,13 +67,13 @@ licence4 = Licence.create!(company_profile: company_2, franchise: kfc, proposed_
 licence4.proposal.attach(io: File.open("#{Rails.root}/app/assets/images/proposal.pdf"), filename: 'proposal.pdf')
 
 puts "Creating quizzes..."
-espresso = Quiz.create!(quiz_name: "espresso", franchise: starbucks, video_url: "fdW6twhmiIA", video_completed: false)
-coldbrew = Quiz.create!(quiz_name: "coldbrew", franchise: starbucks, video_url: "An6LvWQuj_8", video_completed: false)
-chicken = Quiz.create!(quiz_name: "chicken", franchise: kfc, video_url: "www.chicken.com", video_completed: false)
+espresso = Quiz.create!(quiz_name: "Espresso 101", franchise: starbucks, video_url: "fdW6twhmiIA", video_completed: false)
+coldbrew = Quiz.create!(quiz_name: "Science of Coldbrew", franchise: starbucks, video_url: "An6LvWQuj_8", video_completed: false)
+chicken = Quiz.create!(quiz_name: "Process of frying", franchise: kfc, video_url: "www.chicken.com", video_completed: false)
 
 puts "Creating questions for espresso..."
-q1 = QuizQuestion.create!(quiz: espresso, question: "How many milliliters in one shot of espresso?")
-q2 = QuizQuestion.create!(quiz: espresso, question: "How many grams of coffee in one shot of espresso?")
+q1 = QuizQuestion.create!(quiz: espresso, question: "How many milliliters are there in one shot of espresso?")
+q2 = QuizQuestion.create!(quiz: espresso, question: "How many grams of coffee are required for one shot of espresso?")
 q3 = QuizQuestion.create!(quiz: espresso, question: "What is the serving size of a Grande?")
 q4 = QuizQuestion.create!(quiz: espresso, question: "What is the serving size of a hot Venti?")
 
@@ -112,7 +112,7 @@ QuizOption.create!(content: "22 fl. oz.", quiz_question: q8, correct_answer: fal
 QuizOption.create!(content: "20 fl. oz.", quiz_question: q8, correct_answer: false)
 
 puts "Creating questions for chicken..."
-q9 = QuizQuestion.create!(quiz: chicken, question: "What oil is used to fry chickens?")
+q9 = QuizQuestion.create!(quiz: chicken, question: "What type of oil is used to fry chickens?")
 q10 = QuizQuestion.create!(quiz: chicken, question: "How long should each batch of chickens be fried for?")
 q11 = QuizQuestion.create!(quiz: chicken, question: "What is the ideal oil temperature for frying chickens?")
 
