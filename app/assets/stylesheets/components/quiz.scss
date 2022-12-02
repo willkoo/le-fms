@@ -1,0 +1,39 @@
+.indicator-wrapper {
+    display: flex;
+}
+
+.quiz-indicator{
+    margin: 0 4px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        span {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    img {
+        height:25px;
+        width:25px;
+        margin-bottom:10px;
+        margin: 0;
+    }
+
+    span{
+        background-color: gray;
+        color: white;
+        border-radius: 4px;
+        padding: 2px 4px;
+        margin-left: 4px;
+        position: absolute;
+        left: 100%;
+        z-index: 1;
+        transform: translateX(-20px);
+        opacity: 0;
+        pointer-events: none;
+        transition: 300ms;
+    }
+}
