@@ -96,8 +96,13 @@ div.content {
 }
 
 #main {
+  margin-left: 250px;
   transition: margin-left .5s;
   padding: 16px;
+}
+
+#mySidebar {
+  width: 250px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
