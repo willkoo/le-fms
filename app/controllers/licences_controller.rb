@@ -21,20 +21,18 @@ class LicencesController < ApplicationController
     client = HelloSign::Client.new :api_key => '23b3e3cc02391d49e19b60f7309a8b837b605e5520877ad6e5cce6d42e5a92af'
     client.create_embedded_signature_request(
         :test_mode => 1,
-        :client_id => '23b3e3cc02391d49e19b60f7309a8b837b605e5520877ad6e5cce6d42e5a92af',
+        :client_id => '',
         :subject => 'My First embedded signature request',
         :message => 'Awesome, right?',
         :signers => [
-            {
-                :email_address => 'lester.wee.68@gmail.com',
-                :name => 'Me'
-            }
+          {
+              :email_address => 'lester.wee.68@gmail.com',
+              :name => 'Me'
+          }
         ],
-        :files => ['https://res.cloudinary.com/denywg8cy/image/upload/5qzbpst0o6v18i1yhuue6z4nijb4.pdf']
-
-    )
-    raise
-  client.get_embedded_sign_url :signature_id => 'SIGNATURE_ID'
+        :file_urls => ['https://res.cloudinary.com/denywg8cy/image/upload/5qzbpst0o6v18i1yhuue6z4nijb4.pdf']
+      )
+    client.get_embedded_sign_url signature_id: 'SIGNATURE_ID'
   end
 
   def new
