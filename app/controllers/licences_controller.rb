@@ -42,9 +42,21 @@ class LicencesController < ApplicationController
 
   def sign_contract
     @licence = Licence.find(params["licence_id"])
-    @licence.contract_signed = true
+
+    client = HelloSign::Client.new :api_key => '23b3e3cc02391d49e19b60f7309a8b837b605e5520877ad6e5cce6d42e5a92af'
+    contract_url = client.get_embedded_sign_url signature_id: @licence.signature
+    contract_url = contract_url.data["sign_url"]
+
+    @licence.contract_url = contract_url
     @licence.save
+
     @contract_url = @licence.contract_url
+  end
+
+  def save_signature
+    licence = Licence.find_by(contract_url: params["contractUrl"])
+    licence.contract_signed = true
+    licence.save
   end
 
   def create_contract
@@ -82,11 +94,13 @@ class LicencesController < ApplicationController
       :file_urls => ['https://res.cloudinary.com/denywg8cy/image/upload/5qzbpst0o6v18i1yhuue6z4nijb4.pdf']
     )
     signature_id = result.data.dig("signatures")[0].data.dig("signature_id")
-
+    pp "signature: #{signature_id}"
     contract_url = client.get_embedded_sign_url signature_id: signature_id
     contract_url = contract_url.data["sign_url"]
     licence.contract_url =  contract_url
+    licence.signature = signature_id
     licence.save
+    pp licence.errors.full_messages unless licence.errors.full_messages.blank?
 
     redirect_to licences_path(:contract_created => true)
   end

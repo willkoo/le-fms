@@ -1,12 +1,11 @@
 
-<div class="container">
-  <h1>That's it!</h1>
-  <p>Your signed contract is pending approval. We'll let you know when we're ready.</p>
-  <%= link_to "Complete Signing Process", @licence, class: "btn btn-dark btn-sm", style: "border-radius: 0.25rem;" %>
+<div class="container"
+     data-controller="hello-sign"
+     data-hello-sign-contract-url-value="<%= @contract_url %>"
+>
+  <div data-hello-sign-target="confirmation">
+    <h1>Signing in progress...</h1>
+  </div>
+  <%= link_to "Back", @licence, class: "btn btn-dark btn-sm", style: "border-radius: 0.25rem;" %>
 </div>
 
-<div
-  data-controller="hello-sign"
-  data-hello-sign-contract-url-value="<%= @contract_url %>"
->
-</div>
