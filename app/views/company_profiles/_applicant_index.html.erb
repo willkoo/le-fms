@@ -10,7 +10,6 @@
       <th>Company</th>
       <th>Last Edited</th>
       <th>Status</th>
-      <th>Actions</th>
     </tr>
     <% if @company_profiles.any? %>
       <% if current_user.company_profiles != [] %>
@@ -22,8 +21,15 @@
               <td><%= count %>.</td>
               <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile),  {class: "btn btn-outline-dark", style: "border-radius: 0.25rem;"} %></td>
               <td><%= company_profile.updated_at %></td>
-              <td><%= company_profile.status %></td>
-              <td><%=  %></td>
+              <td>
+              <% if company_profile.status == "verified" %>
+                <span class="verified"><%= company_profile.status %></span>
+              <% elsif company_profile.status == "rejected" %>
+                <span class="rejected"><%= company_profile.status %></span>
+              <% else %>
+                <span class="pending"><%= company_profile.status %></span>
+              <% end %>
+              </td>
             <% end %>
           </tr>
         <% end %>

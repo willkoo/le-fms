@@ -4,7 +4,7 @@
             <h1 style="padding-left: 16px;font-size: 30px;margin-bottom: 1px;">Overview</h1>
         </div>
         <div class="col"></div>
-        <div class="col" style="padding-top: 25px;padding-bottom: 12px;padding-left: 800px"><%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-primary", style: "border-radius: 10px;width: 100px" %></div>
+        <div class="col" style="padding-top: 25px;padding-bottom: 12px;padding-left: 800px"><%= link_to 'Edit', edit_profile_path(@profile), class: "btn btn-dark", style: "border-radius: 10px;width: 100px" %></div>
     </div>
 </div>
 <div class="container">
@@ -31,9 +31,9 @@
             <div class="row">
                 <div class="col">
                     <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 2px;">
-                        <div class="card-body" style="height: 130px;border-radius: 15px;box-shadow: 0px 0px;">
-                            <h4 class="card-title" style="text-align: center;font-size: 20px;">Total</h4>
-                            <p class="card-text" style="text-align: center;font-size: 30px;"><%= @profile.company_profile.count %></p>
+                        <div class="card-body" style="height: 130px;border-radius: 15px; box-shadow: 0px 0px;">
+                            <h4 class="card-title" style="text-align: center;  font-size: 20px;">Total</h4>
+                            <p class="card-text" style="text-align: center; font-size: 30px;"><%= @profile.company_profile.count %></p>
                         </div>
                     </div>
                 </div>
@@ -83,4 +83,3 @@
 <br>
 <br>
 <br>
-
