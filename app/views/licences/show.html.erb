@@ -16,7 +16,7 @@
                   <!-- Button trigger modal -->
                     <div class="align-right" style="margin-left: 990px;"><button type="button" class="btn btn-dark" onclick='openModal()'>
                         Comments
-                    </button></div> 
+                    </button></div>
                   <!-- Modal -->
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
                     <div class="modal-dialog" role="document">
@@ -173,7 +173,12 @@
                                             </div>
                                             <div class="col d-xxl-flex justify-content-xxl-center"><button class="btn btn-dark" type="button" style="height: 35px;border-radius: 0.25rem;">Download</button></div>
                                         </div>
-                                        <button type="button" class="btn btn-primary btn-sm">Issue Contract</button>
+                                      <% unless @licence.contract_url.present? || @licence.user == current_user  %>
+                                        <p><%= link_to 'Issue Contract', licence_create_contract_path(licence_id: @licence.id), class: 'btn btn-primary btn-sm'%></p>
+                                      <% end %>
+                                      <% if !@licence.contract_signed? && @licence.contract_url.present? && @licence.user == current_user %>
+                                        <p><%= link_to 'Sign Contract', licence_sign_contract_path(licence_id: @licence.id), class: 'btn btn-primary btn-sm'%></p>
+                                      <% end %>
                                     </div>
                                 </div>
                             </div>
