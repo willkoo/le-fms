@@ -26,6 +26,8 @@ Rails.application.routes.draw do
     get '/sign_contract', to: 'licences#sign_contract', as: :sign_contract
     get '/create_contract', to: 'licences#create_contract', as: :create_contract
   end
+  post '/sign_contract', to: 'licences#save_signature', as: :save_signature
+
 
   resources :franchises do
     resources :quizzes, only: %i[show]
