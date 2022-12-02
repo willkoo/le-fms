@@ -19,7 +19,7 @@
             <% if company_profile.profile.user == current_user %>
               <% count += 1 %>
               <td><%= count %>.</td>
-              <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile),  {class: "btn btn-outline-dark", style: "border-radius: 0.25rem;"} %></td>
+              <td><%= link_to "#{company_profile.name}", company_profile_path(company_profile),  {class: "btn btn-outline-dark btn-sm", style: "border-radius: 0.25rem;"} %></td>
               <td><%= company_profile.updated_at %></td>
               <td>
               <% if company_profile.status == "verified" %>
