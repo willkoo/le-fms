@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     resources :quizzes do
       resources :quiz_attempts
     end
-    get '/sign_contract', to: 'licences#sign_contract'
-    get '/create_contract', to: 'licences#create_contract'
+    get '/sign_contract', to: 'licences#sign_contract', as: :sign_contract
+    get '/create_contract', to: 'licences#create_contract', as: :create_contract
   end
 
   resources :franchises do
