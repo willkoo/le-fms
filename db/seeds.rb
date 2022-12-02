@@ -47,7 +47,7 @@ company_2.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"),
 company_2.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_2.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
 
-company_3 = CompanyProfile.create!(name: "Company_3", uen: "200122325B", address: "2net towers", profile: prof3, url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
+company_3 = CompanyProfile.create!(name: "Trifactor", uen: "200122325B", address: "2net towers", profile: prof3, url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
 company_3.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_3.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_3.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
