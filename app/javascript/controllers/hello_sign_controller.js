@@ -8,12 +8,13 @@ static values = {
 
   connect() {
     console.log("test")
+    console.log(this.contractUrlValue)
 
     const client = new HelloSign();
 
-    client.open(contractUrlValue, {
-      skipDomainVerification: true;
-      clientId: '68b070fa041d68446a913955fcbee0dc';
+    client.open(this.contractUrlValue, {
+      skipDomainVerification: true,
+      clientId: '68b070fa041d68446a913955fcbee0dc'
     });
   }
 }

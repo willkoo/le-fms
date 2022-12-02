@@ -6,4 +6,8 @@
   <div class="alert alert-danger" role="alert">
     It is unfortunate that you failed, please try again.
   </div>
+<% elsif (params[:contract_created]) %>
+  <div class="alert alert-success" role="alert">
+    Signature request has been sent to user
+  </div>
 <% end %>
