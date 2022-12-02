@@ -1,4 +1,4 @@
 <%= simple_form_for [@company_profile] do |f| %>
   <%= f.input :status,:as => :hidden, :input_html => { :value => "verified" } %>
-  <%= f.submit :approve %>
+  <%= f.submit :approve, class: "btn btn-dark", style: "border-radius:0.25rem" %>
 <% end %>
