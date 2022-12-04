@@ -23,11 +23,11 @@
               <td><%= company_profile.updated_at %></td>
               <td>
               <% if company_profile.status == "verified" %>
-                <span class="verified"><%= company_profile.status %></span>
+                <span class="verified"><%= company_profile.status.titleize %></span>
               <% elsif company_profile.status == "rejected" %>
-                <span class="rejected"><%= company_profile.status %></span>
+                <span class="rejected"><%= company_profile.status.titleize %></span>
               <% else %>
-                <span class="pending"><%= company_profile.status %></span>
+                <span class="pending"><%= company_profile.status.titleize %></span>
               <% end %>
               </td>
             <% end %>
