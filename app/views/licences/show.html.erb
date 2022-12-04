@@ -71,157 +71,161 @@
     </div>
   </div>
 </div>
-<div class="container" style="height: 1006px;">
-<div class="row" style="height: 1040px;">
-    <div class="col-md-6 col-xxl-6 d-flex d-xxl-flex" style="height: 1008px;margin-top: 18px;">
-      <div class="card" style="height: 932.992px;width: 624px;border-radius: 20px;box-shadow: 0px 0px 3px;">
-          <div class="card-body" style="height: 657.984px;">
-            <div class="row">
-              <div class="col d-xxl-flex justify-content-xxl-center" style="height: 190px;padding-top: 3px;padding-bottom: 0px;"></div>
-              <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;"></div>
-              <div class="col"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-xxl-6 d-flex d-xxl-flex">
+      <div class="card" style="width: 650px; border-radius: 5px">
+        <div class="card-body align-middle" style="height: 600px">
+          <div class="row">
+            <div class="col d-xxl-flex justify-content-xxl-center" style="padding-top: 1px;padding-bottom: 0px;"></div>
+            <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;"></div>
+            <div class="col"></div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <div class="font-title mx-auto d-block pt-2"><%= @licence.company_profile.name %></div>
             </div>
-            <div class="row">
-              <div class="col">
-                  <h1 style="text-align: center;font-weight: bold;font-size: 35px;"><%= @licence.company_profile.name %></h1>
-              </div>
+          </div>
+
+          <div class="row">
+            <div class="col info font-content">
+              <div><p><strong>Founder :</strong></p></div>
+              <p><%= @licence.company_profile.profile.first_name %></p>
             </div>
-            <div class="row">
-              <div class="col">
-                  <h1 style="text-align: center;font-size: 25px;">Verification Status: <%= @licence.licence_status %></h1>
-              </div>
+          </div>
+
+          <div class="row">
+            <div class="col info font-content">
+              <div><p><strong>Verification Status :</strong></p></div>
+              <p><%= @licence.company_profile.status.titleize %></p>
             </div>
-            <div class="row">
-              <div class="col">
-                  <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Founder:</p>
-              </div>
-              <div class="col">
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.profile.first_name %></p>
-              </div>
+          </div>
+
+          <div class="row">
+            <div class="col info font-content">
+              <div><p><strong>Website :</strong></p></div>
+              <p><%= @licence.company_profile.url %></p>
             </div>
-            <div class="row">
-              <div class="col">
-                  <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Website:</p>
-              </div>
-              <div class="col">
-                  <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.url %></p>
-              </div>
+          </div>
+
+          <div class="row">
+            <div class="col info font-content">
+              <div><p><strong>UEN :</strong></p></div>
+              <p><%= @licence.company_profile.uen %></p>
             </div>
-            <div class="row">
-              <div class="col">
-                  <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">UEN Number:</p>
-              </div>
-              <div class="col">
-                  <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.uen %></p>
-              </div>
+          </div>
+
+          <div class="row">
+            <div class="col info font-content">
+              <div><p><strong>Based in :</strong></p></div>
+              <p>Singapore</p>
             </div>
-            <div class="row">
-              <div class="col">
-                  <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Based in:</p>
-              </div>
-              <div class="col">
-                  <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;">Singapore</p>
-              </div>
+          </div>
+
+          <div class="row">
+            <div class="col info font-content">
+              <div><p><strong>Address :</strong></p></div>
+              <p><%= @licence.company_profile.address %></p>
             </div>
-            <div class="row">
-              <div class="col">
-                  <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Address:</p>
-              </div>
-              <div class="col">
-                  <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.address %>&nbsp;</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xxl-6" style="padding-top: 15px;padding-bottom: 22px;height: 1027px;">
+      <div class="row">
+        <div class="col font-category-title mb-2">
+          <span>Applying to be a Partner of</span>
+        </div>
+        <div class="row mb-2">
+          <div class="col">
+            <div class="card shadow-sm" style="border-radius: 5px">
+              <div class="card-body align-middle" style="height: 450px">
+                <div class="row">
+                  <div class="col"></div>
+                  <div class="col">
+                    <img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;">
+                    <div class="font-title mx-auto d-block pt-2">
+                      <%= @licence.franchise.name %>
+                    </div>
+                  </div>
+                  <div class="col"></div>
+                </div>
+
+                <div class="row">
+                  <div class="col info font-content">
+                    <p><strong>Proposed Location :</strong></p>
+                    <p><%= @licence.proposed_location %>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col info font-content">
+                    <p><strong> Business Proposal : </strong></p>
+                    <div><%= link_to "Download", "#{cl_image_path(@licence.proposal.key)}", :target => "_blank", :class => "btn btn-dark"%></div>
+                  </div>
+                </div>
+
+                <div class="row" style="height: 45px;">
+                  <div class="col info font-content">
+                    <p><strong>Signed Contract : </strong></p>
+                    <div>
+                      <% unless @licence.contract_url.present? || @licence.user == current_user  %>
+                        <%= link_to 'Issue Contract', licence_create_contract_path(licence_id: @licence.id), class: 'btn btn-dark btn-sm', style: "height: 35px, border-radius: 0.25rem"%>
+                      <% end %>
+
+                      <% if !@licence.contract_signed? && @licence.contract_url.present? && @licence.user == current_user %>
+                        <%= link_to 'Sign Contract', licence_sign_contract_path(licence_id: @licence.id), class: 'btn btn-dark btn-sm', style: "height: 35px, border-radius: 0.25rem"%>
+                      <% elsif @licence.contract_url.present? && @licence.contract_signed == true && @licence.user == current_user %>
+                        <p>Awaiting Approval</p>
+                      <% elsif @licence.user == current_user %>
+                        <p>Wait for Contract</p>
+                      <% end %>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-    </div>
-    <div class="col-md-6 col-xxl-6" style="padding-top: 15px;padding-bottom: 22px;height: 1027px;">
-        <div class="row">
-            <div class="col">
-                <h1 style="font-size: 30px;margin-bottom: 35px;">Applying to be a Partner of</h1>
-                <div class="row">
-                    <div class="col">
-                        <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 3px;">
-                            <div class="card-body" style="height: 496px;box-shadow: 0px 0px, 0px 0px;">
-                                <div class="row">
-                                    <div class="col"></div>
-                                    <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;">
-                                        <p style="text-align: center;margin-top: 9px;"><%= @licence.franchise.name %></p>
-                                    </div>
-                                    <div class="col"></div>
-                                </div>
-                                <div class="row" style="height: 45px;">
-                                    <div class="col">
-                                        <p style="text-align: center;margin-top: 8px;">Proposed Location :</p>
-                                    </div>
-                                    <div class="col">
-                                        <p style="text-align: center;margin-top: 10px;"><%= @licence.proposed_location %><br></p>
-                                    </div>
-                                </div>
-                                <div class="row" style="height: 45px;">
-                                    <div class="col">
-                                        <p style="text-align: center;margin-top: 6px;">Business Proposal :</p>
-                                    </div>
-                                    <div class="col d-xxl-flex justify-content-xxl-center"><%= link_to "Download", "#{cl_image_path(@licence.proposal.key)}", :target => "_blank", :class => "btn btn-dark", :style => "height: 35px;border-radius: 0.25rem;"%></div>
-                                </div>
-                                <div class="row" style="height: 45px;">
-                                    <div class="col">
-                                        <p style="text-align: center;margin-top: 8px;">Signed Contract :</p>
-                                    </div>
-                                    <div class="col d-xxl-flex justify-content-xxl-center">
-                                      <% unless @licence.contract_url.present? || @licence.user == current_user  %>
-                                        <%= link_to 'Issue Contract', licence_create_contract_path(licence_id: @licence.id), class: 'btn btn-dark btn-sm', style: "height: 35px, border-radius: 0.25rem"%>
-                                      <% end %>
-
-                                      <% if !@licence.contract_signed? && @licence.contract_url.present? && @licence.user == current_user %>
-                                        <%= link_to 'Sign Contract', licence_sign_contract_path(licence_id: @licence.id), class: 'btn btn-dark btn-sm', style: "height: 35px, border-radius: 0.25rem"%>
-                                      <% elsif @licence.contract_url.present? && @licence.contract_signed == true && @licence.user == current_user %>
-                                        <span>Contract signed, awaiting approval.</span>
-                                      <% elsif @licence.user == current_user %>
-                                        Wait for Franchise Owner to issue contract.
-                                      <% end %>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="row">
+        <div class="col font-category-title mb-2">
+          <span>Documents</span>
         </div>
-        <h1 style="font-size: 30px;margin-top: 35px;margin-bottom: 15px;">Documents</h1>
         <div class="row">
-            <div class="col">
-                <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-xxl-6">
-                                <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Acra registration:&nbsp;</h4>
-                            </div>
-                            <div class="col-xxl-2"></div>
-                            <div class="col-xxl-3"><a class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</a></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xxl-6">
-                                <h4 style="font-size: 20px;text-align: left;margin-top: 23px;">Financial Statement:&nbsp;</h4>
-                            </div>
-                            <div class="col-xxl-2"></div>
-                            <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</button></div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xxl-6">
-                                <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Relevant Licences:</h4>
-                            </div>
-                            <div class="col-xxl-2"></div>
-                            <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</button></div>
-                        </div>
+          <div class="col">
+              <div class="card shadow-sm" style="border-radius: 20px">
+                <div class="card-body align-middle" style="height: 250px">
+                  <div class="row">
+                    <div class="col-xxl-6">
+                      <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Acra registration:&nbsp;</h4>
                     </div>
+                    <div class="col-xxl-2"></div>
+                    <div class="col-xxl-3"><a class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</a></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xxl-6">
+                      <h4 style="font-size: 20px;text-align: left;margin-top: 23px;">Financial Statement:&nbsp;</h4>
+                    </div>
+                    <div class="col-xxl-2"></div>
+                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</button></div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xxl-6">
+                      <h4 style="font-size: 20px;text-align: left;padding-top: 0px;margin-top: 23px;">Relevant Licences:</h4>
+                    </div>
+                    <div class="col-xxl-2"></div>
+                    <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</button></div>
+                  </div>
                 </div>
-            </div>
-        </div>
+              </div>
+          </div>
       </div>
     </div>
   </div>
+</div>
 </body>
