@@ -96,7 +96,7 @@
                   <p class="text-start d-xxl-flex" style="text-align: center;font-weight: bold;font-size: 20px;margin-top: 20px;margin-left: 32px;">Founder:</p>
               </div>
               <div class="col">
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;">Willie Koo</p>
+                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.profile.first_name %></p>
               </div>
             </div>
             <div class="row">
@@ -105,7 +105,7 @@
               </div>
               <div class="col">
                   <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;">www.williekoo.com</p>
+                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.url %></p>
               </div>
             </div>
             <div class="row">
@@ -114,7 +114,7 @@
               </div>
               <div class="col">
                   <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;">12345678abc</p>
+                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.uen %></p>
               </div>
             </div>
             <div class="row">
@@ -132,7 +132,7 @@
               </div>
               <div class="col">
                   <p style="font-size: 20px;text-align: right;margin-top: 15px;"></p>
-                  <p style="font-size: 20px;text-align: center;margin-top: 15px;">35 somestreet road&nbsp;</p>
+                  <p style="font-size: 20px;text-align: center;margin-top: 15px;"><%= @licence.company_profile.address %>&nbsp;</p>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@
     <div class="col-md-6 col-xxl-6" style="padding-top: 15px;padding-bottom: 22px;height: 1027px;">
         <div class="row">
             <div class="col">
-                <h1 style="font-size: 30px;margin-bottom: 35px;">Franchise License applied</h1>
+                <h1 style="font-size: 30px;margin-bottom: 35px;">Applying to be a Partner of</h1>
                 <div class="row">
                     <div class="col">
                         <div class="card" style="border-radius: 10px;box-shadow: 0px 0px 3px;">
@@ -149,7 +149,7 @@
                                 <div class="row">
                                     <div class="col"></div>
                                     <div class="col"><img class="rounded-circle flex-shrink-0 me-3 fit-cover" width="178" height="172" src="https://cdn.bootstrapstudio.io/placeholders/1400x800.png" style="margin-top: 7px;margin-left: 19px;">
-                                        <p style="text-align: center;margin-top: 9px;">Franchise name</p>
+                                        <p style="text-align: center;margin-top: 9px;"><%= @licence.franchise.name %></p>
                                     </div>
                                     <div class="col"></div>
                                 </div>
@@ -158,7 +158,7 @@
                                         <p style="text-align: center;margin-top: 8px;">Proposed Location :</p>
                                     </div>
                                     <div class="col">
-                                        <p style="text-align: center;margin-top: 10px;">50 somestreet road<br></p>
+                                        <p style="text-align: center;margin-top: 10px;"><%= @licence.proposed_location %><br></p>
                                     </div>
                                 </div>
                                 <div class="row" style="height: 45px;">
@@ -178,52 +178,15 @@
 
                                       <% if !@licence.contract_signed? && @licence.contract_url.present? && @licence.user == current_user %>
                                         <%= link_to 'Sign Contract', licence_sign_contract_path(licence_id: @licence.id), class: 'btn btn-dark btn-sm', style: "height: 35px, border-radius: 0.25rem"%>
-                                      <% end %>
-
-                                      <% if @licence.contract_url.present? && @licence.contract_signed == true && @licence.user == current_user %>
+                                      <% elsif @licence.contract_url.present? && @licence.contract_signed == true && @licence.user == current_user %>
                                         <span>Contract signed, awaiting approval.</span>
+                                      <% elsif @licence.user == current_user %>
+                                        Wait for Franchise Owner to issue contract.
                                       <% end %>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1 style="font-size: 30px;margin-top: 15px;">Finances</h1>
-        <div class="row" style="height: 144.7969px;margin-top: 30px;">
-            <div class="col">
-                <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body" style="padding-top: 35px;padding-bottom: 35px;">
-                        <h4 class="card-title" style="text-align: center;font-weight: bold;">Paid Up Capital</h4>
-                        <p class="card-text" style="text-align: center;">$<%= @licence.company_profile.paid_up_capital %></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body" style="height: 130px;padding-top: 35px;padding-bottom: 35px;">
-                        <h4 class="card-title" style="text-align: center;font-weight: bold;margin: 0 auto;">2021 WY Revenue</h4>
-                        <p class="card-text" style="text-align: center;">$<%= @licence.company_profile.last_fy_revenue %></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col" style="margin-top: 20px;height: 140px;">
-                <div class="card" style="height: 130px;border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body" style="border-radius: 0px;padding-top: 35px;padding-bottom: 35px;box-shadow: 0px 0px;">
-                        <h4 class="card-title" style="text-align: center;font-weight: bold;">Finances</h4>
-                        <p class="card-text" style="font-size: 16px;text-align: center;">$1000000</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col" style="margin-top: 20px;">
-                <div class="card" style="border-radius: 20px;box-shadow: 0px 0px 3px;">
-                    <div class="card-body" style="height: 130px;padding-top: 35px;padding-bottom: 35px;">
-                        <h4 class="card-title" style="text-align: center;font-weight: bold;">Finances</h4>
-                        <p class="card-text" style="text-align: center;">$1000000</p>
                     </div>
                 </div>
             </div>
@@ -254,16 +217,6 @@
                             <div class="col-xxl-2"></div>
                             <div class="col-xxl-3"><button class="btn btn-dark" type="button" style="width: 110px;margin-left: 8px;margin-top: 10px;border-radius: 0.25rem;">Download</button></div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1 style="font-size: 30px;margin-top: 30px;margin-bottom: 13px;">Legal</h1>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col" style="margin-top: 0px;margin-bottom: 20px;">
-                <div class="card" style="box-shadow: 0px 0px 3px;border-radius: 20px;height: 181.992px;">
-                    <div class="card-body" style="margin-top: 0px;">
-                        <p class="card-text">Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
                     </div>
                 </div>
             </div>
