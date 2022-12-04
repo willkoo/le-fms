@@ -179,6 +179,10 @@
                                       <% if !@licence.contract_signed? && @licence.contract_url.present? && @licence.user == current_user %>
                                         <%= link_to 'Sign Contract', licence_sign_contract_path(licence_id: @licence.id), class: 'btn btn-dark btn-sm', style: "height: 35px, border-radius: 0.25rem"%>
                                       <% end %>
+
+                                      <% if @licence.contract_url.present? && @licence.contract_signed == true && @licence.user == current_user %>
+                                        <span>Contract signed, awaiting approval.</span>
+                                      <% end %>
                                     </div>
                                 </div>
                             </div>
