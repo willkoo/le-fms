@@ -1,4 +1,4 @@
 <%= simple_form_for [licence] do |f| %>
   <%= f.input :licence_status,:as => :hidden, :input_html => { :value => "approved" } %>
-  <%= f.submit :approve, class: "btn btn-dark", style: "border-radius: 0.25rem;" %>
+  <%= f.submit :approve, class: "btn btn-success", style: "border-radius: 0.25rem;" %>
 <% end %>
