@@ -116,7 +116,7 @@ q9 = QuizQuestion.create!(quiz: chicken, question: "What type of oil is used to 
 q10 = QuizQuestion.create!(quiz: chicken, question: "How long should each batch of chickens be fried for?")
 q11 = QuizQuestion.create!(quiz: chicken, question: "What is the ideal oil temperature for frying chickens?")
 
-puts "Creating quiz options for chicken"
+puts "Creating quiz options for chicken..."
 QuizOption.create!(content: "Vegetable Oil", quiz_question: q9, correct_answer: true)
 QuizOption.create!(content: "Chicken Oil", quiz_question: q9, correct_answer: false)
 QuizOption.create!(content: "Corn Oil", quiz_question: q9, correct_answer: false)
