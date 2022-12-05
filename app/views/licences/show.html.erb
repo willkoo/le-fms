@@ -14,8 +14,6 @@
       <div class="col-md-4 col-lg-1 col-xxl-3">
         <h2 style="text-align: left;width: 295px;margin-left: 2px;margin-right: 0px;margin-top: 19px;margin-bottom: 15px;">Licence Application</h2>
           <!-- Button trigger modal -->
-          <div style="margin-left: 990px;"><button type="button" class="btn btn-dark" onclick='openModal()'>Comments
-          </button></div>
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
             <div class="modal-dialog" role="document">
@@ -67,6 +65,8 @@
         <% if @licence.licence_status == "pending" && current_user.admin? %></div>
           <div class="p-2"><%= render "licences/approve", licence: @licence %></div>
           <div class="p-2"><%= render "licences/reject", licence: @licence %></div>
+          <div class="p-2 mt-3"><button type="button" class="btn btn-dark" onclick='openModal()'>comments
+          </button></div>
         <% end %>
     </div>
   </div>
