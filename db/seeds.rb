@@ -42,12 +42,12 @@ company_1.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"),
 company_1.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_1.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
 
-company_2 = CompanyProfile.create!(name: "Dual Asset Management", uen: "200122325B", address: "2-Sky Towers", profile: prof2, url: "www.dualassets.com", status: "verified", paid_up_capital: 250000, last_fy_revenue: 1700400, legal_disputes: "No legal issues.")
+company_2 = CompanyProfile.create!(name: "Trifecta Holdings", uen: "200122325B", address: "2-Sky Towers", profile: prof2, url: "www.trifassets.com", status: "verified", paid_up_capital: 250000, last_fy_revenue: 1700400, legal_disputes: "No legal issues.")
 company_2.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_2.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_2.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
 
-company_3 = CompanyProfile.create!(name: "Trifactor", uen: "200122325B", address: "2net towers", profile: prof3, url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
+company_3 = CompanyProfile.create!(name: "Dual Assets Consultancy", uen: "200122325B", address: "2net towers", profile: prof3, url: "www.2net.com", status: "pending", paid_up_capital: 300000, last_fy_revenue: 600000, legal_disputes: "No legal issues.")
 company_3.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_3.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_3.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
