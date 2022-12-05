@@ -1,42 +1,43 @@
 <div class="container" style="margin-left:120px;">
+  <br>
   <h1><%= link_to "<", trainings_path, class: "btn btn-outline-dark", style: "border-radius: 10px" %>&nbsp;<%= @quiz.quiz_name %></h1>
 </div>
 <br>
-    <div class="container" style="height: 109px;">
-        <div class="row">
-            <div class="col" style="padding-right: 81px;padding-left: 92px;">
-                <div class="card overflow-auto" style="border-radius: 10px;box-shadow: 0px 0px 3px;margin-top: 15px;">
-                    <div class="card-body" style="padding-right: 29px;padding-left: 25px;">
-                        <h4 class="card-title text-center" style="margin-bottom: 13px;"><span>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path, :class => "text-decoration-none" %></span></h4>
-                        <hr>
-                        <div class="video-container" style="height: 600px;">
-                        <iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/<%= @quiz.video_url %>" width="1280" height="720" style="width: 100%;height: 100%;"></iframe>
-                        </div>
-                        <hr>
-                        <% if current_user.admin? %>
-                          <span>Admin is not required to take test.</span><br>
-                        <% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status == "pass" %>
-                          <span><strong>Attempted by:</strong> <%= @licence.company_profile.name %></span><br>
-                          <span>You've passed this quiz after <%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts.</span><br>
+<div class="container" style="height: 109px;">
+  <div class="row">
+    <div class="col" style="padding-right: 81px;padding-left: 92px;">
+      <div class="card overflow-auto" style="border-radius: 10px;box-shadow: 0px 0px 3px;margin-top: 15px;">
+        <div class="card-body" style="padding-right: 29px;padding-left: 25px;">
+          <h4 class="card-title text-center" style="margin-bottom: 13px;"><span>Franchise: <%= link_to "#{@quiz.franchise.name}", franchise_path, :class => "text-decoration-none" %></span></h4>
+          <hr>
+          <div class="video-container" style="height: 600px;">
+          <iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/<%= @quiz.video_url %>" width="800" height="400" style="width: 100%;height: 100%;"></iframe>
+          </div>
+          <hr>
+          <% if current_user.admin? %>
+            <span>Admin is not required to take test.</span><br>
+          <% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status == "pass" %>
+            <span><strong>Attempted by:</strong> <%= @licence.company_profile.name %></span><br>
+            <span>You've passed this quiz after <%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts.</span><br>
 
-                        <% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status != "pass" %>
-                          <span><strong>Attempted by:</strong> <%= @licence.company_profile.name %></span><br>
-                          <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> failed attempts. Come on you can do it!</span><br>
-                          <br>
-                          <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
-                        <% else %>
-                          <span><strong>To be attempted by:</strong> <%= @licence.company_profile.name %></span><br>
-                          <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts. Start quiz by clicking the link below!</span><br>
-                          <% if @quiz.video_completed != true %>
-                            <br><%= render "quizzes/check",licence: @licence, quiz: @quiz %>
-                            <br>
-                          <% else %>
-                            <div class="alert alert-success" id="success-alert" role="alert">Now that you have completed the training video, proceed to attempt the quiz!</div>
-                            <br><%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
-                          <% end %>
-                        <% end %>
-                    </div>
-                </div>
-            </div>
+          <% elsif @quiz.quiz_attempts.any? && @quiz.quiz_attempts.last.status != "pass" %>
+            <span><strong>Attempted by:</strong> <%= @licence.company_profile.name %></span><br>
+            <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> failed attempts. Come on you can do it!</span><br>
+            <br>
+            <%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
+          <% else %>
+            <span><strong>To be attempted by:</strong> <%= @licence.company_profile.name %></span><br>
+            <span><%= @quiz_attempts.where(quiz_id: @quiz.id).count %> attempts. Start quiz by clicking the link below!</span><br>
+            <% if @quiz.video_completed != true %>
+              <br><%= render "quizzes/check",licence: @licence, quiz: @quiz %>
+              <br>
+            <% else %>
+              <div class="alert alert-success" id="success-alert" role="alert">Now that you have completed the training video, proceed to attempt the quiz!</div>
+              <br><%= link_to "Attempt Quiz", new_licence_quiz_quiz_attempt_path(licence_id: @licence.id, quiz_id: @quiz.id), {:class => "btn btn-dark text-light w-100", style: "border-radius: 0.25rem;"} %><br>
+            <% end %>
+          <% end %>
         </div>
-    </div> 
+      </div>
+    </div>
+  </div>
+</div>
