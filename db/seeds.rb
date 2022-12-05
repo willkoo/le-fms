@@ -29,7 +29,7 @@ puts "Creating franchises..."
 puts "Creating (user) profiles..."
 
 prof1 = Profile.create!(user: user1, first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "Owner's account with two assigned franchise.", country: "Singapore")
-prof2 = Profile.create!(user: user2, first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
+prof2 = Profile.create!(user: user2, first_name: "Zong", last_name: "Han", contact_number: "91234567", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
 prof3 = Profile.create!(user: user3, first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
 
 starbucks = Franchise.create!(name: "Starbucks", user: user1, description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
@@ -37,12 +37,12 @@ kfc = Franchise.create!(name: "KFC", user: user2, description: "Finger Lickin Go
 
 puts "Creating companies..."
 
-company_1 = CompanyProfile.create!(name: "One Dime Consulting", uen: "200112345A", address: "1north towers", profile: prof2, url: "www.1north.com", status: "verified", paid_up_capital: 100000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
+company_1 = CompanyProfile.create!(name: "One Dime Consulting", uen: "200112345A", address: "1 North Street", profile: prof2, url: "www.1north.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 800000, legal_disputes: "No legal issues.")
 company_1.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_1.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_1.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
 
-company_2 = CompanyProfile.create!(name: "Double Up Holdings", uen: "200122325B", address: "2sky towers", profile: prof2, url: "www.2ky.com", status: "verified", paid_up_capital: 200000, last_fy_revenue: 700000, legal_disputes: "No legal issues.")
+company_2 = CompanyProfile.create!(name: "Dual Asset Management", uen: "200122325B", address: "2-Sky Towers", profile: prof2, url: "www.dualassets.com", status: "verified", paid_up_capital: 250000, last_fy_revenue: 1700400, legal_disputes: "No legal issues.")
 company_2.acra.attach(io: File.open("#{Rails.root}/app/assets/images/acra.pdf"), filename: 'acra.pdf')
 company_2.financial_statement.attach(io: File.open("#{Rails.root}/app/assets/images/financial.pdf"), filename: 'financial.pdf')
 company_2.relevant_licences.attach(io: File.open("#{Rails.root}/app/assets/images/licence.pdf"), filename: 'licence.pdf')
