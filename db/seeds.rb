@@ -29,7 +29,7 @@ puts "Creating franchises..."
 puts "Creating (user) profiles..."
 
 prof1 = Profile.create!(user: user1, first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "Owner's account with two assigned franchise.", country: "Singapore")
-prof2 = Profile.create!(user: user2, first_name: "Zong", last_name: "Han", contact_number: "91234567", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
+prof2 = Profile.create!(user: user2, first_name: "Zong Han", last_name: "Anderson", contact_number: "91234567", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
 prof3 = Profile.create!(user: user3, first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
 
 starbucks = Franchise.create!(name: "Starbucks", user: user1, description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
