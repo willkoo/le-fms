@@ -1,4 +1,4 @@
 <%= simple_form_for [licence] do |f| %>
   <%= f.input :licence_status,:as => :hidden, :input_html => { :value => "reject" } %>
-  <%= f.submit :reject, class: "btn btn-dark", style: "border-radius: 0.25rem;" %>
+  <%= f.submit :reject, class: "btn btn-danger", style: "border-radius: 0.25rem;" %>
 <% end %>

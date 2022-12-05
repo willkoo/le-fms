@@ -28,9 +28,9 @@ puts "Creating franchises..."
 
 puts "Creating (user) profiles..."
 
-prof1 = Profile.create!(user: user1, first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "This is owner's account with two assigned franchise.", country: "Singapore")
-prof2 = Profile.create!(user: user2, first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "This is an applicant account with two assigned company.", country: "Singapore")
-prof3 = Profile.create!(user: user3, first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "This is the 2nd applicant account with one assigned companies.", country: "Singapore")
+prof1 = Profile.create!(user: user1, first_name: "Willie", last_name: "Khoo", contact_number: "91234567", description: "Owner's account with two assigned franchise.", country: "Singapore")
+prof2 = Profile.create!(user: user2, first_name: "Collin", last_name: "Chua", contact_number: "91234567", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
+prof3 = Profile.create!(user: user3, first_name: "Lester", last_name: "Wee", contact_number: "98892834", description: "Hello, I am a serial entrepreneur who is interested in growing franchise operations across the world!", country: "Singapore")
 
 starbucks = Franchise.create!(name: "Starbucks", user: user1, description: "It happens millions of times each week – a customer receives a drink from a Starbucks barista - but each interaction is unique.")
 kfc = Franchise.create!(name: "KFC", user: user2, description: "Finger Lickin Good.")
@@ -116,7 +116,7 @@ q9 = QuizQuestion.create!(quiz: chicken, question: "What type of oil is used to 
 q10 = QuizQuestion.create!(quiz: chicken, question: "How long should each batch of chickens be fried for?")
 q11 = QuizQuestion.create!(quiz: chicken, question: "What is the ideal oil temperature for frying chickens?")
 
-puts "Creating quiz options for chicken"
+puts "Creating quiz options for chicken..."
 QuizOption.create!(content: "Vegetable Oil", quiz_question: q9, correct_answer: true)
 QuizOption.create!(content: "Chicken Oil", quiz_question: q9, correct_answer: false)
 QuizOption.create!(content: "Corn Oil", quiz_question: q9, correct_answer: false)
